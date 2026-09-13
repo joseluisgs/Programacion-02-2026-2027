@@ -1,0 +1,51 @@
+# Compilación
+bin/
+obj/
+out/
+
+# IDEs
+.idea/
+.vs/
+.vscode/
+*.sln.iml
+*.DotSettings.user
+
+# Archivos temporales
+*.user
+*.suo
+*.userprefs
+*.log
+*.cache
+*.pdb
+*.tmp
+*.bak
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+artifacts/
+
+# Publicaciones
+publish/
+TestResults/
+
+# Contenido multimedia y docs (no subir a git)
+/multimedia/
+/docs/
+
+# Ejemplos (trabajo del profesor, no subir)
+/ejemplos/
+
+# Soluciones (se sube solo .gitkeep para mantener la estructura)
+/soluciones/*
+!/soluciones/.gitkeep
+
+# Archivos de ofimática
+*.pptx
+*.docx
+*.pdf
+
+# Otros
+.DS_Store
+upload.sh
