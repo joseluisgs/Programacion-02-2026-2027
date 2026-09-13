@@ -209,13 +209,6 @@ Incrementar(valorOriginal);
 Console.WriteLine($"Fuera del método: {valorOriginal}"); // Sigue siendo 10
 ```
 
-![Paso por valor y paso por referencia](./images/parametros.gif)
-
-**¿Cuándo usar cada uno?**
-
-- **Paso por valor** (por defecto): cuando la función solo necesita leer el dato, no modificarlo. Es seguro y predecible.
-- **Paso por `ref`**: cuando necesitas que la función modifique la variable original (intercambio, acumulación, etc.).
-
 ### B. Paso por referencia con `ref`
 
 `ref` pasa la **dirección de memoria** de la variable. Cualquier cambio **modifica el original**.
@@ -244,6 +237,13 @@ Console.WriteLine($"Antes: {valorOriginal}"); // 10
 Duplicar(ref valorOriginal);
 Console.WriteLine($"Después: {valorOriginal}"); // 20
 ```
+
+![Paso por valor y paso por referencia](./images/parametros.gif)
+
+**¿Cuándo usar cada uno?**
+
+- **Paso por valor** (por defecto): cuando la función solo necesita leer el dato, no modificarlo. Es seguro y predecible.
+- **Paso por `ref`**: cuando necesitas que la función modifique la variable original (intercambio, acumulación, etc.).
 
 > ⚠️ **Regla obligatoria:** Si el parámetro pide `ref`, **debes** escribir `ref` también al llamar. Es una señal explícita de que el método puede modificar tu variable.
 
