@@ -14,8 +14,7 @@ Tema 02 Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 
 - [Resumen]()
 - [Programación Estructurada]()
-- [Programación Modular y pasos de parámetros]()
-- [Control de Excepciones]()
+- [Programación Modular, pasos de parámetros y excepciones]()
 - [Lista de Reproducción](https://www.youtube.com/playlist?list=PLK1PMlIrqj3c)
 
 ## Resultados de Aprendizaje y Criterios de Evaluación
