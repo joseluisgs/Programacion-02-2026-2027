@@ -271,7 +271,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 ## 5.8. ¿Qué viene después?
 
-En la **UD03: Estructuras de Almacenamiento Estáticas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices). Usarás los bucles `for` y `foreach` que viste aquí para recorrerlos, y las funciones para operar con ellos.
+En la **UD03: Almacenamiento Estático y Cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás los bucles `for` y `foreach` que viste aquí para recorrerlos, y las funciones para operar con ellos.
 
 | Tema de la UD actual | Se usa en la siguiente UD para |
 |----------------------|-------------------------------|
@@ -287,7 +287,7 @@ En la **UD03: Estructuras de Almacenamiento Estáticas** aprenderás a almacenar
 ```mermaid
 graph LR
     UD01[UD01: Introducción] --> UD02[UD02: Estructurada y Modular]
-    UD02 --> UD03[UD03: Almacenamiento Estático]
+    UD02 --> UD03[UD03: Almacenamiento Estático y Cadenas]
     UD03 --> UD04[UD04: POO]
     UD04 --> UD05[UD05: POO Avanzada]
     UD05 --> UD06[UD06: Genérica y Funcional]
