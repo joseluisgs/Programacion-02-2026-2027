@@ -1,173 +1,183 @@
-### 50 Ejercicios de Programación Modular (C#)
+# Batería de Ejercicios: Programación Modular y Control de Excepciones en C# 14
 
-- [50 Ejercicios de Programación Modular (C#)](#50-ejercicios-de-programación-modular-c#)
-- [Nivel 1: Fundamentos de Módulos y Reutilización Básica](#nivel-1-fundamentos-de-módulos-y-reutilización-básica)
-- [Nivel 2: Módulos con Iteración, Control de Flujo y Reutilización](#nivel-2-módulos-con-iteración-control-de-flujo-y-reutilización)
-- [Nivel 3: Paso por Referencia (`ref`), Múltiples Valores (`out`) y `params`](#nivel-3-paso-por-referencia-ref-múltiples-valores-out-y-params)
-- [Nivel 4: Diseño Modular Avanzado, Excepciones y Aserciones](#nivel-4-diseño-modular-avanzado-excepciones-y-aserciones)
-
-
-
-### Nivel 1: Fundamentos de Módulos y Reutilización Básica
-
-**1. Cálculo de Cuadrado Modular**
-Diseñar un programa principal que pida el lado de un cuadrado. Debe llamar a una **función** para calcular y devolver el área, y a otra **función** para calcular y devolver el perímetro.
-
-**2. Cálculo de Círculo Modular**
-Diseñar un programa principal que pida el radio. Debe llamar a una **función** para calcular el área y a otra **función** para calcular la circunferencia.
-
-**3. Verificación de Positivo/Negativo**
-Crear una **función lógica** (`bool`) que reciba un número entero como argumento y devuelva `verdadero` si es positivo. El programa principal debe usar el resultado para informar si el número es positivo, negativo o cero.
-
-**4. Validación de Raíz Cuadrada Controlada**
-Implementar una **función** `CalcularRaiz` que reciba un número y devuelva su raíz cuadrada (utilizando la librería `Math`). Si el número es negativo, la función debe devolver -1. El módulo principal debe interpretar el resultado para informar de la imposibilidad de la operación.
-
-**5. Conversor de Temperatura Bidireccional**
-Diseñar una **función** `CentigradosAFarenheit` y otra **función** `FarenheitACentigrados`. El programa principal debe gestionar la entrada de datos, permitiendo al usuario elegir el sentido de la conversión y llamando a la función apropiada.
-
-**6. Cálculo de Precio Final con IVA**
-Declarar la constante `IVA_GENERAL` (ej. 21%) globalmente. Crear una **función** `CalcularPrecioFinal` que reciba el precio base de un producto y devuelva el precio final aplicando la tasa de IVA definida.
-
-**7. Determinar Días del Mes (Simple)**
-Implementar una **función** `ObtenerDiasMes` que tome el número de mes (1 a 12) y devuelva la cantidad de días que tiene (sin considerar bisiesto), utilizando la estructura `según`/`switch`.
-
-**8. Verificación de Bisiesto**
-Crear una **función lógica** `EsBisiesto` que reciba un año y devuelva `verdadero` si cumple la condición de año bisiesto.
-
-**9. Determinar Decimales**
-Diseñar una **función lógica** `TieneDecimales` que reciba un número real y devuelva `verdadero` si tiene parte fraccionaria (decimales), utilizando la función de librería `Trunc()` de `Math`.
-
-**10. Saludo Personalizado por Turno**
-Crear un **procedimiento** llamado `Saludo` que reciba un nombre y la hora actual (entero, 0-23) y escriba un saludo personalizado, diferenciando entre mañana, tarde y noche, utilizando condicionales anidados.
+**Instrucciones:** Para cada ejercicio, escribe el código completo en C# usando Top-Level Statements dentro de un archivo `.cs`. Ejecuta cada ejercicio con `dotnet run tu_ejercicio.cs`. Recuerda: **primero el diseño en papel, luego la codificación**.
 
 ---
 
-### Nivel 2: Módulos con Iteración, Control de Flujo y Reutilización
+### Bloque I: Funciones Básicas con Valor de Retorno (Ejercicios 1-8)
 
-**11. Impresión de Pares en Rango**
-Crear un **procedimiento** `ImprimirPares` que reciba dos límites (inicio y fin) y utilice un bucle `para` para mostrar todos los números pares en ese rango.
+**Ejercicio 1: Calculadora de Propinas**
+Crea un archivo `ej01.cs` con una función `double CalcularPropina(double cuenta, double porcentaje)` que devuelva la propina. Pide la cuenta y el porcentaje al usuario. Muestra: "Cuenta: {cuenta}€ + Propina: {propina}€ = Total: {total}€".
 
-**12. Cálculo de Factorial (Iterativo)**
-Diseñar una **función** `CalcularFactorial` que reciba un entero $N$ y calcule su factorial $N!$ utilizando un bucle iterativo (`para`).
+**Ejercicio 2: Conversor de Temperatura**
+Crea un archivo `ej02.cs` con dos funciones: `double CentigradosAFahrenheit(double c)` y `double FahrenheitACentigrados(double f)`. El programa pide al usuario la temperatura y el sentido de la conversión (C→F o F→C). Muestra el resultado.
 
-**13. Cálculo de Factorial (Recursivo)**
-Implementar una **función** `CalcularFactorialRecursivo` que resuelva el factorial llamándose a sí misma (recursividad), definiendo claramente la condición de parada (caso base).
+**Ejercicio 3: ¿Es un Palíndromo?**
+Crea un archivo `ej03.cs` con una función `bool EsPalindromo(string texto)` que compruebe si una palabra se lee igual al derecho que al revés (ej: "oso", "reconocer"). Pide una palabra y muestra el resultado.
 
-**14. Conteo de Cifras**
-Implementar una **función** `ContarCifras` que reciba un número entero y determine cuántas cifras tiene, utilizando un bucle de división sucesiva.
+**Ejercicio 4: Calculadora de IMC con Clasificación**
+Crea un archivo `ej04.cs` con una función `string ClasificarIMC(double imc)` que devuelva "Bajo peso", "Normal", "Sobrepeso" o "Obesidad". Otra función `double CalcularIMC(double peso, double altura)` calcula el IMC. Pide datos al usuario y muestra la clasificación.
 
-**15. Número Primo Reutilizable**
-Crear una **función lógica** `EsPrimo`. El programa principal debe usar esta función para leer un número e indicar si es primo o no.
+**Ejercicio 5: Generador de Contraseña Segura**
+Crea un archivo `ej05.cs` con una función `string GenerarContraseña(int longitud)` que genere una contraseña aleatoria con mayúsculas, minúsculas y números. Usa `Random`. Pide la longitud y muestra la contraseña generada.
 
-**16. Listado de Primos**
-Reutilizar la **función** `EsPrimo` del ejercicio anterior para crear un **procedimiento** `MostrarPrimosEnRango` que imprima todos los números primos entre 1 y 100.
+**Ejercicio 6: Validador de DNI**
+Crea un archivo `ej06.cs` con una función `bool ValidarDNI(string dni)` que compruebe si tiene exactamente 8 dígitos y una letra. Pide un DNI y muestra si es válido o no.
 
-**17. Cálculo de Retención IRPF Progresiva**
-Declarar constantes para umbrales de ingreso y tasas de IRPF. Crear una **función** `CalcularIRPF` que reciba el salario bruto mensual y devuelva la cantidad retenida, utilizando una cadena de condicionales anidados.
+**Ejercicio 7: Calculadora de Edad Exacta**
+Crea un archivo `ej07.cs` con una función `int CalcularEdad(DateTime fechaNacimiento)` que devuelva la edad exacta en años. Pide la fecha de nacimiento y muestra la edad.
 
-**18. Jornal Diario Modular**
-Crear una **función** `CalcularTarifaPorHora` que reciba el turno ('D' o 'N') y si es domingo (`bool`), y devuelva la tarifa por hora correspondiente, aplicando las reglas de recargos.
-
-**19. Media Indefinida (Centinela)**
-Diseñar una **función** `ObtenerMediaCentinela` que gestione la entrada de una cantidad indefinida de números positivos, deteniéndose cuando se introduce un número negativo (centinela). La función debe devolver la media y la cantidad de números válidos.
-
-**20. Restas Sucesivas (Cociente)**
-Diseñar una **función** `ObtenerCociente` que reciba el dividendo y el divisor, y devuelva el cociente entero utilizando restas sucesivas dentro de un bucle `mientras`.
-
-**21. Cálculo de Potencia Iterativa**
-Implementar una **función** `CalcularPotencia` que reciba la base $A$ y el exponente $B$ (enteros), y calcule $A^B$ utilizando un bucle.
-
-**22. Diseño Modular de Menú Básico**
-Crear un **procedimiento** llamado `MostrarMenu` que imprima 5 opciones (ej. 1. Sumar, 2. Restar, 5. Salir). El Módulo Principal debe usar un bucle `repetir-mientras` para llamar al menú, leer la opción seleccionada, y luego usar la estructura `según` (`switch`) para simplemente mostrar un mensaje que indique **"Ha pulsado la opción X"** antes de volver a mostrar el menú.
-
-**23. Conteo de Aprobados y Suspensos (Indefinido)**
-Crear un **procedimiento** `ProcesarNotas` que reciba las notas de alumnos utilizando un bucle controlado por centinela (nota negativa). El módulo debe gestionar y mostrar el conteo de aprobados y suspensos.
+**Ejercicio 8: Contador de Palabras**
+Crea un archivo `ej08.cs` con una función `int ContarPalabras(string frase)` que cuente cuántas palabras tiene una frase (separadas por espacios). Pide una frase y muestra el resultado.
 
 ---
 
-### Nivel 3: Paso por Referencia (`ref`), Múltiples Valores (`out`) y `params`
+### Bloque II: Procedimientos con Parámetros (Ejercicios 9-16)
 
-**24. Ordenamiento de Tres Números por Referencia**
-Escribir un **procedimiento** `OrdenarTresNumeros` que reciba tres números enteros (A, B, C) utilizando **paso por referencia (`ref`)**. El módulo debe modificar los valores originales para que queden ordenados en el módulo principal.
+**Ejercicio 9: Mostrar Bonito con Procedimiento**
+Crea un archivo `ej09.cs` con un procedimiento `void MostrarConRecuadro(string texto)` que imprima el texto dentro de un recuadro de asteriscos:
+```
+**********
+* Hola   *
+**********
+```
+Llámalo 3 veces con textos diferentes.
 
-**25. Restas Sucesivas (Doble Resultado)**
-Diseñar un **procedimiento** `DividirPorResta` que reciba el dividendo y el divisor. Este módulo debe "devolver" tanto el cociente como el resto, utilizando **parámetros de salida (`out` o `ref`)**.
+**Ejercicio 10: Paso por Referencia: Intercambiar Nombres**
+Crea un archivo `ej10.cs` con un procedimiento `void Intercambiar(ref string a, ref string b)` que intercambie dos strings. Declara `string nombre1 = "Ana";` `string nombre2 = "Luis";`, intercámbialos y muestra antes y después.
 
-**26. Conteo de Dígitos Pares e Impares**
-Realizar un **procedimiento** `ContarDigitos` que reciba un número y utilice dos **parámetros de salida (`out`)** para devolver la cantidad de dígitos pares y la cantidad de dígitos impares que contiene.
+**Ejercicio 11: Parámetro `out`: Múltiples Resultados**
+Crea un archivo `ej11.cs` con un procedimiento `void AnalizarTexto(string texto, out int palabras, out int vocales, out int consonantes)` que analice un texto y devuelva estadísticas. Pide un texto y muestra las 3 estadísticas.
 
-**27. Cálculo de Edad con Múltiples Salidas**
-Diseñar un **procedimiento** `CalcularAntiguedad` que reciba la fecha de nacimiento y la fecha actual, y utilice **parámetros de salida** para devolver la edad en años y los meses que han transcurrido desde su último cumpleaños.
+**Ejercicio 12: Parámetro `in`: Solo Lectura**
+Crea un archivo `ej12.cs` con una función `double CalcularDescuento(in double precio, in double porcentaje)` que calcule el descuento SIN modificar los originales. Intenta modificar `precio` dentro de la función y comenta el error.
 
-**28. Devolución de Monedas (Referencia)**
-Crear un **procedimiento** `CalcularCambio` que reciba la cantidad total a devolver. Este módulo debe utilizar **variables por referencia** para almacenar cuántas monedas de 2€, 1€, 50cts, etc., se necesitan.
+**Ejercicio 13: Parámetros por Defecto: Registrar Usuario**
+Crea un archivo `ej13.cs` con una función `void RegistrarUsuario(string nombre, string email, bool esPremium = false, string idioma = "es")` que muestre los datos. Llama a la función con 2, 3 y 4 argumentos para ver los defectos.
 
-**29. Validación de Datos con Múltiple Salida**
-Escribir un **procedimiento** `ValidarCredenciales` que reciba un nombre de usuario y una contraseña y utilice un **parámetro de salida** para indicar si la validación fue exitosa (`bool`) y otro **parámetro de salida** para devolver un mensaje de error detallado (`string`) en caso de fallo.
+**Ejercicio 14: Parámetro `params`: Suma Variable**
+Crea un archivo `ej14.cs` con una función `double Promedio(params double[] notas)` que calcule la media. Llámala con 2, 4 y 6 notas diferentes.
 
-**30. Suma de Dígitos (Reutilización por Comparación)**
-Crear una **función** `SumaDigitos` que calcule la suma de los dígitos de un número. El programa principal debe reutilizar la función para comparar dos números y determinar cuál tiene la suma de sus dígitos mayor.
+**Ejercicio 15: Sobrecarga de Funciones: Calcular Area**
+Crea un archivo `ej15.cs` con dos funciones `double CalcularArea(double lado)` (cuadrado) y `double CalcularArea(double largo, double ancho)` (rectángulo). Prueba ambas.
 
-**31. Validación de Intervalo con Repetición Forzada**
-Diseñar un **procedimiento** `SolicitarNumeroEnRango` que pida un número al usuario. Debe utilizar un bucle `repetir-mientras` para garantizar que el número introducido esté entre 1 y 5.
-
-**32. Manejo de Suma Indeterminada (`params`)**
-Crear una **función** `SumarValores` que utilice **parámetros variables (`params`)** para aceptar un número indeterminado de argumentos de tipo entero. La función debe sumar todos los valores pasados y devolver el resultado.
-
-**33. Validación de Entrada con Early Return**
-Crear una **función lógica** `ValidarEdad(edad)` que reciba la edad. Usar la técnica de **Salida Anticipada** (`Early Return`) para devolver `falso` inmediatamente si la edad es menor a 0 o mayor a 120.
-
-**34. Parámetros por Defecto y Opcionales (Descuento)**
-Crear una **función** `AplicarDescuento` que reciba un precio y un porcentaje de descuento. El porcentaje debe tener un **valor por defecto** (ej. 5%).
-
-**35. Conversión Decimal a Binario Modular**
-Implementar una **función** `DecimalABinario` que reciba un número entero decimal y devuelva su representación binaria (como cadena o número muy grande), utilizando la lógica de divisiones sucesivas por 2.
-
-**36. Sobrecarga para Cálculo de Perímetros**
-Crear dos **funciones sobrecargadas** llamadas `CalcularPerimetro`: una que reciba un solo lado (para un cuadrado) y otra que reciba largo y ancho (para un rectángulo).
-
-**37. Simulación de Reloj Digital (Actualización por Referencia)**
-Diseñar un **procedimiento** `ActualizarHora` que reciba horas, minutos y segundos (todos por `ref`). El módulo debe incrementar el tiempo en un segundo y manejar el "acarreo".
-
-**38. Función InLine con Operador Ternario**
-Crear una **función** `ObtenerEtiquetaEdad` que reciba la edad. Usar el operador ternario (`? :`) dentro de la función para devolver `'Adulto'` o `'Menor'` según si la edad supera los 18 años.
+**Ejercicio 16: Paso por Referencia: Acumulador**
+Crea un archivo `ej16.cs` con un procedimiento `void Acumular(ref int total, int cantidad)` que sume la cantidad al total. Usa un bucle para acumular 5 cantidades que pide al usuario. Muestra el total final.
 
 ---
 
-### Nivel 4: Diseño Modular Avanzado, Excepciones y Aserciones
+### Bloque III: Ámbito y Diseño Modular (Ejercicios 17-24)
 
-**39. Calculadora Modular Robusta (Try-Catch)**
-Reescribir el ejercicio de la calculadora modular. Cada operación debe ser una **función** distinta, y la función de división debe usar un bloque **`try-catch`** para manejar la posible `DivideByZeroException`. El programa principal debe informar al usuario si se produce este error de manera controlada.
+**Ejercicio 17: Variables Locales vs Globales**
+Crea un archivo `ej17.cs` con una variable global `int contador = 0;` y un procedimiento `void Incrementar()` que la incremente. Llámalo 5 veces y muestra el contador. Explica en un comentario por qué las globales son peligrosas.
 
-**40. Validación de Datos (Throw)**
-Crear una **función** `CalcularNota` que reciba un valor de tipo entero. Si la nota está fuera del rango de 0 a 10, la función debe lanzar una excepción (`ArgumentOutOfRangeException`) utilizando la sentencia **`throw`**. El programa principal debe capturar la excepción y mostrar un mensaje de error.
+**Ejercicio 18: Early Return en Validación de Email**
+Crea un archivo `ej18.cs` con una función `bool ValidarEmail(string email)` que use Early Return: si es null o vacío, retorna false; si no contiene `@`, retorna false; si no contiene `.`, retorna false. Si todo está bien, retorna true. Prueba con 3 emails.
 
-**41. Verificación de Precondiciones (Assert)**
-Diseñar un **procedimiento** `GenerarDNI` que reciba una cadena con los 8 dígitos numéricos. Antes de continuar, el procedimiento debe usar una **asercíon (`assert`)** para verificar que la cadena tiene exactamente 8 caracteres. Probar con una entrada inválida para ver cómo se lanza la `AssertionException`.
+**Ejercicio 19: Early Return en Calificación**
+Crea un archivo `ej19.cs` con una función `string Calificar(double nota)` que use Early Return: si nota < 0, retorna "Error"; si nota > 10, retorna "Error"; si nota < 5, retorna "Suspenso"; si nota < 7, retorna "Aprobado"; si nota < 9, retorna "Notable"; retorna "Sobresaliente".
 
-**42. Simulación de Proceso Crítico (Manejo de Múltiples Excepciones)**
-Simular una serie de pasos críticos en un proceso (ej. "Conexión a Servidor", "Carga de Datos", "Procesamiento de Datos"). Cada paso debe ser una **función**. La función principal debe llamar a cada una dentro de un bloque **`try`** anidado o secuencial. Implementar diferentes bloques **`catch`** para manejar distintos tipos de excepciones que podrían ocurrir en cada paso (ej. `ConnectionException`, `DataException`, etc.), mostrando mensajes de error específicos. El bloque `finally` debe cerrar la conexión al servidor siempre.
+**Ejercicio 20: Sobrecarga con Diferentes Tipos**
+Crea un archivo `ej20.cs` con dos funciones `string Describir(int numero)` y `string Describir(string texto)`. La primera dice "Es un entero: {numero}", la segunda "Es un texto de {texto.Length} caracteres". Prueba ambas.
 
-**43. Calculadora Modular con Menú y Bucle Indefinido**
-Diseñar una calculadora. Cada operación básica debe ser una **función** distinta. El programa principal debe implementar un menú (usando `repetir-mientras`), y usar un `switch` para llamar a la función correcta, controlando la división por cero.
+**Ejercicio 21: Función con Parámetro Nombrado**
+Crea un archivo `ej21.cs` con una función `void MostrarInfo(string nombre, int edad, string ciudad)`. Llámala usando parámetros nombrados en orden desordenado: `MostrarInfo(ciudad: "Madrid", nombre: "Ana", edad: 25)`.
 
-**44. Juego de Dados Descompuesto (Diseño Modular Estricto)**
-Reescribir el juego de dados siguiendo la **descomposición modular** estricta de las fuentes. Implementar los cinco **módulos (procedimientos)**: `Modulo_TURNO`, `Modulo_TIRAR_DADOS`, `Modulo_COMPROBAR_DADOS`, `Modulo_SUMAR_PREMIO` (usando `ref` para los puntos), y `Modulo_ESCRIBIR_RESULTADO`.
+**Ejercicio 22: Recursividad: Suma de Digitos**
+Crea un archivo `ej22.cs` con una función recursiva `int SumaDigitos(int numero)` que sume todos los dígitos de un número (ej: 123 → 1+2+3 = 6). Prueba con 456, 1000 y 9999.
 
-**45. Generación de Quiniela con Función de Apuesta**
-Crear una **función** `GenerarApuesta` que genere una quiniela completa (15 resultados: 1, X, 2) y la devuelva como una cadena. Luego, usar una **función** `ContarAciertos` para comparar las dos quinielas (usuario y ganadora) resultado por resultado.
+**Ejercicio 23: Recursividad: Potencia**
+Crea un archivo `ej23.cs` con una función recursiva `double Potencia(double baseNum, int exponente)` que calcule la potencia sin usar `Math.Pow`. Incluye la condición de parada. Prueba con 2^10, 3^0 y 5^3.
 
-**46. Simulación de Tragaperras Modular**
-Implementar la simulación de la máquina tragaperras (3 valores aleatorios 0-9). Debe usar: una **función** `GenerarTirada` para cada número, una **función** `CalcularPremio` que determine el premio o la pérdida, y el módulo principal debe gestionar el saldo (empezando en 50€).
+**Ejercicio 24: Recursividad: Fibonacci**
+Crea un archivo `ej24.cs` con una función recursiva `int Fibonacci(int n)` que devuelva el término n de Fibonacci. Prueba con n=5, n=10 y n=1. Explica en un comentario por qué es ineficiente para valores grandes.
 
-**47. Juego de Cara o Cruz Modular**
-Crear un **procedimiento** `LanzarMoneda` que utilice `aleatorio()` para simular el lanzamiento. El programa principal debe solicitar la elección del usuario y llamar al módulo para realizar la tirada y determinar e informar si acertó.
+---
 
-**48. Juego de Dados Simple (Par/Impar) Modular**
-Diseñar una **función** `TirarDado` que devuelva un número aleatorio entre 1 y 6. El programa principal debe usar esta función para simular un juego en el que el usuario apuesta a Par o Impar y se comprueba la victoria modularmente.
+### Bloque IV: Parámetros `ref` y `out` Avanzados (Ejercicios 25-32)
 
-**49. Piedra, Papel, Tijera (Ronda Única)**
-Crear una **función** `ObtenerJugadaAleatoria` (que devuelva 1, 2 o 3). Luego, crear una **función** `DeterminarGanador` que reciba la jugada del humano y la de la máquina, y devuelva un código de resultado (ej. 1=Gana Humano, 0=Empate, -1=Gana Máquina).
+**Ejercicio 25: Ordenar Tres Números con `ref`**
+Crea un archivo `ej25.cs` con un procedimiento `void Ordenar(ref int a, ref int b, ref int c)` que ordene tres números de menor a mayor usando `ref`. Prueba con (5, 2, 8).
 
-**50. Piedra, Papel, Tijera (Mejor de Tres)**
-Reutilizar las funciones del ejercicio anterior. El programa principal debe gestionar un bucle de **"mejor de tres"** para llevar la cuenta de las victorias del humano y la máquina (contadores simples). El juego termina cuando uno de los jugadores alcance dos victorias.
+**Ejercicio 26: Calcular Edad con `out`**
+Crea un archivo `ej26.cs` con una función `bool CalcularEdad(DateTime nacimiento, out int anios, out int meses)` que devuelva la edad en años y meses. Usa `DateTime.Now`. Prueba con 3 fechas diferentes.
+
+**Ejercicio 27: Devolución de Cambio con `out`**
+Crea un archivo `ej27.cs` con un procedimiento `void CalcularCambio(double total, double pagado, out int monedas2, out int monedas1, out int monedas50, out int monedas20)` que calcule el cambio en monedas. Prueba con total=4.70€, pagado=10€.
+
+**Ejercicio 28: Análisis de Temperaturas con `ref`**
+Crea un archivo `ej28.cs` con un procedimiento `void ActualizarEstadisticas(double nuevaTemp, ref double suma, ref int contador, ref double maxima, ref double minima)` que actualice estadísticas con cada temperatura. Procesa 5 temperaturas.
+
+**Ejercicio 29: Validación con Múltiples `out`**
+Crea un archivo `ej29.cs` con una función `bool ValidarUsuario(string nombre, string password, out string error)` que valide: nombre > 2 caracteres, password > 6 caracteres. Si falla, `error` explica el problema. Prueba con datos válidos e inválidos.
+
+**Ejercicio 30: Intercambiar Arrays con `ref`**
+Crea un archivo `ej30.cs` con un procedimiento `void IntercambiarArrays(ref int[] a, ref int[] b)` que intercambie dos arrays. Prueba con `a = {1,2,3}` y `b = {4,5,6}`.
+
+**Ejercicio 31: Buscar y Reemplazar con `out`**
+Crea un archivo `ej31.cs` con una función `string BuscarYReemplazar(string texto, string buscar, string reemplazar, out int ocurrencias)` que reemplace un texto y cuente cuántas veces lo hizo. Prueba con "hola mundo hola" reemplazando "hola" por "adiós".
+
+**Ejercicio 32: Parámetro `in`: Calcular Distancia**
+Crea un archivo `ej32.cs` con una función `double CalcularDistancia(in double x1, in double y1, in double x2, in double y2)` que calcule la distancia entre dos puntos. Intenta modificar `x1` dentro y comenta el error.
+
+---
+
+### Bloque V: Manejo de Excepciones con Try-Catch (Ejercicios 33-40)
+
+**Ejercicio 33: Lectura Segura de Números**
+Crea un archivo `ej33.cs` que pida un número al usuario. Usa `int.TryParse` en un bucle `while` hasta que introduzca un número válido. Muestra el número.
+
+**Ejercicio 34: División Segura con Try-Catch**
+Crea un archivo `ej34.cs` que pida dos números. Usa `try` para dividir. Si el divisor es 0, captura `DivideByZeroException` y muestra "No se puede dividir por cero". Si el formato es incorrecto, captura `FormatException`.
+
+**Ejercicio 35: Calculadora con Excepciones**
+Crea un archivo `ej35.cs` con una calculadora que pida dos números y una operación (+, -, *, /). Cada operación es una función. La división usa `try-catch` para `DivideByZeroException`. La lectura usa `double.TryParse`.
+
+**Ejercicio 36: Acceso a Array con Índice Inválido**
+Crea un archivo `ej36.cs` con `string[] frutas = { "Manzana", "Pera", "Naranja" };`. Pide un índice al usuario. Usa `try` para acceder al array. Si el índice está fuera de rango, captura `IndexOutOfRangeException`.
+
+**Ejercicio 37: Parse de Múltiples Tipos**
+Crea un archivo `ej37.cs` que pida al usuario 3 valores (un entero, un decimal y un booleano). Usa `try-catch` para cada conversión. Si alguna falla, muestra un error específico.
+
+**Ejercicio 38: Archivo que Puede No Existir**
+Crea un archivo `ej38.cs` que intente leer un archivo "datos.txt" con `File.ReadAllText`. Usa `try-catch` para capturar `FileNotFoundException` y mostrar "Archivo no encontrado".
+
+**Ejercicio 39: Conexión Simulada a Base de Datos**
+Crea un archivo `ej39.cs` con un procedimiento `void ConectarBD(string cadenaConexion)` que simule una conexión. Si la cadena es "error", lanza una excepción personalizada `Exception("Error de conexión")`. Usa `try-catch-finally` para mostrar "Conexión cerrada" en el `finally`.
+
+**Ejercicio 40: Excepción Personalizada con Throw**
+Crea un archivo `ej40.cs` con una función `void ValidarEdad(int edad)` que lance `ArgumentOutOfRangeException` si la edad es negativa o > 150. Usa `try-catch` para capturarla. Prueba con 25, -5 y 200.
+
+---
+
+### Bloque VI: Finally, Assertions y Excepciones Avanzadas (Ejercicios 41-50)
+
+**Ejercicio 41: Finally con Recursos**
+Crea un archivo `ej41.cs` con un procedimiento `void ProcesarDatos()` que simule usar un recurso (variable `bool recursoAbierto = true;`). En `try` procesa datos, en `finally` cierra el recurso (`recursoAbierto = false`). Prueba con datos válidos y con una excepción.
+
+**Ejercicio 42: Múltiples Catch para Diferentes Errores**
+Crea un archivo `ej42.cs` que pida un número y luego un índice. Primer `try`: intenta convertir el número. Segundo `try`: intenta acceder a un array de 5 posiciones con el índice. Usa catch separados para `FormatException`, `OverflowException` e `IndexOutOfRangeException`.
+
+**Ejercicio 43: Throw con Mensaje Descriptivo**
+Crea un archivo `ej43.cs` con una función `void Transferir(double saldo, double cantidad)` que lance `ArgumentException("Saldo insuficiente")` si cantidad > saldo. Lanza `ArgumentOutOfRangeException("Cantidad no válida")` si cantidad <= 0. Captura ambas en el Main.
+
+**Ejercicio 44: Excepciones en un Bucle**
+Crea un archivo `ej44.cs` que pida 5 números al usuario. Para cada uno, usa `try-catch` para convertirlo. Si falla uno, muestra error y sigue con el siguiente. Al final, muestra cuántos se introdujeron correctamente.
+
+**Ejercicio 45: Asertión para Verificar Precondiciones**
+Crea un archivo `ej45.cs` con una función `void CalcularPorcentaje(double total, double porcentaje)` que use `Debug.Assert(porcentaje >= 0 && porcentaje <= 100, "El porcentaje debe estar entre 0 y 100")` antes de calcular. Prueba con 50 y con -10.
+
+**Ejercicio 46: Excepción en una Función Recursiva**
+Crea un archivo `ej46.cs` con una función recursiva `int Fibonacci(int n)` que lance `ArgumentOutOfRangeException` si n < 0. Usa `try-catch` para capturar la excepción. Prueba con -1 y 10.
+
+**Ejercicio 47: Cadena de Excepciones**
+Crea un archivo `ej47.cs` con una función `void ProcesarPedido(int cantidad, bool enStock, double saldo)` que lance excepciones en cascada: si cantidad <= 0, `ArgumentException`; si !enStock, `InvalidOperationException`; si saldo insuficiente, `OutOfMemoryException`. Captura cada una por separado.
+
+**Ejercicio 48: Try-Catch con Throw Original**
+Crea un archivo `ej48.cs` con una función `void Dividir(int a, int b)` que lance `DivideByZeroException` si b=0. En el `catch`, haz `throw;` (sin parámetros) para relanzar la excepción original. Captura en el Main.
+
+**Ejercicio 49: Validación Completa con Excepciones**
+Crea un archivo `ej49.cs` con una función `void CrearUsuario(string nombre, string email, int edad)` que valide todo: nombre > 2 caracteres (`ArgumentException`), email contiene `@` (`FormatException`), edad > 0 y < 150 (`ArgumentOutOfRangeException`). Lanza la primera que falle.
+
+**Ejercicio 50: Simulación de Proceso Crítico con Finally**
+Crea un archivo `ej50.cs` con un procedimiento `void ProcesoCritico()` que simule 3 pasos: "Conectar", "Leer", "Procesar". Cada paso es una función que puede fallar. Usa `try` para el proceso, `catch` para cada tipo de error, y `finally` para "Desconectar siempre". Prueba tanto el caso de éxito como el de fallo.
