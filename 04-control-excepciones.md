@@ -338,3 +338,5 @@ Las excepciones ocurren en **tiempo de ejecución**. Los errores de compilación
 6. **Documenta**: Comenta por qué lanzas o capturas excepciones
 
 > ⚠️ **Regla de oro:** Las excepciones son para situaciones **excepcionales**, no para controlar el flujo normal del programa. Si puedes usar `if`, úsalo.
+
+En el siguiente punto haremos un resumen de toda la unidad, consolidando todos los conceptos vistos: programación estructurada, modular y control de excepciones.

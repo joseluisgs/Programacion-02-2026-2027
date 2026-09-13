@@ -10,6 +10,14 @@ Tema 02 Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 4. [Control de Excepciones](04-control-excepciones.md)
 5. [Resumen](05-resumen.md)
 
+## Contenido en YouTube
+
+- [Resumen]()
+- [Programación Estructurada]()
+- [Programación Modular y pasos de parámetros]()
+- [Control de Excepciones]()
+- [Lista de Reproducción](https://www.youtube.com/playlist?list=PLK1PMlIrqj3c)
+
 ## Resultados de Aprendizaje y Criterios de Evaluación
 
 - RA3: Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.

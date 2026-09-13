@@ -668,3 +668,5 @@ double resultado = Pow(2, 3); // 8
 ```
 
 > 📝 **Nota:** En top-level statements, `using` se escribe al inicio del archivo. Los verás en acción en todos los ejemplos de esta unidad.
+
+En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `throw`, el bufeo de excepciones y las asertiones para detectar errores durante el desarrollo.

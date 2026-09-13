@@ -7,6 +7,7 @@
     - [C. Condicionales múltiples (`if-else if-else`)](#c-condicionales-múltiples-if-else-if-else)
     - [D. Estructura `switch`](#d-estructura-switch)
     - [E. Expresión `switch` moderna (C# 8+)](#e-expresión-switch-moderna-c-8)
+    - [F. Control de nulos con condicionales](#f-control-de-nulos-con-condicionales)
   - [2.4. Bucles](#24-bucles)
     - [A. Bucle `while`](#a-bucle-while)
     - [B. Bucle `do-while`](#b-bucle-do-while)
@@ -317,6 +318,94 @@ string nombreDelDia = dia switch
 
 Console.WriteLine($"Hoy es: {nombreDelDia}");
 ```
+
+### F. Control de nulos con condicionales
+
+Trabajar con `null` es inevitable en C#. Hay varias formas de comprobarlo, cada una con su uso:
+
+**`!= null` y `== null` — La forma clásica:**
+
+```csharp
+string? nombre = null;
+
+if (nombre != null)
+{
+    Console.WriteLine(nombre.Length);
+}
+else
+{
+    Console.WriteLine("Nombre no proporcionado");
+}
+```
+
+**`is null` y `is not null` — Forma moderna y recomendada:**
+
+```csharp
+string? nombre = null;
+
+if (nombre is not null)
+{
+    Console.WriteLine(nombre.Length);  // Seguro: el compilador sabe que no es null
+}
+else
+{
+    Console.WriteLine("Nombre no proporcionado");
+}
+```
+
+> 💡 **Consejo:** `is not null` es preferible a `!= null` porque funciona correctamente con la sobrecarga de operadores y pattern matching.
+
+**`is { }` — Pattern matching para extraer el valor:**
+
+Cuando una variable puede ser null y necesitas usarla, `is { }` comprueba que no es null **y** la extrae en una nueva variable:
+
+```csharp
+string? nombre = ObtenerNombre();
+
+// Forma clásica (verbosa)
+if (nombre != null)
+{
+    string nombreLimpio = nombre.Trim();
+    Console.WriteLine(nombreLimpio);
+}
+
+// Con is { } (limpio — comprueba no-null + extrae)
+if (nombre is { } nombreLimpio)
+{
+    Console.WriteLine(nombreLimpio.Trim());
+}
+```
+
+**`is string texto` — Comprobar tipo + extraer:**
+
+```csharp
+object dato = ObtenerDato();
+
+// Comprueba que es string Y lo extrae en "texto"
+if (dato is string texto)
+{
+    Console.WriteLine($"Es un string: {texto.ToUpper()}");
+}
+
+// Comprueba que es un número entero
+if (dato is int numero)
+{
+    Console.WriteLine($"Es un entero: {numero * 2}");
+}
+```
+
+**Resumen de comprobación de nulos:**
+
+| Expresión | ¿Qué hace? | Cuándo usarla |
+|-----------|------------|---------------|
+| `x != null` | Comprueba que no es null | Forma clásica, siempre funciona |
+| `x is null` | Comprueba que es null | Alternativa moderna a `== null` |
+| `x is not null` | Comprueba que no es null | Preferido a `!= null` |
+| `x is { } y` | Comprueba no-null + extrae en `y` | Cuando necesitas el valor no nulo |
+| `x is string s` | Comprueba tipo + extrae | Cuando necesitas cast seguro |
+| `x ?? default` | Si es null, usa valor por defecto | Asignaciones rápidas |
+
+📌 **Ejemplo real:** Netflix usa `is not null` para comprobar si un usuario tiene suscripción antes de mostrar contenido premium. Si la suscripción es `null`, muestra un mensaje de "suscríbete" en vez de intentar acceder a datos inexistentes.
 
 Una de las técnicas más útiles para evitar errores en los condicionales es el uso de **paréntesis** para agrupar condiciones complejas:
 
@@ -875,3 +964,5 @@ for (int i = 0; i < 5; i++)
 > 💡 **Consejo:** Aprende a usar el depurador de tu IDE. Es la herramienta más poderosa que tiene un programador. Más rápida y precisa que cualquier `Console.WriteLine`.
 
 📌 **Ejemplo real:** Los desarrolladores de Netflix usan el depurador para encontrar por qué un vídeo se congela: ponen un breakpoint en el bucle de reproducción, inspeccionan la memoria y detectan que el buffer se llenó.
+
+En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`, `params`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.

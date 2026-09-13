@@ -167,3 +167,5 @@ Al finalizar esta unidad serás capaz de:
 - **Depurar código** con asertaciones
 
 > 💡 **Consejo:** Esta unidad es la base de todo lo que viene. Si dominas estructurada y modular, la POO (UD04) será mucho más fácil. Piensa en ella como aprender a cocinar antes de abrir un restaurante.
+
+En el siguiente punto veremos la programación estructurada en profundidad: secuencias, condicionales (`if-else`, `switch`, ternario), bucles (`while`, `for`, `do-while`) y el operador `??`.
