@@ -4,7 +4,11 @@
     - [Programación Estructurada](#programación-estructurada)
     - [Programación Modular](#programación-modular)
     - [Control de Excepciones](#control-de-excepciones)
+    - [Documentación y Comentarios](#documentación-y-comentarios)
   - [5.3. Herramientas y Perfiles](#53-herramientas-y-perfiles)
+    - [IDE](#ide)
+    - [Comandos CLI](#comandos-cli)
+    - [Depuración](#depuración)
   - [5.4. Errores Comunes a Evitar](#54-errores-comunes-a-evitar)
   - [5.5. Checklist de Supervivencia](#55-checklist-de-supervivencia)
   - [5.6. Glosario de Términos](#56-glosario-de-términos)
@@ -42,6 +46,10 @@ graph TD
     EX --> TRY[try-catch-finally]
     EX --> THROW[throw: lanzar]
     EX --> ASSERT[Aserciones: Debug.Assert]
+    EX --> EXNET[Excepciones .NET: ArgumentException, FormatException...]
+    EX --> ORDER[Orden: específico → general]
+    EX --> UNCHECKED[Unchecked: C# no obliga a capturar]
+    ES --> DOC[Documentación: XMLDoc]
     style UD02 fill:#2196F3,color:#fff
     style ES fill:#4CAF50,color:#fff
     style MO fill:#FF9800,color:#fff
@@ -59,6 +67,10 @@ graph TD
     style TRY fill:#607D8B,color:#fff
     style THROW fill:#607D8B,color:#fff
     style ASSERT fill:#607D8B,color:#fff
+    style EXNET fill:#607D8B,color:#fff
+    style ORDER fill:#607D8B,color:#fff
+    style UNCHECKED fill:#607D8B,color:#fff
+    style DOC fill:#607D8B,color:#fff
 ```
 
 ## 5.2. Conceptos Clave
@@ -107,8 +119,49 @@ graph TD
 - **`finally`**: se ejecuta siempre (liberar recursos)
 - **Burbujeo**: si no hay `catch`, la excepción sube por la pila
 - **Preferir `if`**: si el error es predecible, previene en vez de reaccionar
+- **Unchecked**: en C# todas las excepciones son unchecked (no obliga a capturar)
+- **De específico a general**: orden de los `catch` (el genérico va al final)
+- **`|` en catch**: capturar varios tipos en un solo bloque
+- **`when`**: filtro para distinguir según un valor
+- **`ArgumentException`**: argumento no válido
+- **`ArgumentNullException`**: argumento es `null`
+- **`ArgumentOutOfRangeException`**: argumento fuera de rango
+- **`FormatException`**: formato incorrecto de datos
 
-📌 **Ejemplo real:** Amazon lanza una excepción `PagoRechazadoException` cuando la tarjeta no tiene fondos. El `catch` muestra un mensaje amigable en vez de que la app se cierre.
+📌 **Ejemplo real:** Amazon lanza una `ArgumentException` cuando el carrito está vacío y el usuario intenta pagar. El `catch` muestra un mensaje amigable en vez de que la app se cierre.
+
+### Documentación y Comentarios
+
+- **Comentarios `//`**: para explicar lógica compleja o decisiones de negocio
+- **XMLDoc `/// <summary>`**: documentación automática de clases y métodos públicos
+- **`/// <param>`**: describe cada parámetro
+- **`/// <returns>`**: describe qué devuelve la función
+- **`/// <inheritdoc />`**: en implementaciones de interfaces
+
+📌 **Ejemplo real:** Netflix documenta su API interna con XMLDoc para que cualquier desarrollador nuevo entienda qué hace cada función sin leer el código completo.
+
+```csharp
+/// <summary>
+/// Calcula el descuento aplicable a una compra.
+/// </summary>
+/// <param name="total">Importe total de la compra en euros.</param>
+/// <param name="esPremium">Si el cliente es premium.</param>
+/// <returns>El descuento aplicado en euros.</returns>
+double CalcularDescuento(double total, bool esPremium)
+{
+    // Si es premium, 10% de descuento; si no, 5%
+    return esPremium ? total * 0.10 : total * 0.05;
+}
+```
+
+| Tipo de comentario | Cuándo usarlo |
+|-------------------|---------------|
+| `// Explicación` | Lógica compleja, decisiones "por qué" |
+| `/// <summary>` | Métodos públicos, clases, interfaces |
+| `// TODO:` | Pendientes que hay que resolver |
+| `// HACK:` | Solución temporal que hay que mejorar |
+
+> ⚠️ **Advertencia:** No comentes código autoexplicativo (`// suma dos números` en `suma = a + b`). Comenta el **por qué**, no el **qué**.
 
 ## 5.3. Herramientas y Perfiles
 
@@ -153,6 +206,11 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 - [ ] ¿Sé por qué el `if` es mejor que `try-catch` cuando puedo prever el error?
 - [ ] ¿Entiendo qué es la recursividad y por qué necesita un caso base?
 - [ ] ¿Puedo usar `Early Return` para simplificar mi código?
+- [ ] ¿Sé documentar un método con XMLDoc (`/// <summary>`, `/// <param>`, `/// <returns>`)?
+- [ ] ¿Puedo lanzar `ArgumentException`, `ArgumentNullException` y `FormatException` con mensajes descriptivos?
+- [ ] ¿Entiendo por qué en C# todas las excepciones son unchecked y no obliga a capturar?
+- [ ] ¿Sé ordenar los `catch` de específico a general?
+- [ ] ¿Sé usar `Debug.Assert` para verificar supuestos durante la depuración?
 
 > 🔧 **Truco:** Crea un programa que pida dos números y los sume dentro de una función. Luego añade un `try-catch` para manejar si el usuario no introduce números. Si funciona, dominas lo básico de esta unidad.
 
@@ -189,6 +247,11 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 | **`finally`** | Bloque que se ejecuta siempre, con o sin error |
 | **Burbujeo** | Propagación de excepciones por la pila de llamadas |
 | **Aserción** | Verificación de supuestos durante la depuración |
+| **XMLDoc** | Sistema de documentación XML para código C# |
+| **`ArgumentException`** | Excepción lanzada cuando un argumento no es válido |
+| **`FormatException`** | Excepción lanzada cuando el formato de un dato es incorrecto |
+| **Unchecked exception** | Excepción que el compilador no obliga a capturar (todas en C#) |
+| **Checked exception** | Excepción que el compilador obliga a capturar (existe en Java, no en C#) |
 
 ## 5.7. Ejercicios de Repaso
 

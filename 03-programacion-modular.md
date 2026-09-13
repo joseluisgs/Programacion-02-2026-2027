@@ -728,6 +728,55 @@ void CuentaAtras(int n)
 | **Legibilidad** | Puede ser compleja | Elegante para ciertos problemas |
 | **Debugging** | Fácil | Más difícil |
 
+### Factorial: recursivo vs iterativo
+
+Veamos el mismo problema resuelto de las dos formas para comparar:
+
+```csharp
+// RECURSIVO: se parece a la definición matemática
+int FactorialRecursivo(int n)
+{
+    if (n <= 1) return 1;
+    return n * FactorialRecursivo(n - 1);
+}
+
+// ITERATIVO: usa un bucle
+int FactorialIterativo(int n)
+{
+    int resultado = 1;
+    for (int i = 2; i <= n; i++)
+        resultado *= i;
+    return resultado;
+}
+
+// Ambos dan lo mismo
+Console.WriteLine(FactorialRecursivo(5)); // 120
+Console.WriteLine(FactorialIterativo(5)); // 120
+```
+
+| | Recursivo | Iterativo |
+|---|---|---|
+| **Legibilidad** | ✅ Elegante, se parece a la fórmula matemática | ⚠️ Más verboso |
+| **Rendimiento** | ❌ Más lento (crea una pila de llamadas por cada paso) | ✅ Más rápido (solo una variable) |
+| **Memoria** | ❌ O(n) en pila de llamadas | ✅ O(1) constante |
+| **Debugging** | ❌ Más difícil de seguir | ✅ Más fácil con el depurador |
+
+📌 **¿Cuándo usar cada uno?**
+- **Recursión**: cuando el problema se divide naturalmente en subproblemas iguales (árboles, carpetas, torres de Hanoi)
+- **Iteración**: cuando sabes el número de pasos o necesitas rendimiento
+
+```mermaid
+graph LR
+    P{¿El problema se divide en subproblemas iguales?}
+    P -->|Sí| R[Usa recursión]
+    P -->|No| I[Usa iteración]
+    R --> EJ1[Árboles, carpetas, Fibonacci]
+    I --> EJ2[Bucles, sumatorios, contar]
+    style P fill:#FF9800,color:#fff
+    style R fill:#4CAF50,color:#fff
+    style I fill:#2196F3,color:#fff
+```
+
 > 💡 **Regla nemotécnica:** "Todo lo que se puede resolver con bucles se puede resolver con recursividad, pero no al revés. Usa recursividad cuando el problema tenga estructura jerárquica (árboles, factoriales, torres de Hanoi)."
 
 ## 3.9. Espacios de nombres y `using`

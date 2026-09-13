@@ -13,7 +13,7 @@ Implementa un programa que muestre tu setup de programador: marca del portátil 
 Implementa un programa que pida al usuario su edad en años. Calcula los meses aproximados (edad × 12) y los días (edad × 365). Muestra: "Tienes {edad} años, que son aproximadamente {meses} meses o {dias} días".
 
 **Ejercicio 3: Inventario de Videojuego**
-Implementa un programa con variables para un inventario: `int pociones = 5;` `int espadas = 2;` `int monedas = 1500;`. Muestra el inventario. Luego suma 3 pociones y resta 200 monedas. Muestra el actualizado.
+Implementa un programa con variables para un inventario: `int pociones = 5;` `int espadas = 2;` `int monedas = 1500;`. Muestra el inventario. Luego suma 3 pociones y resta 200 monedas. Muestra el actualizado. **Documenta** el código con comentarios que expliquen cada operación.
 
 **Ejercicio 4: Intercambio de Variables**
 Implementa un programa con `int a = 10;` `int b = 25;`. Intercambia sus valores SIN usar una variable temporal (usa aritmética: `a = a + b; b = a - b; a = a - b;`). Muestra antes y después.
@@ -115,7 +115,7 @@ Implementa un programa que pida un número. Usa un `for` del 1 al 10 para mostra
 Implementa un programa con un `for` del 1 al 100 que sume todos los números pares. Muestra el resultado.
 
 **Ejercicio 33: Factorial**
-Implementa un programa que pida un número. Usa un `for` para calcular su factorial (n × (n-1) × (n-2) × ... × 1).
+Implementa un programa que pida un número. Usa un `for` para calcular su factorial (n × (n-1) × (n-2) × ... × 1). **Documenta** la función con un comentario que explique qué es el factorial.
 
 **Ejercicio 34: Contar Dígitos**
 Implementa un programa que pida un número entero. Usa un `for` con divisiones sucesivas por 10 para contar cuántos dígitos tiene.
@@ -185,7 +185,7 @@ Implementa un programa con un `for` del 2 al 50. Para cada número, usa un bucle
 Implementa un programa que pida un número. Usa `bool esPrimo = true;` y un `for` para comprobar si es primo. Muestra el resultado.
 
 **Ejercicio 48: Encontrar el Mayor**
-Implementa un programa con un `for` que pida 5 números al usuario. Usa una variable `max` para guardar el mayor. Muestra el resultado.
+Implementa un programa con un `for` que pida 5 números al usuario. Usa una variable `max` para guardar el mayor. Usa `Debug.Assert(max >= valorIngresado, "...")` tras cada comparación para verificar que la lógica es correcta. Muestra el resultado final.
 
 **Ejercicio 49: Encontrar el Menor**
 Implementa un programa con un `for` que pida 5 números al usuario. Usa una variable `min` para guardar el menor. Muestra el resultado.

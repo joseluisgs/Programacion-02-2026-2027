@@ -19,10 +19,10 @@ Implementa una función `bool EsPalindromo(string texto)` que compruebe si una p
 Implementa una función `double CalcularIMC(double peso, double altura)` y otra `string ClasificarIMC(double imc)`. Pide datos al usuario y muestra la clasificación.
 
 **Ejercicio 5: Generador de Contraseña**
-Implementa una función `string GenerarContraseña(int longitud)` que genere una contraseña aleatoria con mayúsculas, minúsculas y números usando `Random`.
+Implementa una función `string GenerarContraseña(int longitud)` que genere una contraseña aleatoria con mayúsculas, minúsculas y números usando `Random`. **Documenta** la función con XMLDoc (`/// <summary>`, `/// <param>`, `/// <returns>`).
 
 **Ejercicio 6: Validador de Email**
-Implementa una función `bool ValidarEmail(string email)` que compruebe que contiene `@` y `.`. Prueba con 3 emails diferentes.
+Implementa una función `void ValidarEmail(string email)` que lance `ArgumentException` si el email es null o vacío, y `FormatException` si no contiene `@` o `.`. Usa `try-catch` en el programa principal para capturar cada tipo de excepción por separado. Prueba con 3 emails diferentes.
 
 **Ejercicio 7: Contador de Palabras**
 Implementa una función `int ContarPalabras(string frase)` que cuente cuántas palabras tiene una frase (separadas por espacios). Pide una frase y muestra el resultado.
@@ -92,8 +92,8 @@ Implementa un procedimiento `void MostrarMensaje(string msg, string color = "bla
 **Ejercicio 26: Sobrecarga Simulada**
 Implementa dos procedimientos `void CrearUsuario(string nombre)` y `void CrearUsuario(string nombre, string email)`. El primero muestra "Usuario: {nombre}", el segundo "Usuario: {nombre}, Email: {email}". Prueba ambos.
 
-**Ejercicio 27: Recursividad: Contar Regresivo**
-Implementa un procedimiento recursivo `void ContarRegresivo(int n)` que imprima n, n-1, n-2... hasta 1. Prueba con 5.
+**Ejercicio 27: Factorial Recursivo vs Iterativo**
+Implementa el factorial de dos formas: una función recursiva `int FactorialRecursivo(int n)` y una función iterativa `int FactorialIterativo(int n)` con un `for`. Prueba ambas con los mismos valores (5, 10, 0) y comprueba que dan el mismo resultado. Reflexiona: ¿cuál es más legible? ¿Cuál es más eficiente?
 
 **Ejercicio 28: Early Return en Calificación**
 Implementa una función `string Calificar(double nota)` con Early Return: < 0 → "Error", > 10 → "Error", < 5 → "Suspenso", < 7 → "Aprobado", < 9 → "Notable", → "Sobresaliente".
@@ -109,7 +109,7 @@ Implementa un procedimiento `void Ordenar(ref int a, ref int b, ref int c)` que 
 Implementa una función `void CalcularEdad(int anioNac, int mesNac, int diaNac, out int anios, out int meses)` que calcule la edad exacta. Usa `DateTime.Now`.
 
 **Ejercicio 31: Cambio en Monedas con `out`**
-Implementa un procedimiento `void CalcularCambio(double total, double pagado, out int m2, out int m1, out int m50, out int m20)` que calcule el cambio en monedas. Prueba con total=4.70€, pagado=10€.
+Implementa un procedimiento `void CalcularCambio(double total, double pagado, out int m2, out int m1, out int m50, out int m20)` que calcule el cambio en monedas. **Usa `Debug.Assert`** para verificar que `pagado >= total` antes de calcular. Prueba con total=4.70€, pagado=10€.
 
 **Ejercicio 32: Estadísticas con `ref`**
 Implementa un procedimiento `void ActualizarStats(double valor, ref double suma, ref int count, ref double max, ref double min)` que actualice estadísticas con cada valor. Procesa 5 valores que pida al usuario.
