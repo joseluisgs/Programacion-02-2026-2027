@@ -384,6 +384,50 @@ Console.WriteLine($"¿'{malaEntrada}' es número? {esNumero2}, valor: {resultado
 | **Flujo de datos** | Entrada y Salida | Solo Salida |
 | **Analogía** | Llave de tu casa | Formulario en blanco |
 
+### Tuplas: devolver múltiples valores de forma moderna
+
+A veces necesitas que una función devuelva **varios valores**. Antes usábamos `out`, pero las **tuplas** son más limpias y legibles.
+
+> 💡 **Analogía:** Si `out` es como rellenar un formulario en blanco, una **tupla** es como pedir una **caja combo** en un restaurante: recibes una caja que contiene（主食, postre y bebida）todos juntos, y puedes sacar cada cosa por su nombre.
+
+```csharp
+// ✅ Con tupla: legible y directo
+(string nombre, int edad, double nota) ObtenerAlumno()
+{
+    return ("Ana", 20, 8.5);
+}
+
+var alumno = ObtenerAlumno();
+Console.WriteLine($"{alumno.nombre} tiene {alumno.edad} años y sacó {alumno.nota}");
+
+// ✅ Desestructurar
+var (nombre, edad, nota) = ObtenerAlumno();
+Console.WriteLine($"{nombre}: {nota}");
+```
+
+```csharp
+// ❌ Sin tupla: verboso (usando out)
+void ObtenerAlumno(out string nombre, out int edad, out double nota)
+{
+    nombre = "Ana";
+    edad = 20;
+    nota = 8.5;
+}
+
+// Llamada incómoda
+ObtenerAlumno(out string nombre, out int edad, out double nota);
+Console.WriteLine($"{nombre}: {nota}");
+```
+
+| Característica | `out` | Tupla |
+| :--- | :--- | :--- |
+| **Legibilidad** | Verboso | Conciso y claro |
+| **Inicialización** | No necesita | Se devuelve directa |
+| **Nombres** | Parámetros separados | Campos con nombre |
+| **Uso típico** | `TryParse`, validar | Devolver resultados de cálculos |
+
+> 📝 **Nota:** Las tuplas se usan mucho en la práctica cuando una función necesita devolver 2-3 valores. Para más valores, es mejor crear una clase o record.
+
 ### D. Paso solo lectura con `in`
 
 `in` pasa la referencia pero **como solo lectura**. El método recibe el dato sin copiarlo (eficiente para structs grandes) y **garantiza que no lo modificará**.
