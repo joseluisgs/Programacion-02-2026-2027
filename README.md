@@ -1,6 +1,6 @@
-﻿# Programación - 02 Programación Estructurada y Modular
+﻿# Programación - 02 - Programación Estructurada y Modular
 
-Tema 02 Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
+UD02. Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 
 ## Contenidos
 
