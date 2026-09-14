@@ -9,6 +9,7 @@
     - [B. Paso por referencia con `ref`](#b-paso-por-referencia-con-ref)
     - [C. Parámetros de salida con `out`](#c-parámetros-de-salida-con-out)
     - [D. Paso solo lectura con `in`](#d-paso-solo-lectura-con-in)
+    - [Tuplas, Enums y Structs como parámetros y returns](#tuplas-enums-y-structs-como-parámetros-y-returns)
     - [E. Parámetros variables con `params`](#e-parámetros-variables-con-params)
     - [F. Resumen de modificadores de parámetros](#f-resumen-de-modificadores-de-parámetros)
     - [G. Menciones avanzadas: `this`, `scoped`, `ref readonly`](#g-menciones-avanzadas-this-scoped-ref-readonly)
@@ -476,6 +477,85 @@ double CalcularDistancia(in Point punto1, in Point punto2)
 ```
 
 > 📝 **Nota:** `in` es más eficiente que el paso por valor para tipos de valor grandes (structs), porque evita copiarlos. Ya vimos structs en la UD01 (sección 6.6).
+
+### Tuplas, Enums y Structs como parámetros y returns
+
+Ya conoces tuplas, enums y structs de la UD01. Ahora los usaremos como **tipo de parámetro** y **tipo de retorno** en funciones.
+
+#### Tuplas como parámetros y return
+
+```csharp
+// Tupla como parámetro
+void MostrarPersona((string nombre, int edad) persona)
+{
+    Console.WriteLine($"{persona.nombre} tiene {persona.edad} años");
+}
+
+// Tupla como return
+(string titulo, int anio) ObtenerPelicula()
+{
+    return ("Inception", 2010);
+}
+
+// Uso
+MostrarPersona(("Ana", 25));
+var pelicula = ObtenerPelicula();
+Console.WriteLine($"{pelicula.titulo} ({pelicula.anio})");
+```
+
+#### Enums como parámetros y return
+
+```csharp
+enum DiaSemana { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo }
+
+// Enum como parámetro
+bool EsFinDeSemana(DiaSemana dia)
+{
+    return dia == DiaSemana.Sabado || dia == DiaSemana.Domingo;
+}
+
+// Enum como return
+DiaSemana ObtenerDiaActual()
+{
+    return DiaSemana.Miercoles;
+}
+
+// Uso
+DiaSemana hoy = ObtenerDiaActual();
+if (EsFinDeSemana(hoy))
+    Console.WriteLine("¡Es fin de semana!");
+else
+    Console.WriteLine("A trabajar");
+```
+
+#### Structs como parámetros y return
+
+```csharp
+struct Alumno
+{
+    public int Id;
+    public string Nombre;
+    public double Nota;
+}
+
+// Struct como parácentaje
+void MostrarAlumno(Alumno alumno)
+{
+    Console.WriteLine($"{alumno.Nombre} (ID: {alumno.Id}): {alumno.Nota}");
+}
+
+// Struct como return
+Alumno CrearAlumno(string nombre, double nota)
+{
+    return new Alumno { Id = 1, Nombre = nombre, Nota = nota };
+}
+
+// Uso
+Alumno ana = CrearAlumno("Ana", 8.5);
+MostrarAlumno(ana);  // Ana (ID: 1): 8.5
+```
+
+> 💡 **Nota:** Los structs se copian al pasarlos como parámetro (son tipos de valor). Para structs grandes, usa `in` para evitar la copia.
 
 ### E. Parámetros variables con `params`
 
