@@ -475,7 +475,7 @@ double CalcularDistancia(in Point punto1, in Point punto2)
 }
 ```
 
-> 📝 **Nota:** `in` es más eficiente que el paso por valor para tipos de valor grandes (structs), porque evita copiarlos. Lo verás en detalle en la UD03 cuando estudiemos structs y arrays.
+> 📝 **Nota:** `in` es más eficiente que el paso por valor para tipos de valor grandes (structs), porque evita copiarlos. Ya vimos structs en la UD01 (sección 6.6).
 
 ### E. Parámetros variables con `params`
 
