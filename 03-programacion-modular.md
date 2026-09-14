@@ -428,6 +428,36 @@ Console.WriteLine($"{nombre}: {nota}");
 
 > 📝 **Nota:** Las tuplas se usan mucho en la práctica cuando una función necesita devolver 2-3 valores. Para más valores, es mejor crear una clase o record.
 
+#### Descarte con `_`
+
+Si solo te interesa **uno** de los valores de la tupla, usa `_` para ignorar el resto:
+
+```csharp
+(string nombre, _, double nota) = ("Ana", 20, 8.5);
+Console.WriteLine($"{nombre}: {nota}");  // Ana: 8.5
+
+// En TryParse (muy habitual)
+string input = "42";
+if (int.TryParse(input, out int resultado))
+{
+    Console.WriteLine(resultado);  // 42
+}
+```
+
+#### Igualdad de tuplas
+
+Las tuplas comparan **por valores**, no por nombres. Funcionan con `==` y `!=`:
+
+```csharp
+var t1 = (A: 5, B: 10);
+var t2 = (B: 5, A: 10);
+Console.WriteLine(t1 == t2);  // True — orden posicional, nombres irrelevantes
+
+(int a, byte b) izq = (5, 10);
+(long a, int b) der = (5, 10);
+Console.WriteLine(izq == der);  // True — tipos compatibles, mismos valores
+```
+
 ### D. Paso solo lectura con `in`
 
 `in` pasa la referencia pero **como solo lectura**. El método recibe el dato sin copiarlo (eficiente para structs grandes) y **garantiza que no lo modificará**.
