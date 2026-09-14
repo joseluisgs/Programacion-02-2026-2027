@@ -459,6 +459,28 @@ Console.WriteLine(t1 == t2);  // True — orden posicional, nombres irrelevantes
 Console.WriteLine(izq == der);  // True — tipos compatibles, mismos valores
 ```
 
+> ⚠️ **Advertencia sobre `==` y tipos por referencia**
+
+> Recordarás de la UD01 que hay tipos por valor (se copian el contenido) y tipos por referencia (apuntan al mismo sitio). Esto afecta directamente al operador `==`:
+
+> ```csharp
+> // ✅ Tipos por valor: == compara CONTENIDO
+> int a = 5, b = 5;
+> Console.WriteLine(a == b);  // True
+> 
+> // ❌ Arrays: == compara REFERENCIA, no contenido
+> int[] x = { 1, 2, 3 };
+> int[] y = { 1, 2, 3 };
+> Console.WriteLine(x == y);  // ¡False! Son arrays distintos
+> 
+> // ✅ Strings: caso especial (interning de C#)
+> string s1 = "Hola";
+> string s2 = "Hola";
+> Console.WriteLine(s1 == s2);  // True (reutiliza el mismo objeto)
+> ```
+
+> 📝 **Regla:** Con arrays, **nunca uses `==`** para comparar contenido. Usa un bucle o `SequenceEqual()`. Con strings, `==` funciona, pero `.Equals()` es más seguro en producción.
+
 ### D. Paso solo lectura con `in`
 
 `in` pasa la referencia pero **como solo lectura**. El método recibe el dato sin copiarlo (eficiente para structs grandes) y **garantiza que no lo modificará**.
