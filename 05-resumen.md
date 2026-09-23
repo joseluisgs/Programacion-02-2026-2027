@@ -1,4 +1,4 @@
-﻿- [5. Resumen y Conclusiones UD02](#5-resumen-y-conclusiones-ud02)
+- [5. Resumen y Conclusiones UD02](#5-resumen-y-conclusiones-ud02)
   - [5.1. Mapa Conceptual de la Unidad](#51-mapa-conceptual-de-la-unidad)
   - [5.2. Conceptos Clave](#52-conceptos-clave)
     - [Programación Estructurada](#programación-estructurada)
@@ -308,3 +308,11 @@ graph LR
     style UD10 fill:#f44336,color:#fff
     style UD11 fill:#f44336,color:#fff
 ```
+
+## Buenas Prácticas
+
+- [ ] Repasar los conceptos clave antes de empezar la práctica
+- [ ] Seguir el patrón Análisis → Diseño → Codificación
+- [ ] Usar el resumen como referencia rápida durante el examen
+- [ ] Practicar los ejercicios de repaso hasta dominarlos
+- [ ] Revisar el checklist de supervivencia antes de la evaluación

@@ -1,4 +1,4 @@
-﻿- [1. Introducción](#1-introducción)
+- [1. Introducción](#1-introducción)
   - [1.1. Programación Estructurada y Modular: un paradigma](#11-programación-estructurada-y-modular-un-paradigma)
   - [1.2. Del caos al orden: una analogía](#12-del-caos-al-orden-una-analogía)
   - [1.3. Conexión con UD01: lo que ya sabes](#13-conexión-con-ud01-lo-que-ya-sabes)
@@ -8,6 +8,13 @@
 # 1. Introducción
 
 > 💡 **Punto de partida:** ¿Alguna vez has intentado seguir una receta de cocina que no tenía pasos numerados? ¿O armar un mueble de IKEA sin instrucciones? Eso es programar sin estructura: el código funciona (a veces), pero nadie lo entiende ni lo puede mantener.
+
+**Objetivos de aprendizaje:**
+
+- Comprender qué es la programación estructurada y modular y por qué es importante
+- Diferenciar entre programación estructurada y modular
+- Conocer las tres estructuras de control básicas (secuencia, condicional, bucle)
+- Entender la conexión con los conceptos de la UD01
 
 En la UD01 vimos qué es la programación, los algoritmos y los paradigmas. Aprendimos a escribir programas simples: declaremos variables, leamos datos, mostremos resultados. Pero ¿qué pasa cuando el problema crece? ¿Cómo organiza Netflix el algoritmo que decide qué serie recomendarte? ¿Cómo gestiona Instagram el filtro que aplica a tu foto?
 
@@ -169,3 +176,11 @@ Al finalizar esta unidad serás capaz de:
 > 💡 **Consejo:** Esta unidad es la base de todo lo que viene. Si dominas estructurada y modular, la POO (UD04) será mucho más fácil. Piensa en ella como aprender a cocinar antes de abrir un restaurante.
 
 En el siguiente punto veremos la programación estructurada en profundidad: secuencias, condicionales (`if-else`, `switch`, ternario), bucles (`while`, `for`, `do-while`) y el operador `??`.
+
+## Buenas Prácticas
+
+- [ ] Usar siempre las tres estructuras de control básicas: secuencia, condicional y bucle
+- [ ] Evitar el uso de `goto` — las estructuras de control son suficientes
+- [ ] Aplicar el principio DRY (Don't Repeat Yourself) desde el primer día
+- [ ] Organizar el código en módulos con una responsabilidad clara (SRP)
+- [ ] Conectar los conceptos nuevos con los conocimientos previos de la UD01

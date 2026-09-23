@@ -11,7 +11,7 @@
     - [D. Paso solo lectura con `in`](#d-paso-solo-lectura-con-in)
     - [Tuplas, Enums y Structs como parámetros y returns](#tuplas-enums-y-structs-como-parámetros-y-returns)
     - [E. Parámetros variables con `params`](#e-parámetros-variables-con-params)
-    - [F. Resumen de modificadores de parámetros](#f-resumen-de-modificadores-de-parámetros)
+    - [F. Tabla de modificadores de parámetros](#f-tabla-de-modificadores-de-parámetros)
     - [G. Menciones avanzadas: `this`, `scoped`, `ref readonly`](#g-menciones-avanzadas-this-scoped-ref-readonly)
   - [3.4. Ámbito de las variables](#34-ámbito-de-las-variables)
   - [3.5. Parámetros por defecto, opcionales y nombrados](#35-parámetros-por-defecto-opcionales-y-nombrados)
@@ -24,6 +24,14 @@
 # 3. Programación Modular
 
 > 💡 **Punto de partida:** ¿Alguna vez has construido algo con LEGO? Cada pieza es pequeña, sencilla y tiene una función clara. Juntas, construyen cualquier cosa. La programación modular es lo mismo: dividir un programa grande en piezas pequeñas, manejables y reutilizables.
+
+**Objetivos de aprendizaje:**
+
+- Comprender qué es la programación modular y por qué es importante
+- Diferenciar entre funciones (devuelven valor) y procedimientos (void)
+- Dominar los modificadores de parámetros: `ref`, `out`, `in`, `params`
+- Entender el ámbito de las variables (local vs. global)
+- Aplicar la recursividad y el Early Return en la resolución de problemas
 
 La **programación modular** consiste en dividir un programa en partes más pequeñas llamadas **módulos**. En C#, estos módulos se implementan como **funciones** y **procedimientos** (también llamados **métodos**).
 
@@ -261,7 +269,7 @@ Console.WriteLine($"Después: {valorOriginal}"); // 20
 
 > 💡 **Analogía:** Ahora en vez de una fotocopia, le das a tu amigo **la llave de tu casa**. Cuando él entra y mueve los muebles, reorganiza la cocina o cambia las sábanas... tú sales y ves **tu casa realmente cambiada**. No es una copia, es la misma casa. Eso es `ref`: el método trabaja directamente con tu variable original.
 
-> 💡 **Analogía 2:** Es como un documento de Google Docs compartido. Tú y tu amigo编辑áis el mismo documento al mismo tiempo. Cuando él escribe un párrafo, tú lo ves en tu pantalla porque **es el mismo documento**, no una copia.
+> 💡 **Analogía 2:** Es como un documento de Google Docs compartido. Tú y tu amigo editáis el mismo documento al mismo tiempo. Cuando él escribe un párrafo, tú lo ves en tu pantalla porque **es el mismo documento**, no una copia.
 
 ```csharp
 // ¿Qué pasa sin ref? Mira la diferencia:
@@ -389,7 +397,7 @@ Console.WriteLine($"¿'{malaEntrada}' es número? {esNumero2}, valor: {resultado
 
 A veces necesitas que una función devuelva **varios valores**. Antes usábamos `out`, pero las **tuplas** son más limpias y legibles.
 
-> 💡 **Analogía:** Si `out` es como rellenar un formulario en blanco, una **tupla** es como pedir una **caja combo** en un restaurante: recibes una caja que contiene（主食, postre y bebida）todos juntos, y puedes sacar cada cosa por su nombre.
+> 💡 **Analogía:** Si `out` es como rellenar un formulario en blanco, una **tupla** es como pedir una **caja combo** en un restaurante: recibes una caja que contiene (plato principal, postre y bebida) todos juntos, y puedes sacar cada cosa por su nombre.
 
 ```csharp
 // ✅ Con tupla: legible y directo
@@ -614,7 +622,7 @@ graph LR
 ```
 
 ```csharp
-// Ejemplo extra: calcular el promedio de任意数量 de notas
+// Ejemplo extra: calcular el promedio de notas
 double Promedio(params double[] notas)
 {
     double suma = 0;
@@ -634,7 +642,7 @@ Console.WriteLine(Promedio(5.5));                       // 5.5
 
 > ⚠️ **Regla:** `params` debe ser el **último** parámetro de la lista y solo puede haber uno por método. Es como la lista de la compra: va al final y solo tienes una.
 
-### F. Resumen de modificadores de parámetros
+### F. Tabla de modificadores de parámetros
 
 | Modificador | ¿Qué hace? | ¿Cuándo usarlo? | Analogía |
 |-------------|------------|-----------------|----------|
@@ -986,3 +994,16 @@ double resultado = Pow(2, 3); // 8
 > 📝 **Nota:** En top-level statements, `using` se escribe al inicio del archivo. Los verás en acción en todos los ejemplos de esta unidad.
 
 En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `throw`, el bufeo de excepciones y las asertiones para detectar errores durante el desarrollo.
+
+## Buenas Prácticas
+
+- [ ] Aplicar SRP: cada función debe tener una única responsabilidad
+- [ ] Usar ef solo cuando el método deba modificar la variable original
+- [ ] Usar out cuando el método devuelva múltiples valores
+- [ ] Siempre asignar todos los campos out antes de salir del método
+- [ ] Usar params como último parámetro de la lista
+- [ ] Preferir parámetros por defecto y nombrados sobre sobrecarga
+- [ ] Aplicar Early Return para evitar el "efecto cascada" de if anidados
+- [ ] Siempre incluir una condición de parada en la recursividad
+- [ ] Evitar variables globales — usar parámetros para pasar datos
+- [ ] Usar in para structs grandes que solo se leen

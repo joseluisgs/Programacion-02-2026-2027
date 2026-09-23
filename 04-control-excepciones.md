@@ -1,4 +1,4 @@
-﻿- [4. Control de Excepciones](#4-control-de-excepciones)
+- [4. Control de Excepciones](#4-control-de-excepciones)
   - [4.1. ¿Qué es realmente una Excepción?](#41-qué-es-realmente-una-excepción)
   - [4.2. Lanzar una Excepción (`throw`)](#42-lanzar-una-excepción-throw)
   - [4.3. Capturar una Excepción (`try-catch`)](#43-capturar-una-excepción-try-catch)
@@ -17,6 +17,14 @@
 # 4. Control de Excepciones
 
 > 💡 **Punto de partida:** ¿Alguna vez has visto un avión con una bengala roja? Eso es una excepción: algo sale mal, el piloto lanza la bengala, y el control aéreo (el bloque `catch`) actúa en consecuencia. Sin la bengala, el avión seguiría volando con un problema oculto... hasta el desastre.
+
+**Objetivos de aprendizaje:**
+
+- Comprender qué es una excepción y cuándo se produce
+- Usar `throw` para lanzar excepciones de negocio
+- Implementar `try-catch-finally` para manejar errores
+- Preferir la prevención (`if`) sobre la reacción (`try-catch`)
+- Conocer las principales excepciones de .NET y el árbol de herencia
 
 El **control de excepciones** es una técnica para manejar errores durante la ejecución de un programa. En lugar de que el programme se "cuelgue" o "rompa", las excepciones permiten **capturar y gestionar** los errores de forma controlada.
 
@@ -740,3 +748,17 @@ catch (Exception ex)                  // Captura TODO
 > 💡 **Consejo:** Captura el tipo **más específico** posible. Si capturas `Exception`, estás tapando errores que podrías manejar mejor con un catch concreto.
 
 En el siguiente punto haremos un resumen de toda la unidad, consolidando todos los conceptos vistos: programación estructurada, modular y control de excepciones.
+
+## Buenas Prácticas
+
+- [ ] Preferir if (prevención) sobre 	ry-catch (reacción) cuando el error es predecible
+- [ ] Usar TryParse en lugar de Parse para conversiones de usuario
+- [ ] Siempre ordenar los catch de más específico a más genérico
+- [ ] Nunca dejar un catch vacío — al menos registrar el error
+- [ ] Usar inally o using para liberar recursos siempre
+- [ ] Lanzar ArgumentException, ArgumentNullException o FormatException con mensajes descriptivos
+- [ ] Usar 
+ameof() en los mensajes de error para mantenerlos actualizados
+- [ ] No usar 	ry-catch para control de flujo — es costoso y poco legible
+- [ ] Capturar el tipo de excepción más específico posible
+- [ ] Usar filtros when para distinguir entre excepciones del mismo tipo

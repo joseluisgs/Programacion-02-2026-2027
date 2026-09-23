@@ -29,6 +29,14 @@
 
 > 💡 **Punto de partida:** ¿Has jugado a un videojuego conDecisiones? En The Witcher, cada elección que tomas (¿ayudar al aldeano o al mercader?) abre un camino diferente. Los condicionales son eso: tu programa elige qué camino seguir. Y los bucles son como las misiones repetitivas: "mata 10 lobos" = repite 10 veces la misma acción.
 
+**Objetivos de aprendizaje:**
+
+- Entender el Teorema de la Programación Estructurada y las tres estructuras de control
+- Usar condicionales (`if-else`, `switch`, ternario) para tomar decisiones
+- Implementar bucles (`while`, `for`, `do-while`, `foreach`) para repetir tareas
+- Controlar el flujo de bucles con `break` y `continue`
+- Depurar código con aserciones y técnicas del IDE
+
 La **programación estructurada** es un paradigma que busca crear programas más claros y fáciles de mantener. Se basa en el **Teorema de la Programación Estructurada**, que demuestra que cualquier algoritmo puede implementarse con solo **tres estructuras de control** básicas:
 
 ```mermaid
@@ -966,3 +974,14 @@ for (int i = 0; i < 5; i++)
 📌 **Ejemplo real:** Los desarrolladores de Netflix usan el depurador para encontrar por qué un vídeo se congela: ponen un breakpoint en el bucle de reproducción, inspeccionan la memoria y detectan que el buffer se llenó.
 
 En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`, `params`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.
+
+## Buenas Prácticas
+
+- [ ] Usar solo las tres estructuras de control: secuencia, condicional y bucle
+- [ ] Aplicar DRY: si copias y pegas código, necesitas un bucle o una función
+- [ ] Evaluar condicionales de mayor a menor rango en `if-else if` encadenados
+- [ ] Siempre terminar cada `case` de `switch` con `break` o `return`
+- [ ] Usar `is not null` en lugar de `!= null` para comprobaciones de nulidad
+- [ ] Verificar siempre que los bucles tienen una condición de salida clara
+- [ ] Preferir `if` (prevención) sobre `try-catch` (reacción) cuando el error es predecible
+- [ ] Usar `TryParse` en lugar de `Parse` para conversiones de usuario
