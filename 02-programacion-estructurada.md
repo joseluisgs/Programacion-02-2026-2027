@@ -82,7 +82,7 @@ El teorema establece que cualquier programa "propio" (con un único punto de ent
 ```csharp
 // Ejemplo: las tres estructuras juntas
 Console.Write("Introduce tu edad: ");
-int edad = int.Parse(Console.ReadLine()); // Secuencia
+int.TryParse(Console.ReadLine(), out int edad); // Secuencia
 
 if (edad >= 18) // Condicional
 {
@@ -120,7 +120,7 @@ Console.Write("¿Cómo te llamas? ");
 string nombre = Console.ReadLine();
 
 Console.Write("¿Cuántos años tienes? ");
-int edad = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int edad);
 
 Console.WriteLine($"Hola {nombre}, tienes {edad} años.");
 // Se ejecuta línea a línea, sin saltos ni repeticiones
@@ -150,7 +150,7 @@ graph TD
 
 ```csharp
 Console.Write("Introduce tu edad: ");
-int edad = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int edad);
 
 if (edad >= 18)
 {
@@ -181,7 +181,7 @@ graph TD
 
 ```csharp
 Console.Write("Introduce tu edad: ");
-int edad = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int edad);
 
 if (edad >= 18)
 {
@@ -270,7 +270,7 @@ graph TD
 
 ```csharp
 Console.Write("Introduce el día de la semana (1-7): ");
-int dia = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int dia);
 
 string nombreDelDia;
 
@@ -311,7 +311,7 @@ C# permite escribir `switch` como una **expresión** que devuelve un valor. Es m
 
 ```csharp
 Console.Write("Introduce el día de la semana (1-7): ");
-int dia = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out int dia);
 
 string nombreDelDia = dia switch
 {
@@ -717,7 +717,7 @@ bool menor;
 int num;
 
 Console.Write("Introduce un número: ");
-num = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out num);
 
 menor = true; // Inicialización del indicador
 
@@ -766,13 +766,13 @@ int suma = 0;
 int num;
 
 Console.Write("Introduce números a sumar, 0 para acabar: ");
-num = int.Parse(Console.ReadLine());
+int.TryParse(Console.ReadLine(), out num);
 
 while (num != 0)
 {
     suma += num;
     Console.Write("Introduce números a sumar, 0 para acabar: ");
-    num = int.Parse(Console.ReadLine());
+    int.TryParse(Console.ReadLine(), out num);
 }
 
 Console.WriteLine($"Suma total: {suma}");
