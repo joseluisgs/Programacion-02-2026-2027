@@ -5,17 +5,17 @@ UD02. Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 ## Contenidos
 
 1. [Introducción](01-introduccion.md)
-2. [Programación Estructurada](02-programacion-estructurada.md)
-3. [Programación Modular](03-programacion-modular.md)
-4. [Control de Excepciones](04-control-excepciones.md)
+2. [Programación estructurada](02-programacion-estructurada.md)
+3. [Programación modular](03-programacion-modular.md)
+4. [Control de excepciones](04-control-excepciones.md)
 5. [Resumen](05-resumen.md)
 
 ## Contenido en YouTube
 
 - [Resumen](https://youtu.be/ctqQBsqwf18)
-- [Programación Estructurada](https://youtu.be/LSCMdO3ywdQ)
-- [Programación Modular, pasos de parámetros y excepciones](https://youtu.be/TW3utlFXeps)
-- [Lista de Reproducción](https://www.youtube.com/playlist?list=PLK1PMlIrqj3c)
+- [Programación estructurada](https://youtu.be/LSCMdO3ywdQ)
+- [Programación modular, pasos de parámetros y excepciones](https://youtu.be/TW3utlFXeps)
+- [Lista de reproducción](https://www.youtube.com/playlist?list=PLK1PMlIrqj3c)
 
 ## Resultados de aprendizaje y criterios de evaluación
 
