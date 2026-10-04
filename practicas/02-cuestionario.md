@@ -1,14 +1,14 @@
 
-#### Cuestionario de Investigación y Desarrollo: Programación Estructurada y Modular en C#
+#### Cuestionario de investigación y desarrollo: programación estructurada y modular en C#
 
-- [Cuestionario de Investigación y Desarrollo: Programación Estructurada y Modular en C#](#cuestionario-de-investigación-y-desarrollo-programación-estructurada-y-modular-en-c#)
-  - [I. Fundamentos y Estructura del Programa (Preguntas 1-4)](#i-fundamentos-y-estructura-del-programa-preguntas-1-4)
-  - [II. Programación Estructurada y Flujo de Control (Preguntas 5-11)](#ii-programación-estructurada-y-flujo-de-control-preguntas-5-11)
-  - [III. Modularidad y Diseño de Funciones (Preguntas 12-18)](#iii-modularidad-y-diseño-de-funciones-preguntas-12-18)
-  - [IV. Control de Excepciones y Aserciones (Preguntas 19-20)](#iv-control-de-excepciones-y-aserciones-preguntas-19-20)
+- [Cuestionario de investigación y desarrollo: programación estructurada y modular en C#](#cuestionario-de-investigación-y-desarrollo-programación-estructurada-y-modular-en-c#)
+  - [I. Fundamentos y estructura del programa (preguntas 1-4)](#i-fundamentos-y-estructura-del-programa-preguntas-1-4)
+  - [II. Programación estructurada y flujo de control (preguntas 5-11)](#ii-programación-estructurada-y-flujo-de-control-preguntas-5-11)
+  - [III. Modularidad y diseño de funciones (preguntas 12-18)](#iii-modularidad-y-diseño-de-funciones-preguntas-12-18)
+  - [IV. Control de excepciones y aserciones (preguntas 19-20)](#iv-control-de-excepciones-y-aserciones-preguntas-19-20)
 
 
-##### I. Fundamentos y Estructura del Programa (Preguntas 1-4)
+##### I. Fundamentos y estructura del programa (preguntas 1-4)
 
 1. Justifique la afirmación de que los paradigmas de Programación Estructurada y Modular son la **base fundamental** para la comprensión de paradigmas avanzados como la Programación Orientada a Objetos o Funcional.
 
@@ -18,7 +18,7 @@
 
 4. La función de entrada `Console.ReadLine()` en C# siempre devuelve un string. Explique la necesidad del *casting* explícito (`int.Parse`) en el desarrollo de programas que manejan entrada numérica y discuta los riesgos de la pérdida de información asociados a las conversiones de tipos.
 
-##### II. Programación Estructurada y Flujo de Control (Preguntas 5-11)
+##### II. Programación estructurada y flujo de control (preguntas 5-11)
 
 5. Compare la estructura `if-else if-else` con la estructura `switch` (o según). ¿En qué condiciones de legibilidad y diseño es preferible la implementación del `switch` para manejar la selección múltiple?.
 
@@ -34,7 +34,7 @@
 
 11. Los **bucles anidados** son una técnica iterativa avanzada. Justifique por qué esta técnica es especialmente útil y necesaria para la manipulación de estructuras de datos bidimensionales como las matrices.
 
-##### III. Modularidad y Diseño de Funciones (Preguntas 12-18)
+##### III. Modularidad y diseño de funciones (preguntas 12-18)
 
 12. Defina el principio de **"Divide y Vencerás" (DAC)**. ¿Cómo se traduce este principio en la práctica de la Programación Modular para facilitar la resolución de problemas grandes y la colaboración entre programadores?.
 
@@ -50,7 +50,7 @@
 
 18. La **Sobrecarga de funciones** permite múltiples módulos con el mismo nombre. Justifique su uso moderado, considerando que el uso de parámetros por defecto, opcionales o nombrados puede lograr resultados similares.
 
-##### IV. Control de Excepciones y Aserciones (Preguntas 19-20)
+##### IV. Control de excepciones y aserciones (preguntas 19-20)
 
 19. El control de excepciones es crucial para la robustez en el **despliegue de aplicaciones web**. Explique qué es una excepción y justifique la decisión de diseño de que las excepciones en C# sean **no requeridas** (*unchecked*), indicando la clase base de la que heredan todas las excepciones.
 

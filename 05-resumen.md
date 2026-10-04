@@ -1,23 +1,23 @@
-- [5. Resumen y Conclusiones UD02](#5-resumen-y-conclusiones-ud02)
-  - [5.1. Mapa Conceptual de la Unidad](#51-mapa-conceptual-de-la-unidad)
-  - [5.2. Conceptos Clave](#52-conceptos-clave)
-    - [Programación Estructurada](#programación-estructurada)
-    - [Programación Modular](#programación-modular)
-    - [Control de Excepciones](#control-de-excepciones)
-    - [Documentación y Comentarios](#documentación-y-comentarios)
-  - [5.3. Herramientas y Perfiles](#53-herramientas-y-perfiles)
+- [5. Resumen y conclusiones UD02](#5-resumen-y-conclusiones-ud02)
+  - [5.1. Mapa conceptual de la unidad](#51-mapa-conceptual-de-la-unidad)
+  - [5.2. Conceptos clave](#52-conceptos-clave)
+    - [Programación estructurada](#programación-estructurada)
+    - [Programación modular](#programación-modular)
+    - [Control de excepciones](#control-de-excepciones)
+    - [Documentación y comentarios](#documentación-y-comentarios)
+  - [5.3. Herramientas y perfiles](#53-herramientas-y-perfiles)
     - [IDE](#ide)
     - [Comandos CLI](#comandos-cli)
     - [Depuración](#depuración)
-  - [5.4. Errores Comunes a Evitar](#54-errores-comunes-a-evitar)
-  - [5.5. Checklist de Supervivencia](#55-checklist-de-supervivencia)
-  - [5.6. Glosario de Términos](#56-glosario-de-términos)
-  - [5.7. Ejercicios de Repaso](#57-ejercicios-de-repaso)
+  - [5.4. Errores comunes a evitar](#54-errores-comunes-a-evitar)
+  - [5.5. Checklist de supervivencia](#55-checklist-de-supervivencia)
+  - [5.6. Glosario de términos](#56-glosario-de-términos)
+  - [5.7. Ejercicios de repaso](#57-ejercicios-de-repaso)
   - [5.8. ¿Qué viene después?](#58-qué-viene-después)
-  - [5.9. Mapa de Conexiones entre Temas](#59-mapa-de-conexiones-entre-temas)
+  - [5.9. Mapa de conexiones entre temas](#59-mapa-de-conexiones-entre-temas)
 
 
-# 5. Resumen y Conclusiones UD02
+# 5. Resumen y conclusiones UD02
 
 > 💡 **Punto de partida:** Has pasado de escribir código lineal a construir programas que piensan (condicionales), repiten (bucles), se organizan (módulos) y se recuperan de errores (excepciones). Eso es ser programador/a.
 
@@ -26,7 +26,7 @@
 - Consolidar el vocabulario técnico
 - Tener una referencia rápida para el examen
 
-## 5.1. Mapa Conceptual de la Unidad
+## 5.1. Mapa conceptual de la unidad
 
 ```mermaid
 graph TD
@@ -73,9 +73,9 @@ graph TD
     style DOC fill:#607D8B,color:#fff
 ```
 
-## 5.2. Conceptos Clave
+## 5.2. Conceptos clave
 
-### Programación Estructurada
+### Programación estructurada
 
 - **Teorema**: cualquier algoritmo se escribe con secuencia, condicional y bucle
 - **DRY**: no repitas código; si lo haces, necesitas un módulo o un bucle
@@ -91,7 +91,7 @@ graph TD
 
 📌 **Ejemplo real:** Netflix usa `while` para seguir reproduciendo episodios, `if` para decidir si eres premium, y `for` para recorrer tu lista de favoritos.
 
-### Programación Modular
+### Programación modular
 
 - **DAC (Divide y Vencerás)**: divide problemas grandes en subproblemas
 - **SRP**: cada módulo, una responsabilidad
@@ -110,7 +110,7 @@ graph TD
 
 📌 **Ejemplo real:** Spotify tiene una función `CalcularDuracion()` que reutiliza en todas las playlists. Si cambia la lógica, solo toca un sitio.
 
-### Control de Excepciones
+### Control de excepciones
 
 - **Excepción**: error en tiempo de ejecución
 - **`throw`**: lanza una excepción (notifica el error)
@@ -130,7 +130,7 @@ graph TD
 
 📌 **Ejemplo real:** Amazon lanza una `ArgumentException` cuando el carrito está vacío y el usuario intenta pagar. El `catch` muestra un mensaje amigable en vez de que la app se cierre.
 
-### Documentación y Comentarios
+### Documentación y comentarios
 
 - **Comentarios `//`**: para explicar lógica compleja o decisiones de negocio
 - **XMLDoc `/// <summary>`**: documentación automática de clases y métodos públicos
@@ -163,7 +163,7 @@ double CalcularDescuento(double total, bool esPremium)
 
 > ⚠️ **Advertencia:** No comentes código autoexplicativo (`// suma dos números` en `suma = a + b`). Comenta el **por qué**, no el **qué**.
 
-## 5.3. Herramientas y Perfiles
+## 5.3. Herramientas y perfiles
 
 ### IDE
 - **JetBrains Rider**: depurador visual, puntos de interrupción, inspección de variables
@@ -180,7 +180,7 @@ double CalcularDescuento(double total, bool esPremium)
 - **Step Into**: entra dentro de funciones para ver su lógica
 - **Watch**: monitoriza variables en tiempo real
 
-## 5.4. Errores Comunes a Evitar
+## 5.4. Errores comunes a evitar
 
 | Error | Por qué está mal | Cómo evitarlo |
 |-------|------------------|---------------|
@@ -192,7 +192,7 @@ double CalcularDescuento(double total, bool esPremium)
 | Variables globales | Efectos secundarios difíciles de rastrear | Usar parámetros para pasar datos |
 | `switch` sin `break` | Error de compilación en C# | Siempre terminar cada `case` con `break` |
 
-## 5.5. Checklist de Supervivencia
+## 5.5. Checklist de supervivencia
 
 Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas preguntas:
 
@@ -214,7 +214,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 > 🔧 **Truco:** Crea un programa que pida dos números y los sume dentro de una función. Luego añade un `try-catch` para manejar si el usuario no introduce números. Si funciona, dominas lo básico de esta unidad.
 
-## 5.6. Glosario de Términos
+## 5.6. Glosario de términos
 
 | Término | Definición |
 |---------|------------|
@@ -253,7 +253,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 | **Unchecked exception** | Excepción que el compilador no obliga a capturar (todas en C#) |
 | **Checked exception** | Excepción que el compilador obliga a capturar (existe en Java, no en C#) |
 
-## 5.7. Ejercicios de Repaso
+## 5.7. Ejercicios de repaso
 
 1. **Calculadora simple**: Crea una calculadora que pida dos números y una operación (`+`, `-`, `*`, `/`). Usa `switch` para la operación y `try-catch` para la división por cero.
 
@@ -282,7 +282,7 @@ En la **UD03: Almacenamiento Estático y Cadenas** aprenderás a almacenar conju
 | Condicionales `switch` | Seleccionar elementos según criterios |
 | Early Return | Validar índices antes de acceder a arrays |
 
-## 5.9. Mapa de Conexiones entre Temas
+## 5.9. Mapa de conexiones entre temas
 
 ```mermaid
 graph LR
@@ -309,7 +309,7 @@ graph LR
     style UD11 fill:#f44336,color:#fff
 ```
 
-## Buenas Prácticas
+## Buenas prácticas
 
 - [ ] Repasar los conceptos clave antes de empezar la práctica
 - [ ] Seguir el patrón Análisis → Diseño → Codificación

@@ -1,5 +1,5 @@
 - [1. Introducción](#1-introducción)
-  - [1.1. Programación Estructurada y Modular: un paradigma](#11-programación-estructurada-y-modular-un-paradigma)
+  - [1.1. Programación estructurada y modular: un paradigma](#11-programación-estructurada-y-modular-un-paradigma)
   - [1.2. Del caos al orden: una analogía](#12-del-caos-al-orden-una-analogía)
   - [1.3. Conexión con UD01: lo que ya sabes](#13-conexión-con-ud01-lo-que-ya-sabes)
   - [1.4. ¿Qué aprenderás en esta unidad?](#14-qué-aprenderás-en-esta-unidad)
@@ -20,7 +20,7 @@ En la UD01 vimos qué es la programación, los algoritmos y los paradigmas. Apre
 
 La respuesta es: **programación estructurada y modular**.
 
-## 1.1. Programación Estructurada y Modular: un paradigma
+## 1.1. Programación estructurada y modular: un paradigma
 
 Recordarás de la UD01 que un **paradigma** es un estilo o filosofía de programación. La programación estructurada y modular es un **paradigma** que se basa en dos ideas fundamentales:
 
@@ -177,7 +177,7 @@ Al finalizar esta unidad serás capaz de:
 
 En el siguiente punto veremos la programación estructurada en profundidad: secuencias, condicionales (`if-else`, `switch`, ternario), bucles (`while`, `for`, `do-while`) y el operador `??`.
 
-## Buenas Prácticas
+## Buenas prácticas
 
 - [ ] Usar siempre las tres estructuras de control básicas: secuencia, condicional y bucle
 - [ ] Evitar el uso de `goto` — las estructuras de control son suficientes

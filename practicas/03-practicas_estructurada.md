@@ -1,10 +1,10 @@
-# Batería de Ejercicios: Programación Estructurada en C# 14
+# Batería de ejercicios: programación estructurada en C# 14
 
 **Instrucciones:** Para cada ejercicio, implementa el código en C# usando Top-Level Statements. Puedes usar C# scripting (`dotnet run ejercicio.cs`) o crear un proyecto. Recuerda: **primero el diseño en papel, luego la codificación**.
 
 ---
 
-### Bloque I: Secuencias y Operaciones Básicas (Ejercicios 1-10)
+### Bloque I: Secuencias y operaciones básicas (ejercicios 1-10)
 
 **Ejercicio 1: Tu Setup de Programador**
 Implementa un programa que muestre tu setup de programador: marca del portátil (`string`), pulgadas de pantalla (`int`), RAM en GB (`int`), sistema operativo (`string`). Muestra todo con interpolación en un formato bonito.
@@ -38,7 +38,7 @@ Implementa un programa que pida un número al usuario. Si es par, muestra "Par".
 
 ---
 
-### Bloque II: Condicionales Múltiples y Ternario (Ejercicios 11-20)
+### Bloque II: Condicionales múltiples y ternario (ejercicios 11-20)
 
 **Ejercicio 11: Clasificación por Edad**
 Implementa un programa que pida la edad. Usa `if-else if-else` para mostrar: "Niño" (<12), "Adolescente" (12-17), "Adulto" (18-64), "Mayor" (65+).
@@ -72,7 +72,7 @@ Implementa un programa que pida dos números y una operación (+, -). Usa un ter
 
 ---
 
-### Bloque III: Bucles While y Do-While (Ejercicios 21-30)
+### Bloque III: Bucles while y Do-While (ejercicios 21-30)
 
 **Ejercicio 21: Cuenta Atrás**
 Implementa un programa con `while` que muestre una cuenta atrás desde 10 hasta 0. Cuando llegue a 0, muestra "¡Lanzamiento!".
@@ -106,7 +106,7 @@ Implementa un programa con `bool encontrado = false;` y un número objetivo 23. 
 
 ---
 
-### Bloque IV: Bucles For (Ejercicios 31-40)
+### Bloque IV: Bucles for (ejercicios 31-40)
 
 **Ejercicio 31: Tabla de Multiplicar**
 Implementa un programa que pida un número. Usa un `for` del 1 al 10 para mostrar su tabla de multiplicar.
@@ -161,7 +161,7 @@ Implementa un programa con un `for` del 1 al 100. Si es múltiplo de 3, muestra 
 
 ---
 
-### Bloque V: Break, Continue y Control (Ejercicios 41-50)
+### Bloque V: Break, continue y control (ejercicios 41-50)
 
 **Ejercicio 41: Break en Bucle**
 Implementa un programa con `while` que pida números al usuario. Cuando escriba 42, muestra "¡Encontrado!" y sale con `break`.

@@ -1,5 +1,5 @@
-- [2. Programación Estructurada](#2-programación-estructurada)
-  - [2.1. El Teorema de la Programación Estructurada](#21-el-teorema-de-la-programación-estructurada)
+- [2. Programación estructurada](#2-programación-estructurada)
+  - [2.1. El teorema de la programación estructurada](#21-el-teorema-de-la-programación-estructurada)
   - [2.2. Secuencias](#22-secuencias)
   - [2.3. Condicionales](#23-condicionales)
     - [A. Condicional simple (`if`)](#a-condicional-simple-if)
@@ -14,18 +14,18 @@
     - [C. Bucle `for`](#c-bucle-for)
     - [D. Bucle `foreach`](#d-bucle-foreach)
     - [E. Comparativa de bucles](#e-comparativa-de-bucles)
-  - [2.5. Mecanismos de Control de Bucles](#25-mecanismos-de-control-de-bucles)
-    - [A. Bucles controlados por Indicadores (Banderas o Flags)](#a-bucles-controlados-por-indicadores-banderas-o-flags)
-    - [B. Bucles controlados por Centinela](#b-bucles-controlados-por-centinela)
-    - [C. Bucles Anidados](#c-bucles-anidados)
-  - [2.6. Sentencias de Salto](#26-sentencias-de-salto)
+  - [2.5. Mecanismos de control de bucles](#25-mecanismos-de-control-de-bucles)
+    - [A. Bucles controlados por indicadores (banderas o flags)](#a-bucles-controlados-por-indicadores-banderas-o-flags)
+    - [B. Bucles controlados por centinela](#b-bucles-controlados-por-centinela)
+    - [C. Bucles anidados](#c-bucles-anidados)
+  - [2.6. Sentencias de salto](#26-sentencias-de-salto)
     - [A. `break`](#a-break)
     - [B. `continue`](#b-continue)
-  - [2.7. Peligros: El Bucle Infinito](#27-peligros-el-bucle-infinito)
-  - [2.8. Depuración: Aserciones y Técnicas](#28-depuración-aserciones-y-técnicas)
+  - [2.7. Peligros: el bucle infinito](#27-peligros-el-bucle-infinito)
+  - [2.8. Depuración: aserciones y técnicas](#28-depuración-aserciones-y-técnicas)
 
 
-# 2. Programación Estructurada
+# 2. Programación estructurada
 
 > 💡 **Punto de partida:** ¿Has jugado a un videojuego conDecisiones? En The Witcher, cada elección que tomas (¿ayudar al aldeano o al mercader?) abre un camino diferente. Los condicionales son eso: tu programa elige qué camino seguir. Y los bucles son como las misiones repetitivas: "mata 10 lobos" = repite 10 veces la misma acción.
 
@@ -71,7 +71,7 @@ Si ves que estás copiando y pegando el mismo bloque de código varias veces, es
 
 📌 **Ejemplo real:** Spotify usa secuencias para cargar tu playlist, condicionales para decidir si eres premium o free, y bucles para reproducir cada canción una tras otra. Sin estas estructuras, el código sería un caos imposible de mantener.
 
-## 2.1. El Teorema de la Programación Estructurada
+## 2.1. El teorema de la programación estructurada
 
 El teorema establece que cualquier programa "propio" (con un único punto de entrada y salida, sin bucles infinitos) puede escribirse usando **únicamente** estas tres estructuras. Esto significa que:
 
@@ -684,11 +684,11 @@ for (int k = 0; k < 3; k++)
 // Salida: for: 0, for: 1, for: 2
 ```
 
-## 2.5. Mecanismos de Control de Bucles
+## 2.5. Mecanismos de control de bucles
 
 Existen **tres formas típicas** de controlar cuándo se ejecuta un bucle:
 
-### A. Bucles controlados por Indicadores (Banderas o Flags)
+### A. Bucles controlados por indicadores (banderas o flags)
 
 Las **banderas** son variables booleanas (`bool`) que controlan la ejecución del bucle.
 
@@ -740,7 +740,7 @@ else
 }
 ```
 
-### B. Bucles controlados por Centinela
+### B. Bucles controlados por centinela
 
 Un **centinela** es un valor especial que indica la parada de la iteración.
 
@@ -778,7 +778,7 @@ while (num != 0)
 Console.WriteLine($"Suma total: {suma}");
 ```
 
-### C. Bucles Anidados
+### C. Bucles anidados
 
 Los bucles se pueden **anidar** (un bucle dentro de otro). Especialmente útil para matrices.
 
@@ -796,7 +796,7 @@ for (int i = 1; i <= 10; i++)
 
 > 📝 **Nota:** Los arrays bidimensionales (matrices) y su manipulación con bucles anidados se estudiarán en la UD03.
 
-## 2.6. Sentencias de Salto
+## 2.6. Sentencias de salto
 
 Las sentencias de salto permiten alterar el flujo normal de un bucle.
 
@@ -870,7 +870,7 @@ for (int i = 1; i <= 10; i++)
 
 > ⚠️ **Advertencia:** Usa `break` y `continue` con moderación. Un uso excesivo dificulta la legibilidad. Si tu bucle necesita muchos `break`/`continue`, probablemente necesite reestructurarse.
 
-## 2.7. Peligros: El Bucle Infinito
+## 2.7. Peligros: el bucle infinito
 
 Un bucle infinito ocurre cuando la condición de salida **nunca se vuelve falsa**.
 
@@ -927,7 +927,7 @@ while (opcion == 5)  // Si opcion empieza en 0, nunca entra
 
 > 📝 **Tip de depuración:** Si tu programa se queda "colgado", probablemente tienes un bucle infinito. Usa el depurador del IDE para pausar y ver el valor de las variables de control.
 
-## 2.8. Depuración: Aserciones y Técnicas
+## 2.8. Depuración: aserciones y técnicas
 
 La **depuración** es el proceso de encontrar y corregir errores en el código. Existen varias técnicas:
 
@@ -975,7 +975,7 @@ for (int i = 0; i < 5; i++)
 
 En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`, `params`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.
 
-## Buenas Prácticas
+## Buenas prácticas
 
 - [ ] Usar solo las tres estructuras de control: secuencia, condicional y bucle
 - [ ] Aplicar DRY: si copias y pegas código, necesitas un bucle o una función

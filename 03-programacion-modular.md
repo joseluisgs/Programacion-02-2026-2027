@@ -1,15 +1,15 @@
-- [3. Programación Modular](#3-programación-modular)
+- [3. Programación modular](#3-programación-modular)
   - [3.1. ¿Por qué dividir en módulos?](#31-por-qué-dividir-en-módulos)
-  - [3.2. Funciones y Procedimientos en C#](#32-funciones-y-procedimientos-en-c)
+  - [3.2. Funciones y procedimientos en C#](#32-funciones-y-procedimientos-en-c)
     - [A. Funciones (devuelven valor)](#a-funciones-devuelven-valor)
     - [B. Procedimientos (no devuelven valor)](#b-procedimientos-no-devuelven-valor)
     - [C. Diferencia entre función y procedimiento](#c-diferencia-entre-función-y-procedimiento)
-  - [3.3. Parámetros y Argumentos](#33-parámetros-y-argumentos)
+  - [3.3. Parámetros y argumentos](#33-parámetros-y-argumentos)
     - [A. Paso por valor (por defecto)](#a-paso-por-valor-por-defecto)
     - [B. Paso por referencia con `ref`](#b-paso-por-referencia-con-ref)
     - [C. Parámetros de salida con `out`](#c-parámetros-de-salida-con-out)
     - [D. Paso solo lectura con `in`](#d-paso-solo-lectura-con-in)
-    - [Tuplas, Enums y Structs como parámetros y returns](#tuplas-enums-y-structs-como-parámetros-y-returns)
+    - [Tuplas, enums y structs como parámetros y returns](#tuplas-enums-y-structs-como-parámetros-y-returns)
     - [E. Parámetros variables con `params`](#e-parámetros-variables-con-params)
     - [F. Tabla de modificadores de parámetros](#f-tabla-de-modificadores-de-parámetros)
     - [G. Menciones avanzadas: `this`, `scoped`, `ref readonly`](#g-menciones-avanzadas-this-scoped-ref-readonly)
@@ -21,7 +21,7 @@
   - [3.9. Espacios de nombres y `using`](#39-espacios-de-nombres-y-using)
 
 
-# 3. Programación Modular
+# 3. Programación modular
 
 > 💡 **Punto de partida:** ¿Alguna vez has construido algo con LEGO? Cada pieza es pequeña, sencilla y tiene una función clara. Juntas, construyen cualquier cosa. La programación modular es lo mismo: dividir un programa grande en piezas pequeñas, manejables y reutilizables.
 
@@ -96,7 +96,7 @@ Cada módulo debe tener **una única responsabilidad**. Si una función calcula 
 
 > 💡 **Consejo:** Si no puedes describir qué hace una función en una frase corta sin usar "y", probablemente está haciendo demasiado. Divídela.
 
-## 3.2. Funciones y Procedimientos en C#
+## 3.2. Funciones y procedimientos en C#
 
 En C#, los módulos se llaman **métodos**. Hay dos tipos:
 
@@ -172,7 +172,7 @@ graph TD
 
 > 📝 **Nota:** En C# ambos se llaman "métodos". La distinción función/procedimiento es conceptual para entender si devuelven o no un valor.
 
-## 3.3. Parámetros y Argumentos
+## 3.3. Parámetros y argumentos
 
 Los **parámetros** son las variables de la definición del método. Los **argumentos** son los valores reales que pasas al llamarlo.
 
@@ -508,7 +508,7 @@ double CalcularDistancia(in Point punto1, in Point punto2)
 
 > 📝 **Nota:** `in` es más eficiente que el paso por valor para tipos de valor grandes (structs), porque evita copiarlos. Ya vimos structs en la UD01 (sección 6.6).
 
-### Tuplas, Enums y Structs como parámetros y returns
+### Tuplas, enums y structs como parámetros y returns
 
 Ya conoces tuplas, enums y structs de la UD01. Ahora los usaremos como **tipo de parámetro** y **tipo de retorno** en funciones.
 
@@ -995,7 +995,7 @@ double resultado = Pow(2, 3); // 8
 
 En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `throw`, el bufeo de excepciones y las asertiones para detectar errores durante el desarrollo.
 
-## Buenas Prácticas
+## Buenas prácticas
 
 - [ ] Aplicar SRP: cada función debe tener una única responsabilidad
 - [ ] Usar ef solo cuando el método deba modificar la variable original

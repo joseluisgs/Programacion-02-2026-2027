@@ -1,17 +1,17 @@
-- [Práctica 1: Test de Conocimientos](#práctica-1-test-de-conocimientos)
-  - [Bloque 1: Introducción y Fundamentos (Preguntas 1-8)](#bloque-1-introducción-y-fundamentos-preguntas-1-8)
-  - [Bloque 2: Programación Estructurada (Preguntas 9-25)](#bloque-2-programación-estructurada-preguntas-9-25)
-  - [Bloque 3: Programación Modular y Flujo Avanzado (Preguntas 26-45)](#bloque-3-programación-modular-y-flujo-avanzado-preguntas-26-45)
-  - [Bloque 4: Control de Excepciones y Aserciones (Preguntas 46-50)](#bloque-4-control-de-excepciones-y-aserciones-preguntas-46-50)
+- [Práctica 1: Test de conocimientos](#práctica-1-test-de-conocimientos)
+  - [Bloque 1: Introducción y fundamentos (preguntas 1-8)](#bloque-1-introducción-y-fundamentos-preguntas-1-8)
+  - [Bloque 2: Programación estructurada (preguntas 9-25)](#bloque-2-programación-estructurada-preguntas-9-25)
+  - [Bloque 3: Programación modular y flujo avanzado (preguntas 26-45)](#bloque-3-programación-modular-y-flujo-avanzado-preguntas-26-45)
+  - [Bloque 4: Control de excepciones y aserciones (preguntas 46-50)](#bloque-4-control-de-excepciones-y-aserciones-preguntas-46-50)
 
 
-# Práctica 1: Test de Conocimientos
+# Práctica 1: Test de conocimientos
 
 **Instrucciones:** Lee atentamente cada pregunta y selecciona la opción que consideres correcta.
 
 ---
 
-### Bloque 1: Introducción y Fundamentos (Preguntas 1-8)
+### Bloque 1: Introducción y fundamentos (preguntas 1-8)
 
 1.  **¿Cuáles son los primeros paradigmas de programación que se deben aprender y dominar, ya que son la base para otros paradigmas más avanzados?**
     a) Programación Orientada a Objetos y Funcional
@@ -61,7 +61,7 @@
     c) Preciso, bien definido y finito
     d) Complejo, extenso y adaptable
 
-### Bloque 2: Programación Estructurada (Preguntas 9-25)
+### Bloque 2: Programación estructurada (preguntas 9-25)
 
 9.  **Según el Teorema Fundamental de la Programación Estructurada, ¿cuáles son las tres estructuras de control básicas con las que se puede escribir cualquier programa propio?**
     a) Secuencial, Iterativa y GOTO
@@ -165,7 +165,7 @@
     c) El uso de la recursividad sin condición de fin
     d) El efecto de los bucles anidados
 
-### Bloque 3: Programación Modular y Flujo Avanzado (Preguntas 26-45)
+### Bloque 3: Programación modular y flujo avanzado (preguntas 26-45)
 
 26.  **La programación modular se basa en la técnica de descomponer un problema grande en subproblemas más simples. ¿Cómo se conoce esta técnica?**
     a) Recursividad
@@ -287,7 +287,7 @@
     c) Un parámetro por referencia
     d) Un bloque Main
 
-### Bloque 4: Control de Excepciones y Aserciones (Preguntas 46-50)
+### Bloque 4: Control de excepciones y aserciones (preguntas 46-50)
 
 46.  **En C#, la técnica de Control de Excepciones está basada en una clase fundamental de la cual heredan todas las demás. ¿Cuál es esta clase base?**
     a) SystemError

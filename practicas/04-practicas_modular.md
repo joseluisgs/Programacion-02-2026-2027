@@ -1,10 +1,10 @@
-# Batería de Ejercicios: Programación Modular y Excepciones en C# 14
+# Batería de ejercicios: programación modular y excepciones en C# 14
 
 **Instrucciones:** Para cada ejercicio, implementa el código en C# usando Top-Level Statements. Puedes usar C# scripting (`dotnet run ejercicio.cs`) o crear un proyecto. Recuerda: **primero el diseño en papel, luego la codificación**.
 
 ---
 
-### Bloque I: Funciones con Valor de Retorno (Ejercicios 1-10)
+### Bloque I: Funciones con valor de retorno (ejercicios 1-10)
 
 **Ejercicio 1: Calculadora de Propinas**
 Implementa una función `double CalcularPropina(double cuenta, double porcentaje)` que devuelva la propina. El programa pide la cuenta y el porcentaje. Muestra: "{cuenta}€ + {propina}€ = {total}€".
@@ -38,7 +38,7 @@ Implementa una función `double Promedio(double n1, double n2, double n3)` que d
 
 ---
 
-### Bloque II: Procedimientos y Parámetros (Ejercicios 11-20)
+### Bloque II: Procedimientos y parámetros (ejercicios 11-20)
 
 **Ejercicio 11: Mostrar con Recuadro**
 Implementa un procedimiento `void MostrarConRecuadro(string texto)` que imprima el texto dentro de un recuadro de asteriscos. Llámalo 3 veces con textos diferentes.
@@ -72,7 +72,7 @@ Implementa una función recursiva `double Potencia(double baseNum, int exponente
 
 ---
 
-### Bloque III: Ámbito y Diseño Modular (Ejercicios 21-28)
+### Bloque III: Ámbito y diseño modular (ejercicios 21-28)
 
 **Ejercicio 21: Variables Locales vs Globales**
 Implementa un programa con una variable global `int contador = 0;` y un procedimiento `void Incrementar()` que la incremente. Llámalo 5 veces y muestra el contador. Comenta por qué las variables globales son peligrosas.
@@ -100,7 +100,7 @@ Implementa una función `string Calificar(double nota)` con Early Return: < 0 �
 
 ---
 
-### Bloque IV: `ref`, `out` e `in` (Ejercicios 29-36)
+### Bloque IV: `ref`, `out` e `in` (ejercicios 29-36)
 
 **Ejercicio 29: Ordenar Tres Números con `ref`**
 Implementa un procedimiento `void Ordenar(ref int a, ref int b, ref int c)` que ordene tres números de menor a mayor. Prueba con (5, 2, 8).
@@ -128,7 +128,7 @@ Implementa una función `double CalcularDescuento(in double precio, in double po
 
 ---
 
-### Bloque V: Try-Catch (Ejercicios 37-44)
+### Bloque V: Try-Catch (ejercicios 37-44)
 
 **Ejercicio 37: Lectura Segura de Números**
 Implementa un programa que pida un número al usuario. Usa `int.TryParse` en un bucle `while` hasta que introduzca un número válido.
@@ -156,7 +156,7 @@ Implementa una función `void Transferir(double saldo, double cantidad)` que lan
 
 ---
 
-### Bloque VI: Finally y Avanzado (Ejercicios 45-50)
+### Bloque VI: Finally y avanzado (ejercicios 45-50)
 
 **Ejercicio 45: Finally con Recursos**
 Implementa un procedimiento `void Procesar()` que simule usar un recurso (`bool recursoAbierto = true;`). En `try` procesa datos, en `finally` cierra el recurso. Prueba con datos válidos y con una excepción.

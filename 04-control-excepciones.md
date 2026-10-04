@@ -1,20 +1,20 @@
-- [4. Control de Excepciones](#4-control-de-excepciones)
-  - [4.1. ¿Qué es realmente una Excepción?](#41-qué-es-realmente-una-excepción)
-  - [4.2. Lanzar una Excepción (`throw`)](#42-lanzar-una-excepción-throw)
-  - [4.3. Capturar una Excepción (`try-catch`)](#43-capturar-una-excepción-try-catch)
+- [4. Control de excepciones](#4-control-de-excepciones)
+  - [4.1. ¿Qué es realmente una excepción?](#41-qué-es-realmente-una-excepción)
+  - [4.2. Lanzar una excepción (`throw`)](#42-lanzar-una-excepción-throw)
+  - [4.3. Capturar una excepción (`try-catch`)](#43-capturar-una-excepción-try-catch)
   - [4.4. El significado profundo de manejar el error](#44-el-significado-profundo-de-manejar-el-error)
   - [4.5. El peligro de tratar las excepciones a la ligera](#45-el-peligro-de-tratar-las-excepciones-a-la-ligera)
-  - [4.6. El Burbujeo de Excepciones](#46-el-burbujeo-de-excepciones)
+  - [4.6. El burbujeo de excepciones](#46-el-burbujeo-de-excepciones)
   - [4.7. Bloques `try`, `catch` y `finally`](#47-bloques-try-catch-y-finally)
   - [4.8. Captura específica y filtros](#48-captura-específica-y-filtros)
-  - [4.9. La Diferencia: Compilación vs. Ejecución](#49-la-diferencia-compilación-vs-ejecución)
+  - [4.9. La diferencia: compilación vs. ejecución](#49-la-diferencia-compilación-vs-ejecución)
   - [4.10. Buenas prácticas y ejemplo práctico](#410-buenas-prácticas-y-ejemplo-práctico)
-  - [4.11. Principales Excepciones de .NET](#411-principales-excepciones-de-net)
-  - [4.12. Checked vs Unchecked: ¿Por qué C# no obliga a capturar?](#412-checked-vs-unchecked-por-qué-c-no-obliga-a-capturar)
-  - [4.13. Árbol de Excepciones de .NET](#413-árbol-de-excepciones-de-net)
+  - [4.11. Principales excepciones de .NET](#411-principales-excepciones-de-net)
+  - [4.12. Checked vs unchecked: ¿Por qué C# no obliga a capturar?](#412-checked-vs-unchecked-por-qué-c-no-obliga-a-capturar)
+  - [4.13. Árbol de excepciones de .NET](#413-árbol-de-excepciones-de-net)
 
 
-# 4. Control de Excepciones
+# 4. Control de excepciones
 
 > 💡 **Punto de partida:** ¿Alguna vez has visto un avión con una bengala roja? Eso es una excepción: algo sale mal, el piloto lanza la bengala, y el control aéreo (el bloque `catch`) actúa en consecuencia. Sin la bengala, el avión seguiría volando con un problema oculto... hasta el desastre.
 
@@ -46,7 +46,7 @@ graph LR
     style G fill:#4CAF50,color:#fff
 ```
 
-## 4.1. ¿Qué es realmente una Excepción?
+## 4.1. ¿Qué es realmente una excepción?
 
 Una **excepción** es un evento que interrumpe el flujo normal del programa. Es un "algo excepcional" que ocurre en tiempo de ejecución.
 
@@ -59,7 +59,7 @@ Una **excepción** es un evento que interrumpe el flujo normal del programa. Es 
 | `FileNotFoundException` | Abrir archivo que no existe | Parcialmente |
 | `NullReferenceException` | Usar un `null` como si tuviera valor | Sí → verificar nulidad |
 
-## 4.2. Lanzar una Excepción (`throw`)
+## 4.2. Lanzar una excepción (`throw`)
 
 `throw` es el acto de **notificar** que algo ha ido mal. Es como disparar la bengala.
 
@@ -78,7 +78,7 @@ void RetirarDinero(decimal cantidad, decimal saldo)
 
 > 💡 **Consejo:** Lanza excepciones cuando los datos o el estado del programa **no cumplan las reglas del negocio**, incluso si técnicamente la operación es posible.
 
-## 4.3. Capturar una Excepción (`try-catch`)
+## 4.3. Capturar una excepción (`try-catch`)
 
 Capturar es el acto de **recibir** la bengala y actuar para que el programa no muera.
 
@@ -154,7 +154,7 @@ catch (Exception e)
 
 Es como tapar la luz de alarma de un avión con cinta adhesiva. El desastre acabará ocurriendo y será mucho más difícil encontrar el origen.
 
-## 4.6. El Burbujeo de Excepciones
+## 4.6. El burbujeo de excepciones
 
 Si una función lanza una excepción y no tiene `catch`, esta **burbujea** hacia arriba en la pila de llamadas hasta encontrar uno.
 
@@ -336,7 +336,7 @@ catch (SqlException e)                           // Cualquier otro error SQL
 
 > 💡 **Consejo:** Piensa en los `catch` como especialistas médicos: un cardiólogo (catch específico) trata mejor un problema de corazón que un médico general (catch genérico).
 
-## 4.9. La Diferencia: Compilación vs. Ejecución
+## 4.9. La diferencia: compilación vs. ejecución
 
 | Fase | Nivel de Control | Ejemplos de Fallo |
 |------|-----------------|-------------------|
@@ -575,7 +575,7 @@ graph TD
 
 > 💡 **Regla nemotécnica:** "Si el `if` puede verlo, el `try-catch` no lo toca."
 
-## 4.11. Principales Excepciones de .NET
+## 4.11. Principales excepciones de .NET
 
 .NET trae decenas de excepciones listas para usar. No necesitas crear las tuyas (eso lo verás con herencia en la UD04). Por ahora, aprende a **lanzar y capturar** las que ya existen.
 
@@ -615,7 +615,7 @@ void Registrar(string nombre, string email, int edad)
 
 > 💡 **Consejo:** Usa `nameof(variable)` en los mensajes de error. Si renombras la variable, el mensaje se actualiza automáticamente.
 
-## 4.12. Checked vs Unchecked: ¿Por qué C# no obliga a capturar?
+## 4.12. Checked vs unchecked: ¿Por qué C# no obliga a capturar?
 
 En programación hay dos tipos de excepciones según el lenguaje:
 
@@ -680,7 +680,7 @@ void ConectarABaseDeDatos()
 }
 ```
 
-## 4.13. Árbol de Excepciones de .NET
+## 4.13. Árbol de excepciones de .NET
 
 Todas las excepciones en .NET heredan de `System.Exception`. Este es el árbol简化ado con las que trabajarás:
 
@@ -749,7 +749,7 @@ catch (Exception ex)                  // Captura TODO
 
 En el siguiente punto haremos un resumen de toda la unidad, consolidando todos los conceptos vistos: programación estructurada, modular y control de excepciones.
 
-## Buenas Prácticas
+## Buenas prácticas
 
 - [ ] Preferir if (prevención) sobre 	ry-catch (reacción) cuando el error es predecible
 - [ ] Usar TryParse en lugar de Parse para conversiones de usuario
