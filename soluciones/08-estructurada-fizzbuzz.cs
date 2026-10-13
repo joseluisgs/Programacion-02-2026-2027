@@ -1,10 +1,22 @@
-// 08 - Estructurada: FizzBuzz — El clásico interview question
-// Consigna: Del 1 al 100, si es múltiplo de 3 imprime "Fizz", si es múltiplo de 5 imprime "Buzz",
-// si es múltiplo de ambos imprime "FizzBuzz", si no imprime el número.
+// ============================================================================
+// SOLUCIÓN ejercicio 40 — FizzBuzz (el clásico de entrevistas)
+// Batería: programación estructurada, bloque IV (el fichero se llama
+// 08-estructurada-fizzbuzz.cs)
+//
+// ENUNCIADO: Del 1 al 100: si es múltiplo de 3 imprime "Fizz"; si es
+// múltiplo de 5, "Buzz"; si es múltiplo de ambos, "FizzBuzz"; si no, el
+// número.
+//
+// Conceptos: condicionales múltiples + módulo. TRUCO CLAVE: el orden de los
+// if importa — hay que comprobar PRIMERO el caso más restrictivo (3 y 5 a
+// la vez); si empezáramos por "i % 3 == 0", el 15 imprimiría solo "Fizz".
+//
+// Ejecutar: dotnet run 08-estructurada-fizzbuzz.cs
+// ============================================================================
 
 for (int i = 1; i <= 100; i++)
 {
-    if (i % 3 == 0 && i % 5 == 0)
+    if (i % 3 == 0 && i % 5 == 0) // Primero lo más específico
         Console.WriteLine("FizzBuzz");
     else if (i % 3 == 0)
         Console.WriteLine("Fizz");

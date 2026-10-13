@@ -1,9 +1,22 @@
-// Ejercicio 21: Cuenta Atrás (While)
+// ============================================================================
+// SOLUCIÓN ejercicio 21 — Cuenta atrás (While)
+// Batería: programación estructurada, bloque III
+//
+// ENUNCIADO: Con un while, mostrar una cuenta atrás del 10 al 0 y, al
+// llegar a 0, imprimir "¡Lanzamiento!".
+//
+// Conceptos: bucle while — la condición se evalúa ANTES de cada iteración;
+// la variable de control (i) se decrementa dentro del bucle (si no,
+// bucle infinito). Alternativa equivalente con for descendente.
+//
+// Ejecutar: dotnet run estructurada21.cs
+// ============================================================================
+
 int i = 10;
 while (i >= 0)
 {
     Console.WriteLine(i);
-    i--;
+    i--; // Sin esto, el bucle nunca terminaría
 }
 Console.WriteLine("¡Lanzamiento!");
 

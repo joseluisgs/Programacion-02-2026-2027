@@ -1,4 +1,18 @@
-// Ejercicio 1: Tu Setup de Programador (Secuencias)
+// ============================================================================
+// SOLUCIÓN ejercicio 1 — Tu Setup de Programador (Secuencias)
+// Batería: programación estructurada, bloque I
+//
+// ENUNCIADO: Mostrar tu setup de programador: marca del portátil (string),
+// pulgadas de pantalla (int), RAM en GB (int) y sistema operativo (string),
+// todo con interpolación en un formato bonito.
+//
+// Conceptos: secuencia pura — las sentencias se ejecutan de arriba a
+// abajo; se usan los tipos básicos (string, int) y la interpolación $"".
+// Truco: \" imprime una comilla literal (pulgadas).
+//
+// Ejecutar: dotnet run estructurada01.cs
+// ============================================================================
+
 string marca = "Lenovo";
 int pulgadas = 15;
 int ram = 16;

@@ -24,7 +24,8 @@
     - [A. `break`](#a-break)
     - [B. `continue`](#b-continue)
   - [2.7. Peligros: el bucle infinito](#27-peligros-el-bucle-infinito)
-  - [2.8. Depuración: aserciones y técnicas](#28-depuración-aserciones-y-técnicas)
+  - [2.8. Números aleatorios (`Random`)](#28-números-aleatorios-random)
+  - [2.9. Depuración: aserciones y técnicas](#29-depuración-aserciones-y-técnicas)
 
 
 # 2. Programación estructurada
@@ -933,7 +934,34 @@ while (opcion == 5)  // Si opcion empieza en 0, nunca entra
 
 > 📝 **Tip de depuración:** Si tu programa se queda "colgado", probablemente tienes un bucle infinito. Usa el depurador del IDE para pausar y ver el valor de las variables de control.
 
-## 2.8. Depuración: aserciones y técnicas
+## 2.8. Números aleatorios (`Random`)
+
+Los videojuegos, los simuladores y —cómo no— **la tragaperras del examen** necesitan azar. En C#, el azar lo aporta la clase `Random`:
+
+```csharp
+Random rnd = new();          // Crea el generador: uno SOLO y reutilízalo en todo el programa
+
+int dado = rnd.Next(1, 7);   // Entero entre 1 y 6: el máximo NO se incluye
+int num = rnd.Next(10);      // Forma corta: entre 0 y 9
+double p = rnd.NextDouble(); // Decimal entre 0.0 y 1.0, ideal para probabilidades
+```
+
+📌 **Ejemplo real:** La tragaperras genera sus tres rodillos con `rnd.Next(0, 10)` (números del 0 al 9) y el simulador de vuelo decide un fallo con `rnd.Next(1, 101) <= 20` (20% de probabilidad en cada ciclo).
+
+> ⚠️ **Advertencia:** `Next(min, max)` es **exclusivo en el máximo**: `Next(1, 7)` jamás devuelve un 7. Para incluirlo, escribe `Next(1, 8)`. Es el fallo clásico del examen.
+
+> 💡 **Consejo:** Crea el `Random` **una sola vez** y reutilízalo. En versiones antiguas de .NET, instancias creadas muy seguidas (p. ej. dentro de un bucle) podían dar números repetidos; desde .NET 6 ya no, pero lo correcto sigue siendo un único generador por programa.
+
+La receta habitual para simular **probabilidades** es comparar `NextDouble()` con un umbral:
+
+```csharp
+// ¿Un 20% de probabilidad de que pase algo en este ciclo?
+bool ocurre = rnd.NextDouble() < 0.20;
+```
+
+En los ejemplos de `ejemplos/` lo verás en acción: la tragaperras (premios), Piedra-Papel-Tijera (el jefe que hace trampa) y los simuladores (fallo de sistema y salidas por azar).
+
+## 2.9. Depuración: aserciones y técnicas
 
 La **depuración** es el proceso de encontrar y corregir errores en el código. Existen varias técnicas:
 
