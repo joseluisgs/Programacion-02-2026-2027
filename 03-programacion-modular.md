@@ -487,7 +487,7 @@ Console.WriteLine(izq == der);  // True — tipos compatibles, mismos valores
 > Console.WriteLine(s1 == s2);  // True (reutiliza el mismo objeto)
 > ```
 
-> 📝 **Regla:** Con arrays, **nunca uses `==`** para comparar contenido. Usa un bucle o `SequenceEqual()`. Con strings, `==` funciona, pero `.Equals()` es más seguro en producción.
+> 📝 **Regla:** Con arrays, **nunca uses `==`** para comparar contenido. Usa un bucle o `SequenceEqual()`. Con strings, `==` compara el contenido y es seguro incluso con `null`; en cambio `s1.Equals(s2)` lanza `NullReferenceException` si `s1` es `null` — si puede serlo, usa `string.Equals(s1, s2)`.
 
 ### D. Paso solo lectura con `in`
 
@@ -568,7 +568,7 @@ struct Alumno
     public double Nota;
 }
 
-// Struct como parácentaje
+// Struct como parámetro
 void MostrarAlumno(Alumno alumno)
 {
     Console.WriteLine($"{alumno.Nombre} (ID: {alumno.Id}): {alumno.Nota}");
@@ -651,8 +651,6 @@ Console.WriteLine(Promedio(5.5));                       // 5.5
 | `out` | Salida múltiple | Cuando el método debe devolver más de un valor | Formulario en blanco que rellenan por ti |
 | `in` | Solo lectura (referencia) | Cuando necesitas eficiencia sin modificar | Museo: mirar pero no tocar |
 | `params` | Número variable de args | Cuando no sabes cuántos argumentos pasar | Lista de la compra |
-| `in` | Solo lectura por referencia | Para structs grandes que no se modifican |
-| `params` | Lista variable de argumentos | Cuando no sabes cuántos argumentos pasarás |
 
 ### G. Menciones avanzadas: `this`, `scoped`, `ref readonly`
 
@@ -755,7 +753,7 @@ void MostrarInfo(string nombre, int edad = 18, string ciudad = "Desconocida")
 }
 ```
 
-Lo mismo aplica con `out` y `ref` cuando combinas con valores por defecto. Un solo método puede cubrir múltiples casos de uso sin duplicar código.
+⚠️ **Ojo:** `ref`, `out` e `in` **no admiten valores por defecto** (`void M(ref int x = 0)` no compila: error CS1763). Si necesitas versiones con y sin referencia, usa **sobrecargas**.
 
 ## 3.6. Sobrecarga de funciones
 
@@ -779,7 +777,7 @@ int CalcularArea(int largo, int ancho)
 
 // C# elige la versión correcta según los argumentos
 Console.WriteLine(CalcularArea(5));       // 25 (int)
-Console.WriteLine(CalcularArea(3.5));     // 38.48 (double)
+Console.WriteLine($"{CalcularArea(3.5):F2}"); // 38.48 (double, con 2 decimales)
 Console.WriteLine(CalcularArea(4, 6));    // 24 (dos enteros)
 ```
 
@@ -993,17 +991,17 @@ double resultado = Pow(2, 3); // 8
 
 > 📝 **Nota:** En top-level statements, `using` se escribe al inicio del archivo. Los verás en acción en todos los ejemplos de esta unidad.
 
-En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `throw`, el bufeo de excepciones y las asertiones para detectar errores durante el desarrollo.
+En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `throw`, el burbujeo de excepciones y las aserciones para detectar errores durante el desarrollo.
 
 ## Buenas prácticas
 
 - [ ] Aplicar SRP: cada función debe tener una única responsabilidad
-- [ ] Usar ef solo cuando el método deba modificar la variable original
-- [ ] Usar out cuando el método devuelva múltiples valores
-- [ ] Siempre asignar todos los campos out antes de salir del método
-- [ ] Usar params como último parámetro de la lista
+- [ ] Usar `ref` solo cuando el método deba modificar la variable original
+- [ ] Usar `out` cuando el método devuelva múltiples valores
+- [ ] Siempre asignar todos los campos `out` antes de salir del método
+- [ ] Usar `params` como último parámetro de la lista
 - [ ] Preferir parámetros por defecto y nombrados sobre sobrecarga
-- [ ] Aplicar Early Return para evitar el "efecto cascada" de if anidados
+- [ ] Aplicar Early Return para evitar el "efecto cascada" de `if` anidados
 - [ ] Siempre incluir una condición de parada en la recursividad
 - [ ] Evitar variables globales — usar parámetros para pasar datos
-- [ ] Usar in para structs grandes que solo se leen
+- [ ] Usar `in` para structs grandes que solo se leen

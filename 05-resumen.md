@@ -49,7 +49,7 @@ graph TD
     EX --> EXNET[Excepciones .NET: ArgumentException, FormatException...]
     EX --> ORDER[Orden: específico → general]
     EX --> UNCHECKED[Unchecked: C# no obliga a capturar]
-    ES --> DOC[Documentación: XMLDoc]
+    UD02 --> DOC[Documentación: XMLDoc]
     style UD02 fill:#2196F3,color:#fff
     style ES fill:#4CAF50,color:#fff
     style MO fill:#FF9800,color:#fff
@@ -255,7 +255,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 ## 5.7. Ejercicios de repaso
 
-1. **Calculadora simple**: Crea una calculadora que pida dos números y una operación (`+`, `-`, `*`, `/`). Usa `switch` para la operación y `try-catch` para la división por cero.
+1. **Calculadora simple**: Crea una calculadora que pida dos números y una operación (`+`, `-`, `*`, `/`). Usa `switch` para la operación e `if` para prevenir la división por cero.
 
 2. **Validador de contraseñas**: Crea una función `bool EsContraseñaValida(string contraseña)` que verifique: mínimo 8 caracteres, al menos un número, al menos una mayúscula. Usa `foreach` y condicionales.
 
@@ -271,7 +271,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 ## 5.8. ¿Qué viene después?
 
-En la **UD03: Almacenamiento Estático y Cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás los bucles `for` y `foreach` que viste aquí para recorrerlos, y las funciones para operar con ellos.
+En la **UD03: Almacenamiento estático y cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás los bucles `for` y `foreach` que viste aquí para recorrerlos, y las funciones para operar con ellos.
 
 | Tema de la UD actual | Se usa en la siguiente UD para |
 |----------------------|-------------------------------|
@@ -287,7 +287,7 @@ En la **UD03: Almacenamiento Estático y Cadenas** aprenderás a almacenar conju
 ```mermaid
 graph LR
     UD01[UD01: Introducción] --> UD02[UD02: Estructurada y Modular]
-    UD02 --> UD03[UD03: Almacenamiento Estático y Cadenas]
+    UD02 --> UD03[UD03: Almacenamiento estático y cadenas]
     UD03 --> UD04[UD04: POO]
     UD04 --> UD05[UD05: POO Avanzada]
     UD05 --> UD06[UD06: Genérica y Funcional]

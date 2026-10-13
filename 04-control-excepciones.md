@@ -26,7 +26,7 @@
 - Preferir la prevención (`if`) sobre la reacción (`try-catch`)
 - Conocer las principales excepciones de .NET y el árbol de herencia
 
-El **control de excepciones** es una técnica para manejar errores durante la ejecución de un programa. En lugar de que el programme se "cuelgue" o "rompa", las excepciones permiten **capturar y gestionar** los errores de forma controlada.
+El **control de excepciones** es una técnica para manejar errores durante la ejecución de un programa. En lugar de que el programa se "cuelgue" o "rompa", las excepciones permiten **capturar y gestionar** los errores de forma controlada.
 
 ```mermaid
 graph LR
@@ -174,7 +174,7 @@ sequenceDiagram
 ```csharp
 void MetodoA()
 {
-    MetodoB(); // Si MetodoB lanza, burbueba aquí
+    MetodoB(); // Si MetodoB lanza, burbujea aquí
 }
 
 void MetodoB()
@@ -545,7 +545,7 @@ int LeerEnteroMalo(string mensaje, int min, int max)
 }
 ```
 
-📌 **¿Por qué `TryParse` es mejor?** Porque cuando el valor válido es `0`, `TryParse` devuelve `true` y `valor = 0`. No hay ambigüedad: el `bool` te dice si la conversión fue correcta, y el `out` te da el valor. Con `Parse`, si el usuario escribe `0`, la excepción no se lanza... pero si escribe `"abc"`, sí. No puedes distinguir "0 válido" de "error" sin try-catch.
+📌 **¿Por qué `TryParse` es mejor?** El `bool` distingue éxito de error sin excepciones: si el usuario escribe `0`, devuelve `true` con `valor = 0` (cero es un valor perfectamente válido); si escribe `"abc"`, devuelve `false` con `valor = 0`. Con `Parse`, la única forma de señalar el error es lanzar una excepción que tienes que recoger con `try-catch`.
 
 ### Resumen: ¿Cuándo usar cada uno?
 
@@ -657,7 +657,7 @@ void LeerFichero()
 
 > 💡 **Analogía:** Java es como un colegio con uniforme obligatorio (checked). C# es como un coworking casual (unchecked): tú decides cómo vestirte, pero si vas en pijama y te echan, es tu problema.
 
-### ¿Cómo sé debo capturar algo?
+### ¿Cómo sé si debo capturar algo?
 
 Si **puedes hacer algo útil** con el error (mostrar mensaje, reintentar, log) → **captura**.
 Si **no puedes hacer nada** (el programa no puede seguir) → **no captures** y deja que burbujee.
@@ -684,37 +684,37 @@ void ConectarABaseDeDatos()
 
 ## 4.13. Árbol de excepciones de .NET
 
-Todas las excepciones en .NET heredan de `System.Exception`. Este es el árbol简化ado con las que trabajarás:
+Todas las excepciones en .NET heredan de `System.Exception`. Este es el árbol simplificado con el que trabajarás:
 
 ```mermaid
 graph TD
     EX[System.Exception] --> SE[SystemException]
-    EX --> AE[ApplicationException]
+    EX --> AE["ApplicationException (casi en desuso)"]
     
     SE --> AR[ArithmeticException]
+    SE --> AEX[ArgumentException]
+    SE --> IEX[InvalidOperationException]
+    SE --> NSE[NotSupportedException]
+    SE --> FMT[FormatException]
     SE --> IO[IOException]
-    SE --> DB[DBException]
+    SE --> UAA[UnauthorizedAccessException]
     
     AR --> DZ[DivideByZeroException]
     AR --> OF[OverflowException]
     
-    AE --> AEX[ArgumentException]
-    AE --> IEX[InvalidOperationException]
-    AE --> NSE[NotSupportedException]
-    AE --> NIE[NotImplementedException]
+    NSE --> NIE[NotImplementedException]
     
     AEX --> ANE[ArgumentNullException]
     AEX --> AORE[ArgumentOutOfRangeException]
     
     IO --> FNF[FileNotFoundException]
-    IO --> UE[UnauthorizedAccessException]
     
     style EX fill:#2196F3,color:#fff
     style SE fill:#FF9800,color:#fff
     style AE fill:#FF9800,color:#fff
     style AR fill:#4CAF50,color:#fff
     style IO fill:#4CAF50,color:#fff
-    style DB fill:#4CAF50,color:#fff
+    style FMT fill:#4CAF50,color:#fff
     style DZ fill:#9C27B0,color:#fff
     style OF fill:#9C27B0,color:#fff
     style AEX fill:#9C27B0,color:#fff
@@ -724,15 +724,15 @@ graph TD
     style ANE fill:#f44336,color:#fff
     style AORE fill:#f44336,color:#fff
     style FNF fill:#9C27B0,color:#fff
-    style UE fill:#9C27B0,color:#fff
+    style UAA fill:#9C27B0,color:#fff
 ```
 
 ### Las dos ramas principales
 
-| Rama | Padre | Qué incluye |
-|------|-------|-------------|
-| **`SystemException`** | Errores del **sistema** | División por cero, E/S, desbordamiento numérico |
-| **`ApplicationException`** | Errores de la **aplicación** | Argumentos inválidos, operación no válida |
+| Rama | Origen | Qué incluye |
+|------|--------|-------------|
+| **`SystemException`** | Errores del sistema y del framework | División por cero, E/S, argumentos inválidos, formato, estado... (casi todo lo que usarás) |
+| **`ApplicationException`** | Reservado para la aplicación | Casi en desuso: las excepciones del framework cuelgan de `SystemException`, no de esta rama |
 
 > 📝 **Nota:** En la práctica, la distinción entre `SystemException` y `ApplicationException` no es muy relevante. Lo importante es que **todas** heredan de `Exception`, por lo que puedes capturar `Exception` como comodín final.
 
@@ -753,14 +753,13 @@ En el siguiente punto haremos un resumen de toda la unidad, consolidando todos l
 
 ## Buenas prácticas
 
-- [ ] Preferir if (prevención) sobre 	ry-catch (reacción) cuando el error es predecible
-- [ ] Usar TryParse en lugar de Parse para conversiones de usuario
-- [ ] Siempre ordenar los catch de más específico a más genérico
-- [ ] Nunca dejar un catch vacío — al menos registrar el error
-- [ ] Usar inally o using para liberar recursos siempre
-- [ ] Lanzar ArgumentException, ArgumentNullException o FormatException con mensajes descriptivos
-- [ ] Usar 
-ameof() en los mensajes de error para mantenerlos actualizados
-- [ ] No usar 	ry-catch para control de flujo — es costoso y poco legible
+- [ ] Preferir `if` (prevención) sobre `try-catch` (reacción) cuando el error es predecible
+- [ ] Usar `TryParse` en lugar de `Parse` para conversiones de usuario
+- [ ] Siempre ordenar los `catch` de más específico a más genérico
+- [ ] Nunca dejar un `catch` vacío — al menos registrar el error
+- [ ] Usar `finally` o `using` para liberar recursos siempre
+- [ ] Lanzar `ArgumentException`, `ArgumentNullException` o `FormatException` con mensajes descriptivos
+- [ ] Usar `nameof()` en los mensajes de error para mantenerlos actualizados
+- [ ] No usar `try-catch` para control de flujo — es costoso y poco legible
 - [ ] Capturar el tipo de excepción más específico posible
-- [ ] Usar filtros when para distinguir entre excepciones del mismo tipo
+- [ ] Usar filtros `when` para distinguir entre excepciones del mismo tipo

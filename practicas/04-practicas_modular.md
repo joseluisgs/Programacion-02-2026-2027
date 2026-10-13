@@ -164,7 +164,7 @@ Implementa un procedimiento `void Procesar()` que simule usar un recurso (`bool 
 **Ejercicio 46: Excepciones en Bucle**
 Implementa un programa que pida 5 números al usuario. Para cada uno, usa `try-catch` para convertirlo. Si falla uno, muestra error y sigue con el siguiente. Al final, muestra cuántos se introdujeron correctamente.
 
-**Ejercicio 47: Asertión con Debug.Assert**
+**Ejercicio 47: Aserción con Debug.Assert**
 Implementa una función `void CalcularPorcentaje(double total, double porcentaje)` que use `Debug.Assert(porcentaje >= 0 && porcentaje <= 100, "El porcentaje debe estar entre 0 y 100")` antes de calcular.
 
 **Ejercicio 48: Throw en Recursividad**

@@ -91,7 +91,7 @@ Un programa bien estructurado es como una **empresa bien organizada**:
 | Empresa | Programa |
 |---------|----------|
 | Cada departamento tiene una función clara | Cada módulo/responsabilidad está separada |
-| Exist protocolos para tomar decisiones | Condicionales (`if`, `switch`) |
+| Existen protocolos para tomar decisiones | Condicionales (`if`, `switch`) |
 | Se repiten procesos cada mes | Bucles (`while`, `for`) |
 | Un empleado no hace todo solo | Modularidad: funciones y procedimientos |
 
@@ -171,7 +171,7 @@ Al finalizar esta unidad serás capaz de:
 - **Dividir problemas** en funciones y procedimientos reutilizables
 - **Pasar datos de forma segura** con `ref`, `out` y `params`
 - **Manejar errores** con `try-catch-finally` y `throw`
-- **Depurar código** con asertaciones
+- **Depurar código** con aserciones
 
 > 💡 **Consejo:** Esta unidad es la base de todo lo que viene. Si dominas estructurada y modular, la POO (UD04) será mucho más fácil. Piensa en ella como aprender a cocinar antes de abrir un restaurante.
 

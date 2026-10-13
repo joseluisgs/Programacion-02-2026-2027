@@ -8,6 +8,8 @@
     - [D. Estructura `switch`](#d-estructura-switch)
     - [E. Expresión `switch` moderna (C# 8+)](#e-expresión-switch-moderna-c-8)
     - [F. Control de nulos con condicionales](#f-control-de-nulos-con-condicionales)
+    - [G. Operador ternario `? :`](#g-operador-ternario)
+    - [H. Operador de coalescencia `??`](#h-operador-de-coalescencia)
   - [2.4. Bucles](#24-bucles)
     - [A. Bucle `while`](#a-bucle-while)
     - [B. Bucle `do-while`](#b-bucle-do-while)
@@ -27,7 +29,7 @@
 
 # 2. Programación estructurada
 
-> 💡 **Punto de partida:** ¿Has jugado a un videojuego conDecisiones? En The Witcher, cada elección que tomas (¿ayudar al aldeano o al mercader?) abre un camino diferente. Los condicionales son eso: tu programa elige qué camino seguir. Y los bucles son como las misiones repetitivas: "mata 10 lobos" = repite 10 veces la misma acción.
+> 💡 **Punto de partida:** ¿Has jugado a un videojuego con decisiones? En The Witcher, cada elección que tomas (¿ayudar al aldeano o al mercader?) abre un camino diferente. Los condicionales son eso: tu programa elige qué camino seguir. Y los bucles son como las misiones repetitivas: "mata 10 lobos" = repite 10 veces la misma acción.
 
 **Objetivos de aprendizaje:**
 
@@ -214,7 +216,7 @@ graph TD
 
 ```csharp
 Console.Write("Introduce tu nota (0-10): ");
-double nota = double.Parse(Console.ReadLine());
+double.TryParse(Console.ReadLine(), out double nota);
 
 if (nota >= 9)
 {
@@ -431,7 +433,7 @@ else
 }
 ```
 
-### F. Operador ternario `? :`
+### G. Operador ternario `? :`
 
 Como viste en la UD01, el operador ternario es una forma **reducida** del `if-else` que devuelve un valor. Es útil para asignaciones simples:
 
@@ -469,7 +471,7 @@ Console.WriteLine(mensaje2); // Mayor de edad
 
 > 💡 **Consejo:** Usa el ternario cuando la asignación sea simple (una línea). Si la lógica es compleja (varias condiciones, efectos secundarios), usa `if-else` normal.
 
-### G. Operador de coalescencia `??`
+### H. Operador de coalescencia `??`
 
 También lo viste en la UD01: `??` proporciona un **valor por defecto** si una variable es `null`. Es como un `if` compacto para la nulidad:
 
@@ -900,7 +902,9 @@ while (contador < 10)
     Console.WriteLine(contador);
     // contador NUNCA cambia → bucle infinito
 }
+```
 
+```csharp
 // ✅ CORRECTO
 int contador = 0;
 while (contador < 10)
@@ -908,7 +912,9 @@ while (contador < 10)
     Console.WriteLine(contador);
     contador++;  // ¡Importante!
 }
+```
 
+```csharp
 // ❌ ERROR: Condición siempre verdadera
 while (true)  // Nunca sale
 {
@@ -973,6 +979,24 @@ for (int i = 0; i < 5; i++)
 
 📌 **Ejemplo real:** Los desarrolladores de Netflix usan el depurador para encontrar por qué un vídeo se congela: ponen un breakpoint en el bucle de reproducción, inspeccionan la memoria y detectan que el buffer se llenó.
 
+### Aserciones (`Debug.Assert`)
+
+Las **aserciones** verifican supuestos que deben ser **ciertos siempre** en un punto concreto del código. Si la condición es falsa, el programa **se detiene en desarrollo** y muestra el error: no validan datos de usuario (eso es el `if`), sino que avisan de "esto no debería pasar jamás".
+
+```csharp
+using System.Diagnostics;
+
+int CalcularDescuento(int precio, int cantidad)
+{
+    Debug.Assert(precio >= 0, "El precio nunca debe ser negativo");
+    Debug.Assert(cantidad > 0, "La cantidad debe ser al menos 1");
+
+    return precio * cantidad;
+}
+```
+
+> 📝 **Nota:** `Debug.Assert` solo se ejecuta en compilación **Debug** (en Release desaparece, porque está marcada con `[Conditional("DEBUG")]`). Úsala para comprobar invariantes durante el desarrollo; para errores previsibles del usuario, usa `if` (la regla de oro del punto 4.10).
+
 En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`, `params`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.
 
 ## Buenas prácticas
@@ -980,7 +1004,7 @@ En el siguiente punto veremos la programación modular: funciones, procedimiento
 - [ ] Usar solo las tres estructuras de control: secuencia, condicional y bucle
 - [ ] Aplicar DRY: si copias y pegas código, necesitas un bucle o una función
 - [ ] Evaluar condicionales de mayor a menor rango en `if-else if` encadenados
-- [ ] Siempre terminar cada `case` de `switch` con `break` o `return`
+- [ ] Siempre terminar cada bloque de sentencias de un `case` con `break` o `return` (los `case` vacíos se apilan: `case 6: case 7:`)
 - [ ] Usar `is not null` en lugar de `!= null` para comprobaciones de nulidad
 - [ ] Verificar siempre que los bucles tienen una condición de salida clara
 - [ ] Preferir `if` (prevención) sobre `try-catch` (reacción) cuando el error es predecible
