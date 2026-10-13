@@ -514,6 +514,8 @@ Ya conoces tuplas, enums y structs de la UD01. Ahora los usaremos como **tipo de
 
 #### Tuplas como parámetros y return
 
+Una tupla puede entrar como parámetro nombrado y salir como return con sus componentes. El ejemplo muestra los dos sentidos:
+
 ```csharp
 // Tupla como parámetro
 void MostrarPersona((string nombre, int edad) persona)
@@ -534,6 +536,8 @@ Console.WriteLine($"{pelicula.titulo} ({pelicula.anio})");
 ```
 
 #### Enums como parámetros y return
+
+Igual que las tuplas, pero con un enum: la función recibe un valor del dominio y también puede devolver uno:
 
 ```csharp
 enum DiaSemana { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo }
@@ -559,6 +563,8 @@ else
 ```
 
 #### Structs como parámetros y return
+
+Con los structs el patrón es el mismo; la ventaja es que el parámetro llega con todos los datos ya agrupados en un único tipo:
 
 ```csharp
 struct Alumno
@@ -721,6 +727,8 @@ MostrarValor(); // OK: muestra ambos
 > ⚠️ **Advertencia:** Evita las variables globales. Crean dependencias ocultas y efectos secundarios difíciles de rastrear. Usa parámetros para pasar datos.
 
 ## 3.5. Parámetros por defecto, opcionales y nombrados
+
+Una función puede ofrecer valores por defecto para sus últimos parámetros y permitir que el llamante omita u olvide el orden. Este ejemplo muestra las tres formas de llamarla:
 
 ```csharp
 void MostrarInfo(string nombre, int edad = 18, string ciudad = "Desconocida")

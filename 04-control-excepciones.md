@@ -370,6 +370,8 @@ Esto es **lo más importante** de toda la sección de excepciones. Repítelo com
 
 #### 1. División por cero
 
+El caso más simple: dividir sabiendo que el divisor puede ser cero. Compara la prevención con `if` (cuesta nanosegundos) contra el `try-catch` (cuesta mil veces más):
+
 ```csharp
 // ✅ BIEN: Prevención con if (nanosegundos)
 int Dividir(int a, int b)
@@ -401,6 +403,8 @@ int DividirMalo(int a, int b)
 
 #### 2. Acceso a un array
 
+Misma historia con los índices: verificar el rango antes es gratis; capturar la excepción después ya es tarde:
+
 ```csharp
 // ✅ BIEN: Prevención con if
 int ObtenerElemento(int[] array, int indice)
@@ -430,6 +434,8 @@ int ObtenerElementoMalo(int[] array, int indice)
 
 #### 3. Convertir texto a número
 
+La conversión de texto es donde más se abusa de las excepciones; `TryParse` ya te devuelve el resultado sin lanzar nada:
+
 ```csharp
 // ✅ BIEN: TryParse (prevención)
 Console.Write("Edad: ");
@@ -458,6 +464,8 @@ catch (FormatException)
 
 #### 4. Abrir un fichero
 
+Con los ficheros del disco, comprobar si existe con `File.Exists` evita el salto a `FileNotFoundException`:
+
 ```csharp
 // ✅ BIEN: Verificar si existe antes
 string ruta = "datos.txt";
@@ -484,6 +492,8 @@ catch (FileNotFoundException)
 ```
 
 #### 5. Leer un entero con rango (el caso clásico)
+
+El patrón completo del examen: leer un entero validando rango en bucle. Primero la versión limpia con `TryParse`; después, la versión con excepciones que queremos evitar:
 
 ```csharp
 // ✅ BIEN: TryParse + validación de rango
@@ -599,6 +609,8 @@ graph TD
 
 ### Lanzar excepciones existentes
 
+Para lanzar una excepción no inventes tipos nuevos: la BCL ya trae una para cada caso. Esta función valida un registro con las excepciones estándar y sus mensajes:
+
 ```csharp
 void Registrar(string nombre, string email, int edad)
 {
@@ -629,6 +641,8 @@ En programación hay dos tipos de excepciones según el lenguaje:
 📌 **Ejemplo real:** En Java, si abres un fichero, el compilador te **obliga** a escribir un `try-catch` o un `throws FileNotFoundException`. En C#, confía en ti: si no capturas la excepción, simplemente burbujea hasta el programa principal y lo cierra.
 
 ### Java vs C#
+
+Viene bien si vienes de Java: el mismo método en los dos lenguajes, con la diferencia de fondo de las checked exceptions:
 
 ```java
 // JAVA: checked exception → OBLIGA a try-catch o throws

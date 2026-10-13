@@ -994,6 +994,8 @@ for (int i = 0; i < numeros.Length; i++)
 
 ### Depuración con Visual Studio / Rider
 
+Los IDEs modernos hacen la depuración visual: pones un punto de ruptura y, al ejecutar en modo depuración, el valor de cada variable aparece al pasar el cursor. Este es el bucle que sirve de ejemplo:
+
 ```csharp
 // Los IDEs muestran el valor de las variables al pasar el cursor
 for (int i = 0; i < 5; i++)
