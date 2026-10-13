@@ -298,18 +298,20 @@ catch (FormatException e)          // ⚠️ Código muerto: nunca se alcanza
 
 ### Capturar varios tipos en un solo `catch`
 
-Si quieres que un mismo `catch` maneje varios tipos de excepción, usa el operador `|` (OR):
+En C# **no existe** el "OR" de excepciones: `catch (FormatException | OverflowException)` **no es sintaxis válida**. Para que un mismo `catch` maneje varios tipos, usa un filtro `when` con un patrón `or` (C# 9+):
 
 ```csharp
 try
 {
     int numero = int.Parse(Console.ReadLine());
 }
-catch (FormatException | OverflowException e)  // Captura ambos tipos
+catch (Exception e) when (e is FormatException or OverflowException)  // Captura ambos tipos
 {
     Console.WriteLine($"Error de número: {e.Message}");
 }
 ```
+
+> 📝 **Nota:** En versiones anteriores a C# 9 se escribía `when (e is FormatException || e is OverflowException)`. También puedes optar por la opción clásica: dos bloques `catch` seguidos, uno por cada tipo.
 
 ### Filtros de excepción (`when`)
 

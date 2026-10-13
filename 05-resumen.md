@@ -121,7 +121,7 @@ graph TD
 - **Preferir `if`**: si el error es predecible, previene en vez de reaccionar
 - **Unchecked**: en C# todas las excepciones son unchecked (no obliga a capturar)
 - **De específico a general**: orden de los `catch` (el genérico va al final)
-- **`|` en catch**: capturar varios tipos en un solo bloque
+- **Patrón `or` en `when`**: capturar varios tipos en un solo `catch` (no existe `catch (A | B)` en C#)
 - **`when`**: filtro para distinguir según un valor
 - **`ArgumentException`**: argumento no válido
 - **`ArgumentNullException`**: argumento es `null`
