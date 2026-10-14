@@ -936,7 +936,7 @@ while (opcion == 5)  // Si opcion empieza en 0, nunca entra
 
 ## 2.8. Números aleatorios (`Random`)
 
-Los videojuegos, los simuladores y —cómo no— **la tragaperras del examen** necesitan azar. En C#, el azar lo aporta la clase `Random`:
+Los videojuegos, los simuladores y —cómo no— **la tragaperras** necesitan azar. En C#, el azar lo aporta la clase `Random`:
 
 ```csharp
 Random rnd = new();          // Crea el generador: uno SOLO y reutilízalo en todo el programa
@@ -948,7 +948,7 @@ double p = rnd.NextDouble(); // Decimal entre 0.0 y 1.0, ideal para probabilidad
 
 📌 **Ejemplo real:** La tragaperras genera sus tres rodillos con `rnd.Next(0, 10)` (números del 0 al 9) y el simulador de vuelo decide un fallo con `rnd.Next(1, 101) <= 20` (20% de probabilidad en cada ciclo).
 
-> ⚠️ **Advertencia:** `Next(min, max)` es **exclusivo en el máximo**: `Next(1, 7)` jamás devuelve un 7. Para incluirlo, escribe `Next(1, 8)`. Es el fallo clásico del examen.
+> ⚠️ **Advertencia:** `Next(min, max)` es **exclusivo en el máximo**: `Next(1, 7)` jamás devuelve un 7. Para incluirlo, escribe `Next(1, 8)`. Es el fallo más común con `Next`.
 
 > 💡 **Consejo:** Crea el `Random` **una sola vez** y reutilízalo. En versiones antiguas de .NET, instancias creadas muy seguidas (p. ej. dentro de un bucle) podían dar números repetidos; desde .NET 6 ya no, pero lo correcto sigue siendo un único generador por programa.
 
