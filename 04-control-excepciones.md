@@ -493,7 +493,7 @@ catch (FileNotFoundException)
 
 #### 5. Leer un entero con rango (el caso clásico)
 
-El patrón completo del tema: leer un entero validando rango en bucle. Primero la versión limpia con `TryParse`; después, la versión con excepciones que queremos evitar:
+El patrón completo del punto: leer un entero validando rango en bucle. Primero la versión limpia con `TryParse`; después, la versión con excepciones que queremos evitar:
 
 ```csharp
 // ✅ BIEN: TryParse + validación de rango

@@ -7,7 +7,7 @@
 //
 // Conceptos: do-while como "bucle de reintento" — el dato se pide al
 // menos una vez y no se sale hasta que cumple la regla. Es el patrón de
-// las lecturas robustas del tema 4 (LeerEntero).
+// las lecturas robustas del punto 4 (LeerEntero).
 //
 // Ejecutar: dotnet run estructurada24.cs
 // ============================================================================
