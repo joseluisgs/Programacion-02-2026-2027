@@ -12,8 +12,8 @@ Implementa una función `double CalcularPropina(double cuenta, double porcentaje
 **Ejercicio 2: Conversor de Temperatura**
 Implementa dos funciones: `double CentigradosAFahrenheit(double c)` y `double FahrenheitACentigrados(double f)`. El usuario elige el sentido de la conversión.
 
-**Ejercicio 3: ¿Es Palíndromo?**
-Implementa una función `bool EsPalindromo(string texto)` que compruebe si una palabra se lee igual al derecho que al revés. Prueba con "oso", "reconocer", "hola".
+**Ejercicio 3: ¿Es un año bisiesto?**
+Implementa una función `bool EsBisiesto(int anio)` que compruebe la regla del calendario: es bisiesto si es divisible entre 4, salvo que sea divisible entre 100 sin serlo entre 400. Prueba con 2024, 1900 y 2000.
 
 **Ejercicio 4: Clasificador de IMC**
 Implementa una función `double CalcularIMC(double peso, double altura)` y otra `string ClasificarIMC(double imc)`. Pide datos al usuario y muestra la clasificación.
