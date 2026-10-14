@@ -4,6 +4,7 @@
     - [A. Funciones (devuelven valor)](#a-funciones-devuelven-valor)
     - [B. Procedimientos (no devuelven valor)](#b-procedimientos-no-devuelven-valor)
     - [C. Diferencia entre función y procedimiento](#c-diferencia-entre-función-y-procedimiento)
+    - [D. Documenta tus funciones con XMLDoc](#d-documenta-tus-funciones-con-xmldoc)
   - [3.3. Parámetros y argumentos](#33-parámetros-y-argumentos)
     - [A. Paso por valor (por defecto)](#a-paso-por-valor-por-defecto)
     - [B. Paso por referencia con `ref`](#b-paso-por-referencia-con-ref)
@@ -171,6 +172,16 @@ graph TD
 | **Ejemplo** | `int Sumar(int a, int b)` | `void MostrarMensaje(string msg)` |
 
 > 📝 **Nota:** En C# ambos se llaman "métodos". La distinción función/procedimiento es conceptual para entender si devuelven o no un valor.
+
+### D. Documenta tus funciones con XMLDoc
+
+El XMLDoc que viste en la UD01 (apartado 10.4) también le toca a tus funciones: con comentarios `///` (`summary`, `param` y `returns`) dejas constancia de qué hace cada función, para qué sirve cada parámetro y qué devuelve. Documentar es cosa de quien escribe el código, no de después.
+
+> ⚠️ **Advertencia:** Ojo con el `///` dentro del `Program.cs` con Top-Level Statements: ahí **no hay dónde** enganchar la documentación, porque no hay clases ni miembros donde colocarla (sobre una sentencia o una función local). Si el proyecto genera documentación (`GenerateDocumentationFile`), el compilador lanza el **error CS1587** ("El comentario XML no está situado en un elemento válido") y, con `TreatWarningsAsErrors`, la compilación se para. Si no genera documentación, el `///` se ignora en silencio. Por eso el XMLDoc está pensado para **métodos de objetos**: funciones dentro de clases.
+
+> 📝 **Nota:** Si en la práctica de modular documentas una función con `///` en top-level, no verás ningún XML generado: es el comportamiento esperado. Practica la sintaxis — la aplicaremos de verdad en cuanto haya clases.
+
+📌 Con **detalle** se estudia en la UD de Documentación de **Entornos de Desarrollo** y, más adelante en **Programación**, cuando trabajes con clases y proyectos, lo usarás de forma habitual.
 
 ## 3.3. Parámetros y argumentos
 
