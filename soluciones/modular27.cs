@@ -5,7 +5,7 @@
 // comparar los resultados y las características de cada enfoque.
 //
 // Conceptos UD02: recursividad (3.8) frente a iteración. Regla nemotécnica
-// del tema: todo lo que se puede hacer con bucles se puede hacer con
+// del punto 3: todo lo que se puede hacer con bucles se puede hacer con
 // recursividad, pero no al revés (árboles, carpetas... se piensan recursivos).
 //
 // Ejecutar: dotnet run modular27.cs
@@ -28,17 +28,21 @@ int FactorialIterativo(int n)
 }
 
 // --- PRUEBAS ---
-int[] valores = [0, 1, 5, 10, 12];
-
 Console.WriteLine("N\tRecursivo\tIterativo\t¿Iguales?");
 Console.WriteLine("─\t────────\t─────────\t─────────");
 
-foreach (int n in valores)
+void Comparar(int n)
 {
     int r1 = FactorialRecursivo(n);
     int r2 = FactorialIterativo(n);
     Console.WriteLine($"{n}\t{r1}\t\t{r2}\t\t{r1 == r2}"); // Ambos dan lo mismo
 }
+
+Comparar(0);
+Comparar(1);
+Comparar(5);
+Comparar(10);
+Comparar(12);
 
 // --- ANÁLISIS ---
 Console.WriteLine();

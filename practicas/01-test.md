@@ -137,7 +137,7 @@
 
 21.  **¿Para qué es especialmente útil la técnica de bucles anidados?**
     a) Para manejar la recursividad
-    b) Para el manejo de matrices
+    b) Para tareas con dos niveles de repetición, como la tabla de multiplicar del 1 al 10
     c) Para simplificar el paso por referencia
     d) Para la validación de entradas con early return
 
@@ -239,10 +239,10 @@
     c) Sobrecarga de funciones
     d) Recursividad
 
-38.  **¿Qué palabra clave se usa en C# para definir un parámetro que puede aceptar un número indeterminado de valores?**
+38.  **¿Qué palabra clave se usa en C# para declarar un parámetro que se pasa por referencia pero que no puede modificarse dentro de la función?**
     a) ref
-    b) params
-    c) out
+    b) out
+    c) in
     d) void
 
 39.  **¿Cuál es el propósito del mecanismo de Parámetros de Salida (out)?**

@@ -52,8 +52,8 @@ Implementa una función `bool Dividir(int a, int b, out int resultado)` que divi
 **Ejercicio 14: Parámetros por Defecto**
 Implementa un procedimiento `void Registrar(string nombre, string email, bool premium = false)` que muestre los datos. Llama con 2 y 3 argumentos para ver los valores por defecto.
 
-**Ejercicio 15: `params` para Suma Variable**
-Implementa una función `int SumarTodos(params int[] numeros)` que sume todos los argumentos. Llámala con 3, 5 y 2 argumentos diferentes.
+**Ejercicio 15: Paso por Valor**
+Implementa un procedimiento `void IntentarDoblar(int n)` que multiplique `n` por 2 y lo muestre por pantalla. Llámalo con el valor 5 y comprueba en el programa principal que la variable original **no ha cambiado**. Comenta por qué ocurre y cómo lo arreglaría el modificador `ref` (recuerda el Ejercicio 12).
 
 **Ejercicio 16: Sobrecarga de Funciones**
 Implementa dos funciones `int Area(int lado)` (cuadrado) y `int Area(int largo, int ancho)` (rectángulo). Prueba ambas.

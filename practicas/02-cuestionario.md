@@ -32,7 +32,7 @@
 
 10. ¿Por qué se afirma que la utilización de la sentencia `GOTO` es totalmente innecesaria en la Programación Estructurada?. ¿Qué efecto tiene la sentencia `GOTO` en la legibilidad comparado con las tres estructuras básicas?.
 
-11. Los **bucles anidados** son una técnica iterativa avanzada. Justifique por qué esta técnica es especialmente útil y necesaria para la manipulación de estructuras de datos bidimensionales como las matrices.
+11. Los **bucles anidados** son una técnica iterativa avanzada. Justifique por qué esta técnica es especialmente útil y necesaria para resolver problemas con una repetición dentro de otra, como la tabla de multiplicar completa o el triángulo de asteriscos.
 
 ##### III. Modularidad y diseño de funciones (preguntas 12-18)
 

@@ -6,7 +6,7 @@
 // queda al final, plano y legible.
 //
 // Conceptos UD02: Early Return / Guard Clauses — sección 3.7. Evita el
-// "efecto cascada" de if anidados (el Hadouken del tema).
+// "efecto cascada" de if anidados (el Hadouken de los condicionales).
 //
 // Ejecutar: dotnet run modular17.cs
 // ============================================================================
