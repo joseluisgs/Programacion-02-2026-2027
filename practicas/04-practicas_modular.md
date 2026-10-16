@@ -18,17 +18,17 @@ Implementa una función `bool EsBisiesto(int anio)` que compruebe la regla del c
 **Ejercicio 4: Clasificador de IMC**
 Implementa una función `double CalcularIMC(double peso, double altura)` y otra `string ClasificarIMC(double imc)`. Pide datos al usuario y muestra la clasificación.
 
-**Ejercicio 5: Generador de Contraseña**
-Implementa una función `string GenerarContraseña(int longitud)` que genere una contraseña aleatoria con mayúsculas, minúsculas y números usando `Random`. **Documenta** la función con XMLDoc (`/// <summary>`, `/// <param>`, `/// <returns>`).
+**Ejercicio 5: Generador de Dados**
+Implementa una función `int GenerarDado(int caras)` que devuelva una tirada aleatoria de un dado usando `Random` (prueba con 6 y con 20 caras). **Documenta** la función con XMLDoc (`/// <summary>`, `/// <param>`, `/// <returns>`).
 
-**Ejercicio 6: Validador de Email**
-Implementa una función `void ValidarEmail(string email)` que lance `ArgumentException` si el email es null o vacío, y `FormatException` si no contiene `@` o `.`. Usa `try-catch` en el programa principal para capturar cada tipo de excepción por separado. Prueba con 3 emails diferentes.
+**Ejercicio 6: Validador de Compra**
+Implementa una función `void ValidarCompra(int cantidad, double precio)` que lance `ArgumentException` si la cantidad es 0 o negativa, y `ArgumentOutOfRangeException` si el precio supera los 10000€. Usa `try-catch` en el programa principal para capturar cada tipo de excepción por separado. Prueba con 3 compras diferentes.
 
-**Ejercicio 7: Contador de Palabras**
-Implementa una función `int ContarPalabras(string frase)` que cuente cuántas palabras tiene una frase (separadas por espacios). Pide una frase y muestra el resultado.
+**Ejercicio 7: Suma de Rango**
+Implementa una función `int SumarRango(int inicio, int fin)` que devuelva la suma de todos los números comprendidos entre `inicio` y `fin` (ambos incluidos). Pide el rango y muestra el resultado.
 
-**Ejercicio 8: Texto Más Largo**
-Implementa una función `string MasLargo(string a, string b)` que devuelva el texto más largo. Prueba con "Hola" y "Adiós mundo".
+**Ejercicio 8: Comparar Dos Números**
+Implementa una función `string Comparar(int a, int b)` que devuelva "a es mayor", "b es mayor" o "iguales" según los valores. Prueba con varios pares de números.
 
 **Ejercicio 9: Tabla de Multiplicar Modular**
 Implementa un procedimiento `void MostrarTabla(int numero)` que muestre la tabla de multiplicar. Llámalo para el 5, el 7 y el 12.
@@ -40,8 +40,8 @@ Implementa una función `double Promedio(double n1, double n2, double n3)` que d
 
 ### Bloque II: Procedimientos y parámetros (ejercicios 11-20)
 
-**Ejercicio 11: Mostrar con Recuadro**
-Implementa un procedimiento `void MostrarConRecuadro(string texto)` que imprima el texto dentro de un recuadro de asteriscos. Llámalo 3 veces con textos diferentes.
+**Ejercicio 11: Dibujar Rectángulo**
+Implementa un procedimiento `void DibujarRectangulo(int ancho, int alto)` que dibuje un rectángulo de asteriscos con bucles `for` anidados. Llámalo 3 veces con tamaños diferentes.
 
 **Ejercicio 12: Intercambiar con `ref`**
 Implementa un procedimiento `void Intercambiar(ref int a, ref int b)` que intercambie dos valores. Declara `x=5, y=15`, intercámbialos y muestra antes/después.
@@ -77,11 +77,11 @@ Implementa una función recursiva `double Potencia(double baseNum, int exponente
 **Ejercicio 21: Variables Locales vs Globales**
 Implementa un programa con una variable global `int contador = 0;` y un procedimiento `void Incrementar()` que la incremente. Llámalo 5 veces y muestra el contador. Comenta por qué las variables globales son peligrosas.
 
-**Ejercicio 22: Early Return en Email**
-Implementa una función `bool ValidarEmail(string email)` con Early Return: si es null o vacío → false, si no contiene `@` → false, si no contiene `.` → false. Si todo está bien → true.
+**Ejercicio 22: Early Return en Triángulo**
+Implementa una función `bool EsTriangulo(int a, int b, int c)` con Early Return: si alguno de los lados es menor o igual que 0 → false; si la suma de dos lados no supera al tercero (`a + b <= c`, etc.) → false; si todo está bien → true.
 
 **Ejercicio 23: Sobrecarga con Diferentes Tipos**
-Implementa dos funciones `string Describir(int numero)` y `string Describir(string texto)`. La primera dice "Es un entero: {numero}", la segunda "Es un texto de {texto.Length} caracteres". Prueba ambas.
+Implementa dos funciones `string Describir(int numero)` y `string Describir(string texto)`. La primera dice "Es un entero: {numero}", la segunda "Recibí el texto: {texto}". Prueba ambas.
 
 **Ejercicio 24: Recursividad: Fibonacci**
 Implementa una función recursiva `int Fibonacci(int n)` que devuelva el término n de la sucesión de Fibonacci. Prueba con n=5, n=10 y n=1.
@@ -114,14 +114,14 @@ Implementa un procedimiento `void CalcularCambio(double total, double pagado, ou
 **Ejercicio 32: Estadísticas con `ref`**
 Implementa un procedimiento `void ActualizarStats(double valor, ref double suma, ref int count, ref double max, ref double min)` que actualice estadísticas con cada valor. Procesa 5 valores que pida al usuario.
 
-**Ejercicio 33: Validación con `out`**
-Implementa una función `bool Validar(string nombre, string pass, out string error)` que valide: nombre > 2 caracteres, pass > 6 caracteres. Si falla, `error` explica el problema.
+**Ejercicio 33: Validación de Pago con `out`**
+Implementa una función `bool ValidarPago(double total, double pagado, out string error)` que valide: que `total` sea positivo y que `pagado` sea mayor o igual que `total`. Si falla, `error` explica el problema.
 
 **Ejercicio 34: Intercambiar con `ref`**
 Implementa un procedimiento `void Swap(ref int a, ref int b)` que intercambie dos valores. Prueba con (10, 20).
 
-**Ejercicio 35: Contar Vocales con `out`**
-Implementa un procedimiento `void ContarVocales(string texto, out int vocales, out int consonantes)` que analice un texto. Prueba con "Hola Mundo".
+**Ejercicio 35: Contar Pares e Impares con `out`**
+Implementa un procedimiento `void ContarRango(int inicio, int fin, out int pares, out int impares)` que recorra el rango [inicio, fin] y cuente cuántos números pares e impares hay. Prueba con 1-10 y 20-25.
 
 **Ejercicio 36: `in` para Solo Lectura**
 Implementa una función `double CalcularDescuento(in double precio, in double porcentaje)` que calcule el descuento SIN modificar los originales. Intenta modificar `precio` dentro y comenta el error.
@@ -171,7 +171,7 @@ Implementa una función `void CalcularPorcentaje(double total, double porcentaje
 Implementa una función recursiva `int Fibonacci(int n)` que lance `ArgumentOutOfRangeException` si n < 0. Usa `try-catch` en el Main para capturar la excepción.
 
 **Ejercicio 49: Validación Completa con Excepciones**
-Implementa una función `void CrearUsuario(string nombre, string email, int edad)` que valide todo: nombre > 2 caracteres (`ArgumentException`), email contiene `@` (`FormatException`), edad > 0 y < 150 (`ArgumentOutOfRangeException`). Lanza la primera que falle.
+Implementa una función `void CrearPedido(int unidades, double precio, int dia)` que valide todo: unidades > 0 (`ArgumentException`), precio entre 0 y 10000 (`ArgumentOutOfRangeException`), día del mes entre 1 y 31 (`ArgumentOutOfRangeException`). Lanza la primera que falle.
 
 **Ejercicio 50: Proceso Crítico con Finally**
 Implementa un procedimiento `void ProcesoCritico()` que simule 3 pasos: "Conectar", "Leer", "Procesar". Usa `try` para el proceso, `catch` para cada tipo de error, y `finally` para "Desconectar siempre". Prueba tanto el caso de éxito como el de fallo.

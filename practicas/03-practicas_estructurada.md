@@ -83,8 +83,8 @@ Implementa un programa con `do-while` que muestre un menú: 1=Jugar, 2=Opciones,
 **Ejercicio 23: Suma hasta Negativo**
 Implementa un programa con `while` que pida números al usuario. Cuando escriba -1, se detiene y muestra la suma total.
 
-**Ejercicio 24: Validar Contraseña**
-Implementa un programa con `do-while` que pida una contraseña. Si tiene menos de 8 caracteres, vuelve a pedirla. Muestra "Contraseña aceptada".
+**Ejercicio 24: Validar Número de Ticket**
+Implementa un programa con `do-while` que pida un número de ticket. Si está fuera del rango 1000-9999, vuelve a pedirlo. Muestra "Ticket válido".
 
 **Ejercicio 25: Adivina el Número**
 Implementa un programa con un número secreto 7. Usa `do-while` para pedir intentos al usuario. Cuando acierte, muestra "¡Acertaste en {intentos} intentos!".
