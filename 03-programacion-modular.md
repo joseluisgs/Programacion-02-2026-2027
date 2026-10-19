@@ -11,9 +11,8 @@
     - [C. Parámetros de salida con `out`](#c-parámetros-de-salida-con-out)
     - [D. Paso solo lectura con `in`](#d-paso-solo-lectura-con-in)
     - [Tuplas, enums y structs como parámetros y returns](#tuplas-enums-y-structs-como-parámetros-y-returns)
-    - [E. Parámetros variables con `params`](#e-parámetros-variables-con-params)
-    - [F. Tabla de modificadores de parámetros](#f-tabla-de-modificadores-de-parámetros)
-    - [G. Menciones avanzadas: `this`, `scoped`, `ref readonly`](#g-menciones-avanzadas-this-scoped-ref-readonly)
+    - [E. Tabla de modificadores de parámetros](#e-tabla-de-modificadores-de-parámetros)
+    - [F. Menciones avanzadas: `this`, `scoped`, `ref readonly`](#f-menciones-avanzadas-this-scoped-ref-readonly)
   - [3.4. Ámbito de las variables](#34-ámbito-de-las-variables)
   - [3.5. Parámetros por defecto, opcionales y nombrados](#35-parámetros-por-defecto-opcionales-y-nombrados)
   - [3.6. Sobrecarga de funciones](#36-sobrecarga-de-funciones)
@@ -30,7 +29,7 @@
 
 - Comprender qué es la programación modular y por qué es importante
 - Diferenciar entre funciones (devuelven valor) y procedimientos (void)
-- Dominar los modificadores de parámetros: `ref`, `out`, `in`, `params`
+- Dominar los modificadores de parámetros: `ref`, `out` e `in`
 - Entender el ámbito de las variables (local vs. global)
 - Aplicar la recursividad y el Early Return en la resolución de problemas
 
@@ -229,7 +228,7 @@ Incrementar(valorOriginal);
 Console.WriteLine($"Fuera del método: {valorOriginal}"); // Sigue siendo 10
 ```
 
-> 💡 **Analogía:** Imagina que le das a un amigo una **fotocopia** de tu examen para que lo revise. Él escribe notas al margen, tacha cosas, añade comentarios... Pero tu examen original **no cambia**. Eso es el paso por valor: el método recibe una copia, puede hacer lo que quiera con ella, pero el original queda intacto.
+> 💡 **Analogía:** Imagina que le das a un amigo una **fotocopia** de tu trabajo para que lo revise. Él escribe notas al margen, tacha cosas, añade comentarios... Pero tu trabajo original **no cambia**. Eso es el paso por valor: el método recibe una copia, puede hacer lo que quiera con ella, pero el original queda intacto.
 
 > 💡 **Analogía 2:** Es como cocinar una receta. Le pasas a tu amigo los ingredientes (harina, huevos, azúcar). Él hace su propio pastel. Pero si lees la receta, tú tienes tus propios ingredientes intactos. Cada uno trabaja con su propia "copia" de los ingredientes.
 
@@ -480,17 +479,12 @@ Console.WriteLine(izq == der);  // True — tipos compatibles, mismos valores
 
 > ⚠️ **Advertencia sobre `==` y tipos por referencia**
 
-> Recordarás de la UD01 que hay tipos por valor (se copian el contenido) y tipos por referencia (apuntan al mismo sitio). Esto afecta directamente al operador `==`:
+> Recordarás de la UD01 que hay tipos por valor (se copian el contenido) y tipos por referencia (apuntan al mismo sitio). Los strings son de referencia, pero C# compara su contenido — y eso afecta directamente al operador `==`:
 
 > ```csharp
 > // ✅ Tipos por valor: == compara CONTENIDO
 > int a = 5, b = 5;
 > Console.WriteLine(a == b);  // True
-> 
-> // ❌ Arrays: == compara REFERENCIA, no contenido
-> int[] x = { 1, 2, 3 };
-> int[] y = { 1, 2, 3 };
-> Console.WriteLine(x == y);  // ¡False! Son arrays distintos
 > 
 > // ✅ Strings: caso especial (interning de C#)
 > string s1 = "Hola";
@@ -498,7 +492,7 @@ Console.WriteLine(izq == der);  // True — tipos compatibles, mismos valores
 > Console.WriteLine(s1 == s2);  // True (reutiliza el mismo objeto)
 > ```
 
-> 📝 **Regla:** Con arrays, **nunca uses `==`** para comparar contenido. Usa un bucle o `SequenceEqual()`. Con strings, `==` compara el contenido y es seguro incluso con `null`; en cambio `s1.Equals(s2)` lanza `NullReferenceException` si `s1` es `null` — si puede serlo, usa `string.Equals(s1, s2)`.
+> 📝 **Regla:** Con strings, `==` compara el contenido y es seguro incluso con `null`; en cambio `s1.Equals(s2)` lanza `NullReferenceException` si `s1` es `null` — si puede serlo, usa `string.Equals(s1, s2)`.
 
 ### D. Paso solo lectura con `in`
 
@@ -604,62 +598,7 @@ MostrarAlumno(ana);  // Ana (ID: 1): 8.5
 
 > 💡 **Nota:** Los structs se copian al pasarlos como parámetro (son tipos de valor). Para structs grandes, usa `in` para evitar la copia.
 
-### E. Parámetros variables con `params`
-
-`params` permite pasar un **número indeterminado de argumentos** del mismo tipo. El método los recibe como un array.
-
-> 💡 **Analogía:** `params` es como una **lista de la compra**. No sabes cuántos productos vas a poner: puede ser 1, 5 o 20. La función acepta todos los que le pases. Es como si le dices a tu amigo: "tráeme lo que quieras del supermercado" — y él puede traer 1 bolsa o 10.
-
-```csharp
-int SumarTodos(params int[] numeros)
-{
-    int suma = 0;
-    foreach (int numero in numeros)
-    {
-        suma += numero;
-    }
-    return suma;
-}
-
-// Puedes pasar los argumentos separados por comas
-Console.WriteLine(SumarTodos(1, 2, 3));         // 6
-Console.WriteLine(SumarTodos(10, 20, 30, 40));  // 100
-Console.WriteLine(SumarTodos(5));               // 5
-```
-
-```mermaid
-graph LR
-    A["Llamada: 1, 2, 3"] --> B["params numeros = 1, 2, 3"]
-    B --> C[Bucle foreach suma cada uno]
-    C --> D[return 6]
-    style A fill:#2196F3,color:#fff
-    style B fill:#FF9800,color:#fff
-    style C fill:#4CAF50,color:#fff
-    style D fill:#9C27B0,color:#fff
-```
-
-```csharp
-// Ejemplo extra: calcular el promedio de notas
-double Promedio(params double[] notas)
-{
-    double suma = 0;
-    foreach (double nota in notas)
-    {
-        suma += nota;
-    }
-    return suma / notas.Length;
-}
-
-Console.WriteLine(Promedio(7.5, 8.0, 9.5));           // 8.33
-Console.WriteLine(Promedio(10, 9, 8, 7, 6));           // 8.0
-Console.WriteLine(Promedio(5.5));                       // 5.5
-```
-
-📌 **Ejemplo real:** Una función `Log(params string[] mensajes)` podría recibir 1, 5 o 20 mensajes de registro sin cambiar nunca su definición. Es como un chat de WhatsApp: puedes enviar 1 mensaje o 20, el chat los acepta todos.
-
-> ⚠️ **Regla:** `params` debe ser el **último** parámetro de la lista y solo puede haber uno por método. Es como la lista de la compra: va al final y solo tienes una.
-
-### F. Tabla de modificadores de parámetros
+### E. Tabla de modificadores de parámetros
 
 | Modificador | ¿Qué hace? | ¿Cuándo usarlo? | Analogía |
 |-------------|------------|-----------------|----------|
@@ -667,9 +606,8 @@ Console.WriteLine(Promedio(5.5));                       // 5.5
 | `ref` | Paso por referencia | Cuando necesitas modificar el original | Llave de tu casa |
 | `out` | Salida múltiple | Cuando el método debe devolver más de un valor | Formulario en blanco que rellenan por ti |
 | `in` | Solo lectura (referencia) | Cuando necesitas eficiencia sin modificar | Museo: mirar pero no tocar |
-| `params` | Número variable de args | Cuando no sabes cuántos argumentos pasar | Lista de la compra |
 
-### G. Menciones avanzadas: `this`, `scoped`, `ref readonly`
+### F. Menciones avanzadas: `this`, `scoped`, `ref readonly`
 
 Estos modificadores son más avanzados y los verás en profundidad en temas posteriores, pero es bueno que sepas que existen:
 
@@ -702,7 +640,7 @@ ref readonly int referencia = ref ObtenerValor();
 // No se puede modificar el valor referenciado
 ```
 
-> 💡 **Consejo:** Por ahora, domina `ref`, `out` y `params`. Los demás los irás usando conforme avances en el curso.
+> 💡 **Consejo:** Por ahora, domina `ref`, `out` e `in`. Los demás los irás usando conforme avances en el curso.
 
 ## 3.4. Ámbito de las variables
 
@@ -1018,7 +956,6 @@ En el siguiente punto veremos el control de excepciones: `try-catch-finally`, `t
 - [ ] Usar `ref` solo cuando el método deba modificar la variable original
 - [ ] Usar `out` cuando el método devuelva múltiples valores
 - [ ] Siempre asignar todos los campos `out` antes de salir del método
-- [ ] Usar `params` como último parámetro de la lista
 - [ ] Preferir parámetros por defecto y nombrados sobre sobrecarga
 - [ ] Aplicar Early Return para evitar el "efecto cascada" de `if` anidados
 - [ ] Siempre incluir una condición de parada en la recursividad

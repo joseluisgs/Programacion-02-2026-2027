@@ -24,7 +24,7 @@
 **Objetivos de aprendizaje:**
 - Repasar los conceptos fundamentales de la unidad
 - Consolidar el vocabulario técnico
-- Tener una referencia rápida para el examen
+- Tener una referencia rápida de la unidad
 
 ## 5.1. Mapa conceptual de la unidad
 
@@ -39,7 +39,7 @@ graph TD
     ES --> SALTO[Salto: break, continue]
     MO --> FUN[Funciones: return valor]
     MO --> PROC[Procedimientos: void]
-    MO --> PARAM[Parámetros: ref, out, in, params]
+    MO --> PARAM[Parámetros: ref, out, in]
     MO --> SCOPE[Ámbito: global vs local]
     MO --> REC[Recursividad]
     MO --> EARLY[Early Return]
@@ -84,12 +84,11 @@ graph TD
 - **`while`**: repite mientras se cumpla la condición (puede no ejecutarse)
 - **`do-while`**: como `while` pero garantiza al menos una ejecución
 - **`for`**: repite un número conocido de veces (inicialización, condición, incremento)
-- **`foreach`**: recorre colecciones automáticamente
 - **`break`**: sale del bucle actual
 - **`continue`**: salta a la siguiente iteración
 - **Bucle infinito**: error cuando la condición de salida nunca se cumple
 
-📌 **Ejemplo real:** Netflix usa `while` para seguir reproduciendo episodios, `if` para decidir si eres premium, y `for` para recorrer tu lista de favoritos.
+📌 **Ejemplo real:** Netflix usa `while` para seguir reproduciendo episodios e `if` para decidir si eres premium.
 
 ### Programación modular
 
@@ -101,7 +100,6 @@ graph TD
 - **`ref`**: paso por referencia (modifica el original)
 - **`out`**: salida múltiple (debe asignar antes de terminar)
 - **`in`**: solo lectura por referencia (eficiente para structs)
-- **`params`**: lista variable de argumentos
 - **Ámbito global**: accesible en todo (evitar)
 - **Ámbito local**: solo dentro del método (recomendado)
 - **Sobrecarga**: mismo nombre, diferentes parámetros
@@ -200,7 +198,6 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 - [ ] ¿Sé cuándo usar `while`, `for` y `do-while`?
 - [ ] ¿Puedo crear una función que devuelva un valor y un procedimiento que no devuelva nada?
 - [ ] ¿Entiendo la diferencia entre `ref`, `out` e `in`?
-- [ ] ¿Soy capaz de usar `params` para aceptar argumentos variables?
 - [ ] ¿Comprendo el ámbito de las variables (local vs. global)?
 - [ ] ¿Puedo usar `try-catch-finally` para manejar errores?
 - [ ] ¿Sé por qué el `if` es mejor que `try-catch` cuando puedo prever el error?
@@ -233,7 +230,6 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 | **`ref`** | Modificador de paso por referencia |
 | **`out`** | Modificador de salida múltiple |
 | **`in`** | Modificador de solo lectura por referencia |
-| **`params`** | Modificador para listas variables de argumentos |
 | **Ámbito** | Zona del programa donde una variable es accesible |
 | **Sobrecarga** | Múltiples métodos con el mismo nombre pero diferentes parámetros |
 | **Early Return** | Técnica para salir anticipadamente de un método |
@@ -257,7 +253,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 1. **Calculadora simple**: Crea una calculadora que pida dos números y una operación (`+`, `-`, `*`, `/`). Usa `switch` para la operación e `if` para prevenir la división por cero.
 
-2. **Validador de contraseñas**: Crea una función `bool EsContraseñaValida(string contraseña)` que verifique: mínimo 8 caracteres, al menos un número, al menos una mayúscula. Usa `foreach` y condicionales.
+2. **Validador de nota**: Crea una función `bool EsNotaValida(double nota)` que devuelva `true` si la nota está entre 0 y 10 y `false` en caso contrario. Usa Early Return.
 
 3. **Tabla de multiplicar**: Crea un procedimiento `MostrarTabla(int numero)` que muestre la tabla de multiplicar de ese número. Usa `for`.
 
@@ -265,20 +261,19 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 5. **Conversor de temperaturas**: Crea funciones `double CentigradosAFahrenheit(double c)` y `double FahrenheitACentigrados(double f)`. El usuario elige el sentido.
 
-6. **Suma variable**: Crea una función `int SumarTodos(params int[] numeros)` y prueba con diferentes cantidades de argumentos.
+6. **Marcador con ref**: Crea un procedimiento `void AnotarPunto(ref int marcador)` que añada un punto al marcador. Llámalo tres veces y comprueba que el contador se mantiene entre llamadas.
 
 7. **Recursividad**: Implementa una función recursiva que calcule la suma de los dígitos de un número entero.
 
 ## 5.8. ¿Qué viene después?
 
-En la **UD03: Almacenamiento estático y cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás los bucles `for` y `foreach` que viste aquí para recorrerlos, y las funciones para operar con ellos.
+En la **UD03: Almacenamiento estático y cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás el bucle `for` que viste aquí para recorrerlos, y las funciones para operar con ellos.
 
 | Tema de la UD actual | Se usa en la siguiente UD para |
 |----------------------|-------------------------------|
-| Bucles `for` y `foreach` | Recorrer arrays y matrices |
+| Bucle `for` | Recorrer arrays y matrices |
 | Funciones y procedimientos | Operar con colecciones de datos |
 | `ref` y `out` | Modificar arrays y devolver múltiples resultados |
-| `params` | Aceptar listas de elementos de longitud variable |
 | Condicionales `switch` | Seleccionar elementos según criterios |
 | Early Return | Validar índices antes de acceder a arrays |
 
@@ -313,6 +308,6 @@ graph LR
 
 - [ ] Repasar los conceptos clave antes de empezar la práctica
 - [ ] Seguir el patrón Análisis → Diseño → Codificación
-- [ ] Usar el resumen como referencia rápida durante el examen
+- [ ] Usar el resumen como referencia rápida para repasar
 - [ ] Practicar los ejercicios de repaso hasta dominarlos
 - [ ] Revisar el checklist de supervivencia antes de la evaluación

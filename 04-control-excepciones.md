@@ -401,38 +401,7 @@ int DividirMalo(int a, int b)
 
 📌 **¿Cuándo usar `try-catch` para división por cero?** Solo si el divisor viene de una fuente que **no controlas** (una base de datos, un fichero, un usuario remoto) y no puedes verificarlo antes.
 
-#### 2. Acceso a un array
-
-Misma historia con los índices: verificar el rango antes es gratis; capturar la excepción después ya es tarde:
-
-```csharp
-// ✅ BIEN: Prevención con if
-int ObtenerElemento(int[] array, int indice)
-{
-    if (indice < 0 || indice >= array.Length)
-    {
-        Console.WriteLine("Índice fuera de rango");
-        return -1;
-    }
-    return array[indice];
-}
-
-// ❌ MAL: Excepción
-int ObtenerElementoMalo(int[] array, int indice)
-{
-    try
-    {
-        return array[indice];  // ¡BOOM! IndexOutOfRangeException
-    }
-    catch (IndexOutOfRangeException)
-    {
-        Console.WriteLine("Índice fuera de rango");
-        return -1;
-    }
-}
-```
-
-#### 3. Convertir texto a número
+#### 2. Convertir texto a número
 
 La conversión de texto es donde más se abusa de las excepciones; `TryParse` ya te devuelve el resultado sin lanzar nada:
 
@@ -462,7 +431,7 @@ catch (FormatException)
 }
 ```
 
-#### 4. Abrir un fichero
+#### 3. Abrir un fichero
 
 Con los ficheros del disco, comprobar si existe con `File.Exists` evita el salto a `FileNotFoundException`:
 
@@ -491,7 +460,7 @@ catch (FileNotFoundException)
 }
 ```
 
-#### 5. Leer un entero con rango (el caso clásico)
+#### 4. Leer un entero con rango (el caso clásico)
 
 El patrón completo del punto: leer un entero validando rango en bucle. Primero la versión limpia con `TryParse`; después, la versión con excepciones que queremos evitar:
 
@@ -576,7 +545,6 @@ graph TD
 | Situación | ¿Qué usar? | Por qué |
 |-----------|------------|---------|
 | División por cero | `if (b == 0)` | Es predecible |
-| Índice fuera de rango | `if (indice < 0 \|\| indice >= array.Length)` | Es predecible |
 | Texto a número | `int.TryParse(...)` | Es predecible |
 | Fichero no existe | `if (File.Exists(...))` | Es predecible |
 | Conexión a BD falla | `try-catch` | No lo controlas |
@@ -597,7 +565,7 @@ graph TD
 
 | Excepción | Cuándo lanzarla | Ejemplo |
 |-----------|----------------|---------|
-| `ArgumentException` | Argumento no válido en general | `email` no contiene `@` |
+| `ArgumentException` | Argumento no válido en general | Un parámetro vacío cuando se exige contenido |
 | `ArgumentNullException` | Argumento es `null` y no debería serlo | `nombre` es `null` |
 | `ArgumentOutOfRangeException` | Argumento fuera de un rango válido | `edad` es -5 o 200 |
 | `FormatException` | Formato incorrecto | `"abc"` no es un `int` |
@@ -612,18 +580,18 @@ graph TD
 Para lanzar una excepción no inventes tipos nuevos: la BCL ya trae una para cada caso. Esta función valida un registro con las excepciones estándar y sus mensajes:
 
 ```csharp
-void Registrar(string nombre, string email, int edad)
+void Registrar(string nombre, string telefono, int edad)
 {
-    if (string.IsNullOrEmpty(nombre))
+    if (nombre is null)
         throw new ArgumentNullException(nameof(nombre), "El nombre no puede ser nulo");
-    if (nombre.Length < 2)
-        throw new ArgumentException("El nombre debe tener al menos 2 caracteres", nameof(nombre));
-    if (!email.Contains("@"))
-        throw new FormatException("El email no es válido");
+    if (nombre == "")
+        throw new ArgumentException("El nombre no puede estar vacío", nameof(nombre));
+    if (!int.TryParse(telefono, out _))
+        throw new FormatException("El teléfono debe ser numérico");
     if (edad < 0 || edad > 150)
         throw new ArgumentOutOfRangeException(nameof(edad), "La edad debe estar entre 0 y 150");
 
-    Console.WriteLine($"Registrado: {nombre}, {email}, {edad} años");
+    Console.WriteLine($"Registrado: {nombre}, {edad} años, teléfono {telefono}");
 }
 ```
 

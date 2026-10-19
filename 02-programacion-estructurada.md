@@ -14,8 +14,7 @@
     - [A. Bucle `while`](#a-bucle-while)
     - [B. Bucle `do-while`](#b-bucle-do-while)
     - [C. Bucle `for`](#c-bucle-for)
-    - [D. Bucle `foreach`](#d-bucle-foreach)
-    - [E. Comparativa de bucles](#e-comparativa-de-bucles)
+    - [D. Comparativa de bucles](#d-comparativa-de-bucles)
   - [2.5. Mecanismos de control de bucles](#25-mecanismos-de-control-de-bucles)
     - [A. Bucles controlados por indicadores (banderas o flags)](#a-bucles-controlados-por-indicadores-banderas-o-flags)
     - [B. Bucles controlados por centinela](#b-bucles-controlados-por-centinela)
@@ -28,7 +27,7 @@
   - [2.9. Simuladores: repetir hasta que algo salga](#29-simuladores-repetir-hasta-que-algo-salga)
     - [A. La lógica de un simulador](#a-la-lógica-de-un-simulador)
     - [B. Banderas (flags): la memoria del simulador](#b-banderas-flags-la-memoria-del-simulador)
-    - [C. Análisis del ejemplo: 06-modular-simulador.cs](#c-análisis-del-ejemplo-06-modular-simuladorcs)
+    - [C. El simulador completo, pieza a pieza](#c-el-simulador-completo-pieza-a-pieza)
   - [2.10. Depuración: aserciones y técnicas](#210-depuración-aserciones-y-técnicas)
 
 
@@ -40,7 +39,7 @@
 
 - Entender el Teorema de la Programación Estructurada y las tres estructuras de control
 - Usar condicionales (`if-else`, `switch`, ternario) para tomar decisiones
-- Implementar bucles (`while`, `for`, `do-while`, `foreach`) para repetir tareas
+- Implementar bucles (`while`, `for`, `do-while`) para repetir tareas
 - Controlar el flujo de bucles con `break` y `continue`
 - Programar simuladores combinando bucles, banderas (flags) y azar
 - Depurar código con aserciones y técnicas del IDE
@@ -346,7 +345,7 @@ string? nombre = null;
 
 if (nombre != null)
 {
-    Console.WriteLine(nombre.Length);
+    Console.WriteLine($"Hola, {nombre}");
 }
 else
 {
@@ -361,7 +360,7 @@ string? nombre = null;
 
 if (nombre is not null)
 {
-    Console.WriteLine(nombre.Length);  // Seguro: el compilador sabe que no es null
+    Console.WriteLine($"Hola, {nombre}");  // Seguro: el compilador sabe que no es null
 }
 else
 {
@@ -627,23 +626,7 @@ for (int i = 0; i <= 10; i += 2)
 > - **`while`** = **W**hile → mientras se cumpla, repite
 > - **`do-while`** = **D**o → hacer al menos una vez
 
-### D. Bucle `foreach`
-
-Recorre automáticamente todos los elementos de una colección (array, lista, etc.). No necesitas controlar el índice.
-
-```csharp
-string[] frutas = { "Manzana", "Plátano", "Naranja", "Fresa" };
-
-foreach (string fruta in frutas)
-{
-    Console.WriteLine($"Fruta: {fruta}");
-}
-// Salida: Manzana, Plátano, Naranja, Fresa
-```
-
-> 📝 **Nota:** `foreach` es ideal para recorrer arrays. Lo verás en detalle en la UD03 cuando estudiemos arrays y matrices.
-
-### E. Comparativa de bucles
+### D. Comparativa de bucles
 
 ```mermaid
 flowchart TD
@@ -829,19 +812,22 @@ graph TD
 ```
 
 ```csharp
-// Buscar un número en una lista
-int[] numeros = { 5, 12, 8, 23, 1, 9 };
-int objetivo = 23;
+// Buscar un dígito concreto en un número, por ejemplo el 7 en 5723
+int numero = 5723;
 
-for (int i = 0; i < numeros.Length; i++)
+while (numero > 0)
 {
-    if (numeros[i] == objetivo)
+    int digito = numero % 10;  // nos quedamos con el último dígito
+
+    if (digito == 7)
     {
-        Console.WriteLine($"Encontrado {objetivo} en posición {i}");
+        Console.WriteLine("¡Encontrado un 7!");
         break; // No necesitamos seguir buscando
     }
+
+    numero = numero / 10;      // quitamos el último dígito y seguimos
 }
-// Salida: Encontrado 23 en posición 3
+// Salida: ¡Encontrado un 7!
 ```
 
 ### B. `continue`
@@ -964,7 +950,6 @@ La receta habitual para simular **probabilidades** es comparar `NextDouble()` co
 bool ocurre = rnd.NextDouble() < 0.20;
 ```
 
-En los ejemplos de `ejemplos/` lo verás en acción: la tragaperras (premios), Piedra-Papel-Tijera (el jefe que hace trampa) y el simulador de proceso (salidas por azar, sección 2.9).
 
 ## 2.9. Simuladores: repetir hasta que algo salga
 
@@ -1012,7 +997,24 @@ graph TD
 
 > 💡 **Analogía:** Un simulador es como calentar café en el microondas: pones el tiempo (tope), calienta de segundo en segundo (ciclo) y en cada segundo puede pasar algo (el agua se desborda y hay que parar ya). El microondas no sabe cuántos segundos hará falta: comprueba **después** de cada segundo.
 
-> 📝 **Nota:** `Thread.Sleep(milisegundos)` detiene el programa el tiempo indicado. Es el "reloj" de nuestros simuladores de consola: sin él, el bucle terminaría en milisegundos y no verías nada. En aplicaciones con interfaz gráfica se usan temporizadores en lugar de esto, pero para aprender la lógica, `Thread.Sleep` es perfecto.
+**El reloj del simulador: `Thread.Sleep`**
+
+Un simulador necesita que el tiempo "pase" de verdad entre ciclo y ciclo. Ese trabajo lo hace `Thread.Sleep(milisegundos)`, del espacio de nombres `System.Threading` (incluido en los usings implícitos de .NET): detiene el programa el tiempo indicado y luego continúa. Sin él, un bucle de simulación se ejecuta tan rápido que los 5 minutos transcurrirían en milisegundos y no verías pasar nada.
+
+```csharp
+// Un reloj de consola: 5 segundos contados uno a uno
+for (int s = 1; s <= 5; s++)
+{
+    Thread.Sleep(1000);              // Pausa REAL de 1 segundo
+    Console.WriteLine($"Han pasado {s} segundo(s)");
+}
+```
+
+Sin la línea del `Sleep`, los cinco mensajes se imprimen de golpe en un destello; con ella, el programa espera como haría un cronómetro.
+
+📌 **Ejemplo real:** Los videojuegos usan el mismo patrón en su bucle de juego (*game loop*): para mantener 60 imágenes por segundo, cada ciclo espera los ~16 milisegundos que faltan antes de dibujar el siguiente fotograma. Nuestro simulador es lo mismo, con el pulso bajado a un tic por segundo.
+
+> ⚠️ **Advertencia:** `Thread.Sleep` detiene el hilo por completo: mientras duerme, el programa no hace absolutamente nada más. En una aplicación con interfaz gráfica eso "congelaría" la ventana, y ahí se usan temporizadores en lugar de `Sleep`. Para simuladores de consola, sin embargo, es la herramienta habitual.
 
 ### B. Banderas (flags): la memoria del simulador
 
@@ -1042,9 +1044,9 @@ if (terminado)                             // 4. Después, distingue el desenlac
 
 > 🔧 **Truco:** nómbralas como una pregunta o con "ha...": `terminado`, `haFallado`, `salioPorAzar`. Al leer la condición `while (!haFallado)` se entiende sola: *"mientras no haya fallado"*.
 
-### C. Análisis del ejemplo: 06-modular-simulador.cs
+### C. El simulador completo, pieza a pieza
 
-El ejemplo `ejemplos/06-modular-simulador.cs` implementa exactamente este esquema: un proceso que avanza en pasos de 1 segundo durante un máximo de 10 segundos, y que en cada paso tiene un 20% de probabilidad de terminar antes por azar. Vamos a verlo por piezas. Primero, el estado y las constantes:
+Montemos uno completo: un proceso que avanza en pasos de 1 segundo durante un máximo de 10 segundos, y que en cada paso tiene un 20% de probabilidad de terminar antes por azar. Vamos a verlo por piezas. Primero, el estado y las constantes:
 
 ```csharp
 const int TIEMPO_SIMULACION = 10000; // Duración máxima en milisegundos
@@ -1070,6 +1072,8 @@ do
     // (tiempo >= máximo) o por la probabilidad (salidaPorProbabilidad)
 } while (tiempo < TIEMPO_SIMULACION && !salidaPorProbabilidad);
 ```
+
+Fíjate en el primer renglón del bucle: `Thread.Sleep(INCREMENTO_TIEMPO)` es el **reloj del simulador** —pausa el programa un segundo real en cada ciclo—. Sin esa línea, los 10 segundos de simulación se ejecutarían en milisegundos y no verías pasar nada (lo explicamos en la sección A).
 
 Leamos la condición en castellano: *"sigo mientras no se haya agotado el tiempo **y** además no haya salido por probabilidad"*. Con `&&`, **basta una** de las dos para salir. Y como el bucle puede haber salido por dos motivos, el programa termina preguntando a la bandera para informar correctamente:
 
@@ -1112,17 +1116,15 @@ La forma más efectiva es usar el **depurador** de tu IDE (JetBrains Rider o VS 
 A veces no tienes depurador o es más rápido un `Console.WriteLine`:
 
 ```csharp
-int[] numeros = { 5, 12, 8, 23, 1 };
+int numero = 5231;
 
-for (int i = 0; i < numeros.Length; i++)
+while (numero > 0)
 {
-    Console.WriteLine($"DEBUG: i={i}, numeros[i]={numeros[i]}"); // Depuración
-    if (numeros[i] == 23)
-    {
-        Console.WriteLine("¡Encontrado!");
-        break;
-    }
+    int digito = numero % 10;
+    Console.WriteLine($"DEBUG: numero={numero}, digito={digito}"); // Depuración
+    numero = numero / 10;
 }
+// Cada línea te muestra cómo va cambiando el número, paso a paso
 ```
 
 ### Depuración con Visual Studio / Rider
@@ -1160,7 +1162,7 @@ int CalcularDescuento(int precio, int cantidad)
 
 > 📝 **Nota:** `Debug.Assert` solo se ejecuta en compilación **Debug** (en Release desaparece, porque está marcada con `[Conditional("DEBUG")]`). Úsala para comprobar invariantes durante el desarrollo; para errores previsibles del usuario, usa `if` (la regla de oro del punto 4.10).
 
-En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`, `params`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.
+En el siguiente punto veremos la programación modular: funciones, procedimientos, parámetros (`ref`, `out`, `in`), recursividad y cómo dividir un problema en partes pequeñas y reutilizables.
 
 ## Buenas prácticas
 

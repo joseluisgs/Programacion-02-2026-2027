@@ -143,7 +143,7 @@ graph LR
     P1 --> C[Condicionales]
     P1 --> B[Bucles]
     P2 --> F[Funciones]
-    P2 --> R[Parámetros: ref, out, params]
+    P2 --> R[Parámetros: ref, out, in]
     P2 --> RE[Recursividad]
     P3 --> TC[try-catch]
     P3 --> TH[throw]
@@ -169,7 +169,7 @@ Al finalizar esta unidad serás capaz de:
 - **Tomar decisiones** con `if-else`, `switch` y el operador ternario
 - **Repetir tareas** con `while`, `for` y `do-while`
 - **Dividir problemas** en funciones y procedimientos reutilizables
-- **Pasar datos de forma segura** con `ref`, `out` y `params`
+- **Pasar datos de forma segura** con `ref`, `out` e `in`
 - **Manejar errores** con `try-catch-finally` y `throw`
 - **Depurar código** con aserciones
 
