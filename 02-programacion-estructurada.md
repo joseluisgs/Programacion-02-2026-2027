@@ -25,7 +25,11 @@
     - [B. `continue`](#b-continue)
   - [2.7. Peligros: el bucle infinito](#27-peligros-el-bucle-infinito)
   - [2.8. Números aleatorios (`Random`)](#28-números-aleatorios-random)
-  - [2.9. Depuración: aserciones y técnicas](#29-depuración-aserciones-y-técnicas)
+  - [2.9. Simuladores: repetir hasta que algo salga](#29-simuladores-repetir-hasta-que-algo-salga)
+    - [A. La lógica de un simulador](#a-la-lógica-de-un-simulador)
+    - [B. Banderas (flags): la memoria del simulador](#b-banderas-flags-la-memoria-del-simulador)
+    - [C. Análisis del ejemplo: 06-modular-simulador.cs](#c-análisis-del-ejemplo-06-modular-simuladorcs)
+  - [2.10. Depuración: aserciones y técnicas](#210-depuración-aserciones-y-técnicas)
 
 
 # 2. Programación estructurada
@@ -38,6 +42,7 @@
 - Usar condicionales (`if-else`, `switch`, ternario) para tomar decisiones
 - Implementar bucles (`while`, `for`, `do-while`, `foreach`) para repetir tareas
 - Controlar el flujo de bucles con `break` y `continue`
+- Programar simuladores combinando bucles, banderas (flags) y azar
 - Depurar código con aserciones y técnicas del IDE
 
 La **programación estructurada** es un paradigma que busca crear programas más claros y fáciles de mantener. Se basa en el **Teorema de la Programación Estructurada**, que demuestra que cualquier algoritmo puede implementarse con solo **tres estructuras de control** básicas:
@@ -946,7 +951,7 @@ int num = rnd.Next(10);      // Forma corta: entre 0 y 9
 double p = rnd.NextDouble(); // Decimal entre 0.0 y 1.0, ideal para probabilidades
 ```
 
-📌 **Ejemplo real:** La tragaperras genera sus tres rodillos con `rnd.Next(0, 10)` (números del 0 al 9) y el simulador de vuelo decide un fallo con `rnd.Next(1, 101) <= 20` (20% de probabilidad en cada ciclo).
+📌 **Ejemplo real:** La tragaperras genera sus tres rodillos con `rnd.Next(0, 10)` (números del 0 al 9) y un simulador decide si un proceso termina antes con `rnd.NextDouble() < 0.20` (20% de probabilidad en cada paso).
 
 > ⚠️ **Advertencia:** `Next(min, max)` es **exclusivo en el máximo**: `Next(1, 7)` jamás devuelve un 7. Para incluirlo, escribe `Next(1, 8)`. Es el fallo más común con `Next`.
 
@@ -959,9 +964,137 @@ La receta habitual para simular **probabilidades** es comparar `NextDouble()` co
 bool ocurre = rnd.NextDouble() < 0.20;
 ```
 
-En los ejemplos de `ejemplos/` lo verás en acción: la tragaperras (premios), Piedra-Papel-Tijera (el jefe que hace trampa) y los simuladores (fallo de sistema y salidas por azar).
+En los ejemplos de `ejemplos/` lo verás en acción: la tragaperras (premios), Piedra-Papel-Tijera (el jefe que hace trampa) y el simulador de proceso (salidas por azar, sección 2.9).
 
-## 2.9. Depuración: aserciones y técnicas
+## 2.9. Simuladores: repetir hasta que algo salga
+
+Los videojuegos, las tragaperras y los simuladores de todo tipo comparten un mismo esquema: **repetir una acción ciclo a ciclo hasta que algo ocurre**. En la sección anterior ya tenemos el azar; ahora montamos el motor que lo usa: el **bucle de simulación**. Este patrón aparece en montón de problemas, así que merece que lo entendas a fondo.
+
+### A. La lógica de un simulador
+
+Un **simulador** es un programa que reproduce el comportamiento de un proceso del mundo real paso a paso, muchas veces con azar. La clave es que **no sabes de antemano cuántos ciclos hará falta**: por eso se programa con un bucle cuya salida depende de que "algo" ocurra.
+
+Ese "algo" puede ser:
+
+- un **contador** que llega a su máximo (se acabó el tiempo o los intentos)
+- una **bandera** que se enciende (el azar, o el propio proceso, dice "basta")
+- una **decisión del usuario** (quiso salir)
+
+Y casi siempre se combinan: *"esto será así **hasta que** se acabe el tiempo **o** hasta que ocurra lo que tenga que ocurrir"*. Traducido a C#: un `while` o `do-while` con dos condiciones unidas por `&&` (o `||`), donde una es el tope duro y la otra es el evento.
+
+```mermaid
+graph TD
+    Inicio((Inicio)) --> Estado[Estado inicial:<br/>bandera = false<br/>tiempo = 0]
+    Estado --> Paso[Paso del simulador:<br/>avanzar el tiempo]
+    Paso --> Azar{¿El azar dispara<br/>el evento?}
+    Azar -->|Sí| Bandera[bandera = true]
+    Azar -->|No| Cond
+    Bandera --> Cond{¿Seguimos?<br/>tiempo máximo sin agotar<br/>y bandera en false}
+    Cond -->|Sí| Paso
+    Cond -->|No| Informe{¿Por qué salimos?}
+    Informe -->|bandera| Msg1[El evento terminó el proceso]
+    Informe -->|tiempo| Msg2[Se agotó el tiempo]
+    Msg1 --> Fin((Fin))
+    Msg2 --> Fin
+    style Inicio fill:#2196F3,color:#fff
+    style Estado fill:#9C27B0,color:#fff
+    style Paso fill:#4CAF50,color:#fff
+    style Azar fill:#FF9800,color:#fff
+    style Bandera fill:#9C27B0,color:#fff
+    style Cond fill:#FF9800,color:#fff
+    style Informe fill:#FF9800,color:#fff
+    style Msg1 fill:#607D8B,color:#fff
+    style Msg2 fill:#607D8B,color:#fff
+    style Fin fill:#2196F3,color:#fff
+```
+
+¿Y `while` o `do-while`? En un simulador, el **`do-while` casi siempre es el rey**: el proceso debe avanzar al menos un ciclo antes de preguntar si sigue. El `while` lo reservas para cuando el simulador puede ni siquiera arrancar (por ejemplo, si el usuario empieza sin saldo).
+
+> 💡 **Analogía:** Un simulador es como calentar café en el microondas: pones el tiempo (tope), calienta de segundo en segundo (ciclo) y en cada segundo puede pasar algo (el agua se desborda y hay que parar ya). El microondas no sabe cuántos segundos hará falta: comprueba **después** de cada segundo.
+
+> 📝 **Nota:** `Thread.Sleep(milisegundos)` detiene el programa el tiempo indicado. Es el "reloj" de nuestros simuladores de consola: sin él, el bucle terminaría en milisegundos y no verías nada. En aplicaciones con interfaz gráfica se usan temporizadores en lugar de esto, pero para aprender la lógica, `Thread.Sleep` es perfecto.
+
+### B. Banderas (flags): la memoria del simulador
+
+Una **bandera** (o **flag**, en inglés) es una variable `bool` que recuerda si algo **ya ha pasado**. Ya la usamos en la sección 2.5.A para controlar bucles; aquí cumple un papel doble: además de ayudar a salir, **cuenta por qué salió** el simulador.
+
+Toda bandera tiene cuatro momentos, y si olvidas uno, el simulador se rompe:
+
+```csharp
+const int maximo = 10000;
+int tiempo = 0;
+bool terminado = false;                    // 1. Se inicializa ANTES del bucle
+
+do
+{
+    tiempo += 1000;                        // ... un paso del simulador ...
+
+    terminado = Probabilidad(0.20);        // 2. Se reevalúa DENTRO de cada ciclo
+} while (tiempo < maximo && !terminado);   // 3. Se lee en la condición de salida
+
+if (terminado)                             // 4. Después, distingue el desenlace
+{
+    Console.WriteLine("Terminó por azar");
+}
+```
+
+⚠️ **Advertencia:** el error clásico es olvidar el paso 2: la bandera se inicializa en `false` y **nadie la cambia nunca**, así que el bucle solo puede salir por el contador (o no sale nunca). Pasa la vista por la condición del `while`: si ves una bandera ahí, búscale su `= true` (o su reevaluación) dentro del cuerpo.
+
+> 🔧 **Truco:** nómbralas como una pregunta o con "ha...": `terminado`, `haFallado`, `salioPorAzar`. Al leer la condición `while (!haFallado)` se entiende sola: *"mientras no haya fallado"*.
+
+### C. Análisis del ejemplo: 06-modular-simulador.cs
+
+El ejemplo `ejemplos/06-modular-simulador.cs` implementa exactamente este esquema: un proceso que avanza en pasos de 1 segundo durante un máximo de 10 segundos, y que en cada paso tiene un 20% de probabilidad de terminar antes por azar. Vamos a verlo por piezas. Primero, el estado y las constantes:
+
+```csharp
+const int TIEMPO_SIMULACION = 10000; // Duración máxima en milisegundos
+const int INCREMENTO_TIEMPO = 1000;  // Cada "tick" dura 1 segundo
+const decimal PROBABILIDAD_ACCION = 0.20m; // 20% de salir en cada tick
+
+int tiempo = 0;                      // El "reloj" del simulador
+bool salidaPorProbabilidad = false;  // LA BANDERA: ¿ha decidido el azar salir?
+```
+
+Fíjate en el nombre de la bandera: no es `terminado`, sino `salioPorProbabilidad`, porque no marca solo que acabó, sino **por qué**. Luego llega el corazón del simulador, el bucle `do-while` con sus dos condiciones de parada:
+
+```csharp
+do
+{
+    Thread.Sleep(INCREMENTO_TIEMPO); // Pausa real de 1 segundo
+    tiempo += INCREMENTO_TIEMPO;     // Avanzamos un ciclo
+    Console.WriteLine($"Tiempo: {tiempo}");
+
+    salidaPorProbabilidad = Probabilidad(PROBABILIDAD_ACCION); // El azar vota
+
+    // El bucle para por cualquiera de las dos causas: tiempo agotado
+    // (tiempo >= máximo) o por la probabilidad (salidaPorProbabilidad)
+} while (tiempo < TIEMPO_SIMULACION && !salidaPorProbabilidad);
+```
+
+Leamos la condición en castellano: *"sigo mientras no se haya agotado el tiempo **y** además no haya salido por probabilidad"*. Con `&&`, **basta una** de las dos para salir. Y como el bucle puede haber salido por dos motivos, el programa termina preguntando a la bandera para informar correctamente:
+
+```csharp
+if (salidaPorProbabilidad)
+    Console.WriteLine("Se ha salido por probabilidad");
+else
+    Console.WriteLine("Se ha llegado al tiempo de simulación");
+```
+
+Por último, la aleatoriedad encapsulada en una función que devuelve un `bool` —esto ya es programación modular, el siguiente punto—:
+
+```csharp
+// Devuelve true con la probabilidad indicada (0.20 = 20%)
+bool Probabilidad(decimal probabilidad)
+{
+    return (decimal)rnd.NextDouble() < probabilidad;
+}
+```
+
+📌 **Ejemplo real:** Los encuentros sorpresa de un juego de aventuras funcionan así: en cada paso que das por el mapa hay un porcentaje de que aparezca un enemigo. El bucle del juego sigue *"hasta que"* el encuentro ocurra o llegues al destino. En Netflix, el sondeo que decide qué portada te muestra en una fila también evalúa azar en cada ciclo de recomendación hasta dar con la que funciona.
+
+> 💡 **Consejo:** Cuando te enfrentes a un enunciado del tipo *"simula X hasta que pase Y"*, el esqueleto es siempre el mismo: (1) el contador del tiempo o intentos, (2) la bandera del evento, (3) el `do-while` con las dos condiciones, (4) el `if` final que informa del desenlace. Primero escríbelo en papel y luego dale cuerpo con el azar.
+
+## 2.10. Depuración: aserciones y técnicas
 
 La **depuración** es el proceso de encontrar y corregir errores en el código. Existen varias técnicas:
 

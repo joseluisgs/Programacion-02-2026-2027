@@ -87,7 +87,7 @@ Implementa un programa con `while` que pida números al usuario. Cuando escriba 
 Implementa un programa con `do-while` que pida un número de ticket. Si está fuera del rango 1000-9999, vuelve a pedirlo. Muestra "Ticket válido".
 
 **Ejercicio 25: Adivina el Número**
-Implementa un programa con un número secreto 7. Usa `do-while` para pedir intentos al usuario. Cuando acierte, muestra "¡Acertaste en {intentos} intentos!".
+Implementa un programa que genere un número secreto aleatorio entre 1 y 100 usando `Random` (sección 2.8). Usa `do-while` para pedir intentos al usuario. Cuando acierte, muestra "¡Acertaste en {intentos} intentos!".
 
 **Ejercicio 26: Suma de Pares**
 Implementa un programa con `while` que sume todos los números pares del 1 al 100. Muestra el resultado.
