@@ -48,3 +48,16 @@ El Jefe Final es otra historia. El viejo maestro no pierde el tiempo con novatos
 Cuentan en la barra del bar que las probabilidades de un combate normal se reparten a partes iguales entre victoria, empate y derrota. Las del Jefe solo las cuenta quien ya se ha enfrentado al maestro cinco veces.
 
 El público espera. Te susurra un veterano que los grandes campeones de este torneo tienen un gran aliado: el SRP —cada guerrero, una sola misión—, y que donde los novatos ven un amasijo de golpes, los maestros ven ejércitos pequeños y bien organizados. Lo tiene claro: en este combate, la modularización marca el camino a la victoria. Que la batalla quede tan bien contada en tu código como en la arena.
+
+---
+
+**Ejercicio 3: El reloj digital**
+
+Un reloj digital no sabe de antemano cuántos tics faltan hasta la hora final: cada tic es un segundo real de espera. Al arrancar, el reloj debe:
+
+- Preguntar en qué formato vive: **24 horas** (00-23) o **AM/PM** (1-12 y su periodo).
+- Pedir la **hora de inicio** y después la **hora final**, cada una con su hora y sus minutos. Todos los valores deben ser números enteros dentro de su rango: las letras no son horas y las 25 no existen.
+- Comprobar que **la hora final no es inferior a la de inicio**; si lo es, volver a pedirla. Ojo: la comparación debe ser justa aunque las horas se hayan introducido en formatos distintos.
+- Esperar a que se pulse **ENTER** antes de arrancar.
+- Mostrar el reloj **fijo en la misma posición de la pantalla** —por ejemplo, redibujando la propia línea con `\r` en cada `Write`, o con `Console.SetCursorPosition`— y avanzar segundo a segundo desde la hora inicial hasta la final.
+- Cuando llegue a la hora final, el reloj debe decir **FIN**.
