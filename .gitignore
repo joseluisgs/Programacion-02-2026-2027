@@ -37,6 +37,9 @@ TestResults/
 # Ejemplos (trabajo del profesor, no subir)
 /ejemplos/
 
+# Evaluación y exámenes (trabajo del profesor, no subir)
+/evaluacion/
+
 # Archivos de ofimática
 *.pptx
 *.docx
