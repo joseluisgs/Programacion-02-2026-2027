@@ -710,7 +710,7 @@ void MostrarInfo(string nombre, int edad = 18, string ciudad = "Desconocida")
 }
 ```
 
-⚠️ **Ojo:** `ref`, `out` e `in` **no admiten valores por defecto** (`void M(ref int x = 0)` no compila: error CS1763). Si necesitas versiones con y sin referencia, usa **sobrecargas**.
+⚠️ **Ojo:** `ref` y `out` **no admiten valores por defecto** (`void M(ref int x = 0)` no compila: error **CS1741**). `in` **sí los admite** (`void M(in int x = 0)` compila y, si el llamador omite el argumento, recibe el valor por defecto). Si necesitas versiones con y sin `ref`/`out`, usa **sobrecargas**.
 
 ## 3.6. Sobrecarga de funciones
 
