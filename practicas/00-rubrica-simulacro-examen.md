@@ -147,7 +147,7 @@ En el Ejercicio 2, Ana suma 8 (falla los empates, la trampa del jefe y el histor
 | El formato (24 h / AM-PM) se pide en bucle hasta elegir uno válido | Ejecución: elige "5" primero; debe rechazarlo y volver a preguntar | 0,5 |
 | Hora y minuto de inicio: números enteros dentro de su rango | Ejecución: mete "abc", luego "25" en 24 h (o "13" en AM/PM); debe avisar y repetir | 0,75 |
 | Hora y minuto final: ídem | Ejecución con entradas malas | 0,5 |
-| El periodo AM/PM se valida (solo A o P) | Ejecución con "X"; debe rechazarlo | 0,5 |
+| El periodo AM/PM se valida y admite cualquier forma de escribirlo (A, P, AM, PM, 1 o 2; con mayúscula o minúscula) | Ejecución: con "X" debe rechazarlo; con "am", "PM" o "2" debe aceptarlo sin protestar | 0,5 |
 | La hora final no puede ser inferior a la de inicio: si lo es, se vuelve a pedir | Ejecución: empieza a las 11:30 PM y termina a 1:00 AM — debe rechazarlo (60 < 1410) | 1 |
 | La comparación usa una escala común (p. ej. minutos desde medianoche), no números "a pelo" de formatos distintos | Lectura del código: hay una función de conversión antes de comparar | 0,75 |
 
