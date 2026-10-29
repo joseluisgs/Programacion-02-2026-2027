@@ -1,5 +1,5 @@
 // ============================================================================
-// Reloj digital (modular) — UD02/ejemplos
+// Reloj digital (modular) — UD02/soluciones
 //
 // ENUNCIADO: UD02/practicas/05-preparacion-examen.md — Ejercicio 3.
 // Un reloj digital que pide formato (24 h o AM/PM), hora de inicio y hora
@@ -12,6 +12,9 @@
 //   - Simulación con do-while + Thread.Sleep (un tic = 1 s REAL) — 2.9
 //   - Entradas robustas: TryParse + validación de rango — punto 4
 //   - enum con valores (FormatoReloj, Periodo) — repaso UD01
+//   - Tipo anulable (Periodo?): el campo admite null y en 24 h lo es
+//     de verdad, porque no existe AM/PM — UD01 6.2 "Null y tipos
+//     Nullable"
 //   - struct como parámetro y return (HoraReloj): tipo de valor que se
 //     COPIA, igual que un int — 3.3 (tuplas, enums y structs)
 //   - Escala común para comparar: convertir todo a minutos — 3.1
@@ -113,7 +116,7 @@ HoraReloj PedirHora(string momento, FormatoReloj formato)
     {
         hora.Hora = LeerEnteroRango($"Hora de {momento} (0-23): ", HORA_MINIMA_24H, HORA_MAXIMA_24H);
         hora.Minuto = LeerEnteroRango($"Minuto de {momento} (0-59): ", MINUTO_MINIMO, MINUTO_MAXIMO);
-        hora.Periodo = Periodo.AM; // en 24 h el periodo no se usa
+        hora.Periodo = null; // en 24 h NO hay AM/PM: el campo queda anulado
     }
     else
     {
@@ -200,6 +203,10 @@ int AMinutosDesdeMedianoche(HoraReloj h, FormatoReloj formato)
     // 12 PM = mediodía (12:00); el resto, hora % 12 más el desfase.
     int hora24 = h.Hora % 12; // 12 → 0; 1..11 se quedan igual
 
+    // h.Periodo es un Periodo? (anulable): compararlo con un valor del
+    // enum es legal porque el == "elevado" admite null. Aquí nunca es
+    // null —PedirHora garantiza AM/PM en este formato—, pero si lo fuera
+    // contaría como AM: la rama de la mañana es la de por defecto.
     if (h.Periodo == Periodo.PM)
     {
         hora24 += 12;
@@ -293,7 +300,9 @@ enum FormatoReloj
     AmPm = 2
 }
 
-// El periodo solo tiene significado en el formato AM/PM.
+// El periodo solo tiene significado en el formato AM/PM. Por eso el
+// campo del struct es Periodo? (anulable): en 24 h vale null, y no un
+// AM de mentira.
 enum Periodo
 {
     AM,
@@ -308,5 +317,8 @@ struct HoraReloj
 {
     public int Hora;        // 0-23 en formato 24 h; 1-12 en AM/PM
     public int Minuto;      // 0-59 siempre
-    public Periodo Periodo; // solo con significado en AM/PM
+    // Periodo? = tipo ANULABLE (UD01 6.2 "Null y tipos Nullable"): puede
+    // ser AM, PM... o null. El null es real y significa "no hay periodo",
+    // que es justo lo que pasa en formato 24 h.
+    public Periodo? Periodo; // AM/PM en formato 12 h; null en formato 24 h
 }
