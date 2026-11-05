@@ -33,6 +33,9 @@ UD02. Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
     - h) Se han creado excepciones.
     - i) Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo.
 
+
+## Autor
+
 Codificado con :sparkling_heart: por [José Luis González Sánchez](https://joseluisgs.dev)
 
 [![Twitter](https://img.shields.io/twitter/follow/JoseLuisGS_?style=social)](https://x.com/JoseLuisGSDev)
