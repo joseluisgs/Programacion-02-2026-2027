@@ -20,7 +20,7 @@ class: ud-cover-bg
 
 # Programación Estructurada y Modular
 
-### Creando código que decide, repite y se divide en módulos
+### Aprendiendo a estructurar la lógica y a dividir tu código en piezas reutilizables
 
 <div class="mt-10 flex items-end justify-between w-full">
   <div class="text-left">
@@ -259,7 +259,7 @@ Usa programación estructurada en el flujo de reproducción: secuencia (cargar v
 
 <TipBox type="analogia">
 
-**Estructurado** es el organigrama: cada persona tiene su puesto. **Modular** es que además el trabajo esté repartido en archivos separados, no todo en el mismo despacho.
+**Estructurado** es el organigrama: cada persona tiene su puesto. **Modular** es que además el trabajo esté repartido en **módulos separados**, no todo en el mismo despacho.
 
 </TipBox>
 
@@ -3366,7 +3366,7 @@ double resultado = Pow(2, 3);                     // 8
 
 <TipBox type="nota">
 
-En top-level statements, los `using` se escriben al inicio del archivo. Los verás en acción en todos los ejemplos de esta unidad.
+Los `using` se escriben **al inicio del archivo**, antes que cualquier otra declaración.
 
 </TipBox>
 
@@ -3612,7 +3612,6 @@ Manejar una excepción **NO es solo poner un mensaje**. Es devolver el programa 
 <div>
 
 - Si una transferencia bancaria falla a la mitad, el `catch` debe asegurar que el dinero **vuelve** a la cuenta de origen
-- Si una subida de archivo falla, el `catch` debe **limpiar** los archivos parciales
 
 ```mermaid
 graph LR
@@ -3944,27 +3943,27 @@ Un filtro `when` es un `if` dentro del `catch`: si la condición no se cumple, l
 
 ## Filtros de excepción (`when`)
 
-Si necesitas más precisión (por ejemplo, distinguir según un valor), usa `when`:
+Si necesitas más precisión —separar varios casos concretos en un mismo `catch`—, usa `when`:
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
 
 ```csharp
+string entrada = "abc";   // lo que teclea el usuario
+
 try
 {
-    ConectarABaseDeDatos();
+    int nota = int.Parse(entrada);
+    if (nota < 0 || nota > 10)
+        throw new ArgumentOutOfRangeException();
 }
-catch (SqlException e) when (e.Number == 4060)  // BD no existe
+catch (Exception e) when (e is FormatException)
 {
-    Console.WriteLine("La base de datos no existe.");
+    Console.WriteLine("No es un número.");
 }
-catch (SqlException e) when (e.Number == 18456) // Login mal
+catch (Exception e) when (e is ArgumentOutOfRangeException)
 {
-    Console.WriteLine("Credenciales incorrectas.");
-}
-catch (SqlException e)   // Cualquier otro error
-{
-    Console.WriteLine($"Error de SQL: {e.Message}");
+    Console.WriteLine("La nota debe estar entre 0 y 10.");
 }
 ```
 
@@ -4033,8 +4032,8 @@ Una excepción **nunca** es un error de sintaxis: si el código no compila, el c
 |-----------|-------------|---------|
 | División por cero | `if (b == 0)` | Es predecible |
 | Texto a número | `int.TryParse(...)` | Es predecible |
-| Fichero no existe | `if (File.Exists(...))` | Es predecible |
-| Conexión a BD falla | `try-catch` | No lo controlas |
+| Nota fuera de rango | `if (nota < 0 \|\| nota > 10)` | Es predecible |
+| Disco lleno o red cortada | `try-catch` | No lo controlas |
 
 </div>
 </div>
@@ -4138,51 +4137,6 @@ catch (FormatException)
 El `bool` distingue éxito de error **sin excepciones**: si el usuario escribe `0` devuelve `true` con `valor = 0` (cero es un valor perfectamente válido); si escribe `"abc"` devuelve `false`.
 
 </TipBox>
-
----
-
-## Abrir un fichero: `File.Exists` frente a la excepción
-
-Con los ficheros del disco, comprobar si existe con `File.Exists` evita el salto a `FileNotFoundException`:
-
-<div class="grid grid-cols-2 gap-5 items-start">
-<div>
-
-**✅ BIEN: verificar si existe antes**
-
-```csharp
-string ruta = "datos.txt";
-if (File.Exists(ruta))
-{
-    string contenido = File.ReadAllText(ruta);
-    Console.WriteLine(contenido);
-}
-else
-{
-    Console.WriteLine("El fichero no existe");
-}
-```
-
-</div>
-<div>
-
-**❌ MAL: excepción directa**
-
-```csharp
-try
-{
-    string contenido = File.ReadAllText("datos.txt");
-    // ¡BOOM! FileNotFoundException
-    Console.WriteLine(contenido);
-}
-catch (FileNotFoundException)
-{
-    Console.WriteLine("El fichero no existe");
-}
-```
-
-</div>
-</div>
 
 ---
 

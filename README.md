@@ -2,6 +2,8 @@
 
 UD02. Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 
+![imagen](https://raw.githubusercontent.com/joseluisgs/Programacion-00-2022-2023/master/images/programacion.png)
+
 ## Contenidos
 
 1. [Introducción](01-introduccion.md)
