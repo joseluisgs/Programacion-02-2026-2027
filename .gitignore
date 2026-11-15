@@ -44,6 +44,19 @@ TestResults/
 *.pptx
 *.docx
 *.pdf
+# ...pero las presentaciones en PDF sí se publican
+!presentaciones/*.pdf
+
+# Node / Slidev (npm)
+node_modules/
+.slidev/
+dist/
+*.local
+.npm/
+
+# Agentes (configuración, nunca se sube)
+AGENTS.md
+AUDITORIA.md
 
 # Otros
 .DS_Store

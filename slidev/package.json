@@ -1,0 +1,23 @@
+{
+  "name": "ud02-slidev",
+  "type": "module",
+  "private": true,
+  "description": "Presentación Slidev de la UD02 - Programación Estructurada y Modular (1DAW)",
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest",
+    "gsap": "latest",
+    "slidev-addon-autofit": "latest",
+    "slidev-addon-gsap": "latest",
+    "slidev-component-poll": "latest",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.65.1"
+  }
+}

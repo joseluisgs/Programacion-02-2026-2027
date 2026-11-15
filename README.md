@@ -17,6 +17,10 @@ UD02. Programación Estructurada y Modular. 1DAW. Curso 2026-2027.
 - [Programación modular, pasos de parámetros y excepciones](https://youtu.be/TW3utlFXeps)
 - [Lista de reproducción](https://www.youtube.com/playlist?list=PLK1PMlIrqj3c)
 
+## Presentaciones
+
+- Presentación PDF ([tema claro](presentaciones/ud02-estructurada-modular-claro.pdf), [tema oscuro](presentaciones/ud02-estructurada-modular-oscuro.pdf))
+
 ## Resultados de aprendizaje y criterios de evaluación
 
 - RA3: Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.
