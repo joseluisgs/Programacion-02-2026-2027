@@ -5,16 +5,12 @@
     - [Programación modular](#programación-modular)
     - [Control de excepciones](#control-de-excepciones)
     - [Documentación y comentarios](#documentación-y-comentarios)
-  - [5.3. Herramientas y perfiles](#53-herramientas-y-perfiles)
-    - [IDE](#ide)
-    - [Comandos CLI](#comandos-cli)
-    - [Depuración](#depuración)
-  - [5.4. Errores comunes a evitar](#54-errores-comunes-a-evitar)
-  - [5.5. Checklist de supervivencia](#55-checklist-de-supervivencia)
-  - [5.6. Glosario de términos](#56-glosario-de-términos)
-  - [5.7. Ejercicios de repaso](#57-ejercicios-de-repaso)
-  - [5.8. ¿Qué viene después?](#58-qué-viene-después)
-  - [5.9. Mapa de conexiones entre temas](#59-mapa-de-conexiones-entre-temas)
+  - [5.3. Errores comunes a evitar](#53-errores-comunes-a-evitar)
+  - [5.4. Checklist de supervivencia](#54-checklist-de-supervivencia)
+  - [5.5. Glosario de términos](#55-glosario-de-términos)
+  - [5.6. Ejercicios de repaso](#56-ejercicios-de-repaso)
+  - [5.7. ¿Qué viene después?](#57-qué-viene-después)
+  - [5.8. Mapa de conexiones entre temas](#58-mapa-de-conexiones-entre-temas)
 
 
 # 5. Resumen y conclusiones UD02
@@ -161,24 +157,7 @@ double CalcularDescuento(double total, bool esPremium)
 
 > ⚠️ **Advertencia:** No comentes código autoexplicativo (`// suma dos números` en `suma = a + b`). Comenta el **por qué**, no el **qué**.
 
-## 5.3. Herramientas y perfiles
-
-### IDE
-- **JetBrains Rider**: depurador visual, puntos de interrupción, inspección de variables
-- **Visual Studio Code**: con extensión C#, depurador integrado
-
-### Comandos CLI
-- **`dotnet run`**: compila y ejecuta el proyecto
-- **`dotnet build`**: solo compila (para verificar errores)
-- **`dotnet new console`**: crea un nuevo proyecto de consola
-
-### Depuración
-- **Breakpoints**: pausan la ejecución en una línea
-- **Step Over**: ejecuta una línea sin entrar en funciones
-- **Step Into**: entra dentro de funciones para ver su lógica
-- **Watch**: monitoriza variables en tiempo real
-
-## 5.4. Errores comunes a evitar
+## 5.3. Errores comunes a evitar
 
 | Error | Por qué está mal | Cómo evitarlo |
 |-------|------------------|---------------|
@@ -190,7 +169,7 @@ double CalcularDescuento(double total, bool esPremium)
 | Variables globales | Efectos secundarios difíciles de rastrear | Usar parámetros para pasar datos |
 | `switch` sin `break` | Error de compilación en C# | Siempre terminar cada `case` con `break` |
 
-## 5.5. Checklist de supervivencia
+## 5.4. Checklist de supervivencia
 
 Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas preguntas:
 
@@ -211,7 +190,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 > 🔧 **Truco:** Crea un programa que pida dos números y los sume dentro de una función. Luego añade un `try-catch` para manejar si el usuario no introduce números. Si funciona, dominas lo básico de esta unidad.
 
-## 5.6. Glosario de términos
+## 5.5. Glosario de términos
 
 | Término | Definición |
 |---------|------------|
@@ -249,7 +228,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 | **Unchecked exception** | Excepción que el compilador no obliga a capturar (todas en C#) |
 | **Checked exception** | Excepción que el compilador obliga a capturar (existe en Java, no en C#) |
 
-## 5.7. Ejercicios de repaso
+## 5.6. Ejercicios de repaso
 
 1. **Calculadora simple**: Crea una calculadora que pida dos números y una operación (`+`, `-`, `*`, `/`). Usa `switch` para la operación e `if` para prevenir la división por cero.
 
@@ -265,7 +244,7 @@ Antes de dar por cerrado el tema, asegúrate de poder responder **SÍ** a estas 
 
 7. **Recursividad**: Implementa una función recursiva que calcule la suma de los dígitos de un número entero.
 
-## 5.8. ¿Qué viene después?
+## 5.7. ¿Qué viene después?
 
 En la **UD03: Almacenamiento estático y cadenas** aprenderás a almacenar conjuntos de datos en arrays unidimensionales y bidimensionales (matrices), y a trabajar con strings en profundidad. Usarás el bucle `for` que viste aquí para recorrerlos, y las funciones para operar con ellos.
 
@@ -277,7 +256,7 @@ En la **UD03: Almacenamiento estático y cadenas** aprenderás a almacenar conju
 | Condicionales `switch` | Seleccionar elementos según criterios |
 | Early Return | Validar índices antes de acceder a arrays |
 
-## 5.9. Mapa de conexiones entre temas
+## 5.8. Mapa de conexiones entre temas
 
 ```mermaid
 graph LR
