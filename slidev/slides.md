@@ -813,7 +813,8 @@ else
 ```csharp
 if (nombre is not null)
 {
-    Console.WriteLine($"Hola, {nombre}");   // Seguro: no es null
+    // Seguro: no es null
+    Console.WriteLine($"Hola, {nombre}");
 }
 else
 {
@@ -1016,7 +1017,9 @@ else
 }
 
 // Con ternario (conciso)
-string mensaje2 = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+string mensaje2 = edad >= 18
+    ? "Mayor de edad"
+    : "Menor de edad";
 
 Console.WriteLine(mensaje2);   // Mayor de edad
 ```
@@ -1484,7 +1487,7 @@ while (numero > 0)
     if (digito == 7)
     {
         Console.WriteLine("¡Encontrado un 7!");
-        break;                  // No necesitamos seguir buscando
+        break; // No necesitamos seguir buscando
     }
 
     numero = numero / 10;       // quitamos el último dígito
@@ -1827,7 +1830,7 @@ Vamos a montar uno completo: un proceso que avanza en pasos de 1 segundo durante
 <div>
 
 ```csharp
-const int TIEMPO_SIMULACION = 10000;      // Duración máxima (ms)
+const int TIEMPO_SIMULACION = 10000; // Duración máxima (ms)
 const int INCREMENTO_TIEMPO = 1000;  // Cada tick: 1 segundo
 const decimal PROBABILIDAD_ACCION = 0.20m; // 20 % por tick
 
@@ -1957,7 +1960,7 @@ while (numero > 0)
     Console.WriteLine($"DEBUG: num={numero}, dig={digito}");
     numero = numero / 10;
 }
-// Cada línea te muestra cómo va cambiando el número, paso a paso
+// Cada línea muestra cómo cambia el número, paso a paso
 ```
 
 </div>
@@ -1993,7 +1996,8 @@ using System.Diagnostics;
 int CalcularDescuento(int precio, int cantidad)
 {
     Debug.Assert(precio >= 0, "El precio no es negativo");
-    Debug.Assert(cantidad > 0, "La cantidad debe ser al menos 1");
+    Debug.Assert(cantidad > 0,
+        "La cantidad debe ser al menos 1");
 
     return precio * cantidad;
 }
@@ -2372,13 +2376,13 @@ Cuando pasas un argumento **por valor**, la función recibe una **copia** del da
 ```csharp
 void Incrementar(int numero)
 {
-    numero = numero + 1;                      // Modifica la COPIA
+    numero = numero + 1; // Modifica la COPIA
     Console.WriteLine($"Dentro del método: {numero}");   // 11
 }
 
 int valorOriginal = 10;
 Incrementar(valorOriginal);
-Console.WriteLine($"Fuera: {valorOriginal}");   // Sigue siendo 10
+Console.WriteLine($"Fuera: {valorOriginal}"); // Sigue siendo 10
 ```
 
 </div>
@@ -2552,7 +2556,7 @@ El caso más habitual de `out` en .NET es `TryParse`: devuelve el resultado **y*
 string entrada = "42";
 string malaEntrada = "abc";
 
-// TryParse NO lanza excepción: usa out para devolver el resultado
+// TryParse NO lanza excepción: usa out para el resultado
 bool esNumero = int.TryParse(entrada, out int resultado);
 Console.WriteLine($"¿'{entrada}' es número? {esNumero}");
 // ¿'42' es número? True, valor: 42
@@ -2608,7 +2612,8 @@ var (nombre, edad, nota) = ObtenerAlumno();
 
 ```csharp
 // ❌ Sin tupla: verboso (usando out)
-void ObtenerAlumno(out string nom, out int edad, out double nota)
+void ObtenerAlumno(out string nom, out int edad,
+    out double nota)
 {
     nombre = "Ana";
     edad = 20;
@@ -2932,7 +2937,8 @@ void Procesar(scoped ref int valor)
 **`ref readonly`** — referencia + solo lectura
 
 ```csharp
-ref readonly int ref1 = ref ObtenerValor();
+ref readonly int ref1 =
+    ref ObtenerValor();
 // No se puede modificar el valor
 ```
 
@@ -3159,7 +3165,8 @@ Si tu función tiene más de 2 niveles de anidamiento (`if` dentro de `if`), es 
 **❌ MALO: efecto cascada (Hadouken)**
 
 ```csharp
-double CalcularDescuento(double precio, int cantidad, bool esVip)
+double CalcularDescuento(double precio, int cantidad,
+    bool esVip)
 {
     if (precio > 0)
     {
@@ -3180,7 +3187,8 @@ double CalcularDescuento(double precio, int cantidad, bool esVip)
 **✅ BUENO: Early Return (Guard Clauses)**
 
 ```csharp
-double CalcularDescuento(double precio, int cantidad, bool esVip)
+double CalcularDescuento(double precio, int cantidad,
+    bool esVip)
 {
     // Guard Clauses: eliminar casos error rápidamente
     if (precio <= 0) return 0;
