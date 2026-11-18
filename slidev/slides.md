@@ -141,7 +141,7 @@ layout: section
 
 ---
 
-## Un paradigma, dos ideas
+## 🧬 Un paradigma, dos ideas
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -179,7 +179,7 @@ graph LR
 
 ---
 
-## Del código espagueti al código estructurado
+## 🍝 Del código espagueti al código estructurado
 
 Antes de este paradigma el código fluía mediante saltos incondicionales (`GOTO`): el **código espagueti**, una maraña de saltos imposible de mantener.
 
@@ -234,7 +234,7 @@ Con las tres estructuras de control **no necesitas `goto`**: el código es prede
 
 ---
 
-## Del caos al orden: la analogía de la empresa
+## 🧹 Del caos al orden: la analogía de la empresa
 
 Un programa bien estructurado es como una **empresa bien organizada**:
 
@@ -268,7 +268,7 @@ Usa programación estructurada en el flujo de reproducción: secuencia (cargar v
 
 ---
 
-## El mapa de la unidad
+## 🗺️ El mapa de la unidad
 
 ```mermaid
 graph LR
@@ -303,7 +303,7 @@ graph LR
 
 ---
 
-## Lo que ya sabes (UD01) y lo que vas a aprender (UD02)
+## 🔁 Lo que ya sabes (UD01) y lo que vas a aprender (UD02)
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -336,7 +336,7 @@ Esta unidad usa **C# 14** sobre **.NET 10**, con `LangVersion` 14 en el `.csproj
 
 ---
 
-## ¿Qué aprenderás en esta unidad?
+## 💡 ¿Qué aprenderás en esta unidad?
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -447,7 +447,7 @@ layout: section
 
 ---
 
-## El teorema de la programación estructurada
+## 📜 El teorema de la programación estructurada
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -490,7 +490,7 @@ Con las tres estructuras **no necesitas `goto`**: el código es predecible y fá
 
 ---
 
-## Las tres estructuras, en un solo programa
+## 🔺 Las tres estructuras, en un solo programa
 
 ```csharp
 Console.Write("Introduce tu edad: ");
@@ -515,7 +515,7 @@ for (int i = 1; i <= 3; i++)                      // Bucle
 
 ---
 
-## Secuencia: la estructura más simple
+## 🔺 Secuencia: la estructura más simple
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -556,7 +556,7 @@ Cuando abres Netflix: primero carga tu perfil (línea 1), luego muestra el catá
 
 ---
 
-## Condicional simple (`if`)
+## 🔀 Condicional simple (`if`)
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -601,7 +601,7 @@ Usa `if` para comprobar si tienes Premium: si es `true`, reproduce sin anuncios;
 
 ---
 
-## Condicional compuesto (`if-else`)
+## 🔀 Condicional compuesto (`if-else`)
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -651,7 +651,7 @@ Decide si reproduce en calidad alta o normal: si eres premium → calidad alta; 
 
 ---
 
-## Condicionales múltiples (`if-else if-else`)
+## 🔀 Condicionales múltiples (`if-else if-else`)
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -688,7 +688,7 @@ Clasifica tus compras: si el gasto > 1000 € → cliente VIP; si > 500 € → 
 
 ---
 
-## `switch`: una variable contra muchos valores
+## 🔀 `switch`: una variable contra muchos valores
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -743,7 +743,7 @@ graph LR
 
 ---
 
-## Expresión `switch` moderna (C# 8+)
+## 🔀 Expresión `switch` moderna (C# 8+)
 
 C# permite escribir `switch` como una **expresión** que devuelve un valor. Es más concisa:
 
@@ -785,7 +785,7 @@ Usa `switch` cuando compares una **variable contra valores concretos**. Usa `if-
 
 ---
 
-## Control de nulos: comparar con `null`
+## 💤 Control de nulos: comparar con `null`
 
 Trabajar con `null` es inevitable en C#. La forma **clásica** usa `!= null` y `== null`:
 
@@ -833,7 +833,7 @@ else
 
 ---
 
-## Resumen: cuándo usar cada comprobación de nulos
+## 💤 Resumen: cuándo usar cada comprobación de nulos
 
 <div class="grid grid-cols-2 gap-4 items-start">
 <div>
@@ -867,7 +867,7 @@ Usa `is not null` para comprobar si un usuario tiene suscripción antes de mostr
 
 ---
 
-## Pattern matching: `is { }` para extraer el valor
+## 🔀 Pattern matching: `is { }` para extraer el valor
 
 Cuando una variable puede ser `null` y necesitas usarla, `is { }` comprueba que **no es null** **y** la extrae en una nueva variable:
 
@@ -911,7 +911,7 @@ También puedes usar el patrón `<nombre de variable>` con el mismo nombre: `nom
 
 ---
 
-## Pattern matching: `is string texto` para comprobar el tipo
+## 🔀 Pattern matching: `is string texto` para comprobar el tipo
 
 Cuando el dato es de tipo `object`, puedes comprobar el tipo **y** extraerlo con el mismo patrón:
 
@@ -954,7 +954,7 @@ Este patrón es la base del `switch` sobre tipos y de todo el *pattern matching*
 
 ---
 
-## Condiciones complejas: agrúpalas con paréntesis
+## 🔀 Condiciones complejas: agrúpalas con paréntesis
 
 Una de las técnicas más útiles para evitar errores en los condicionales es usar **paréntesis** para agrupar condiciones complejas:
 
@@ -995,7 +995,7 @@ Un condicional malagrupado **no avisa al compilar**: es de los errores más peli
 
 ---
 
-## Operador ternario `? :`
+## ⚖️ Operador ternario `? :`
 
 Como viste en la UD01, el operador ternario es una forma **reducida** del `if-else` que devuelve un valor.
 
@@ -1051,7 +1051,7 @@ Usa el ternario cuando la asignación sea simple (una línea). Si la lógica es 
 
 ---
 
-## Operador de coalescencia `??`
+## ⚖️ Operador de coalescencia `??`
 
 `??` proporciona un **valor por defecto** si una variable es `null`. Es como un `if` compacto para la nulidad:
 
@@ -1098,7 +1098,7 @@ Usa `??` para mostrar «Sin descripción» cuando una serie no tiene sinopsis: `
 
 ---
 
-## Operador de asignación nula `??=`
+## ⚖️ Operador de asignación nula `??=`
 
 También existe `??=`, que asigna un valor **solo si** la variable es `null`:
 
@@ -1135,7 +1135,7 @@ Perfecto para poner **valores por defecto** en la inicialización de una variabl
 
 ---
 
-## Bucle `while`
+## 🔁 Bucle `while`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1179,7 +1179,7 @@ Usa bucles para cargar tu feed: mientras haya vídeos nuevos, los muestra uno tr
 
 ---
 
-## Bucle `do-while`
+## 🔁 Bucle `do-while`
 
 Evalúa la condición **después** de cada iteración. Garantiza **al menos una ejecución**.
 
@@ -1228,7 +1228,7 @@ graph LR
 
 ---
 
-## Bucle `for`
+## 🔁 Bucle `for`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1269,7 +1269,7 @@ El `for` no es solo para contar: es el bucle natural para **recorrer colecciones
 
 ---
 
-## ¿Cuál elijo? La comparativa
+## ⚖️ ¿Cuál elijo? La comparativa
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1313,7 +1313,7 @@ graph LR
 
 ---
 
-## Bucles controlados por indicadores (banderas o flags)
+## 🔁 Bucles controlados por indicadores (banderas o flags)
 
 Las **banderas** son variables booleanas (`bool`) que controlan la ejecución del bucle.
 
@@ -1372,7 +1372,7 @@ La bandera se **inicializa antes** del bucle, se **reevalúa dentro** y se **lee
 
 ---
 
-## Bucles controlados por centinela
+## 🔁 Bucles controlados por centinela
 
 Un **centinela** es un valor especial que indica la parada de la iteración.
 
@@ -1426,7 +1426,7 @@ El centinela debe ser un valor **imposible** como dato válido: por eso el `0` e
 
 ---
 
-## Bucles anidados
+## 🔁 Bucles anidados
 
 Los bucles se pueden **anidar** (un bucle dentro de otro). Especialmente útil para matrices.
 
@@ -1469,7 +1469,7 @@ El bucle **interior** se ejecuta **completo** por cada vuelta del exterior: 10 �
 
 ---
 
-## Sentencia de salto: `break`
+## 🔁 Sentencia de salto: `break`
 
 `break` **sale completamente** del bucle más cercano. Se usa cuando se ha encontrado lo que buscabas.
 
@@ -1524,7 +1524,7 @@ graph LR
 
 ---
 
-## Sentencia de salto: `continue`
+## 🔁 Sentencia de salto: `continue`
 
 `continue` **salta** a la siguiente iteración del bucle, sin ejecutar el código que queda en la iteración actual.
 
@@ -1572,7 +1572,7 @@ Usa `break` y `continue` con moderación. Si tu bucle necesita muchos, probablem
 
 ---
 
-## Peligros: el bucle infinito
+## ⚠️ Peligros: el bucle infinito
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1618,7 +1618,7 @@ Antes de ejecutar un bucle, hazte la pregunta: **«¿Cómo sale este bucle?»** 
 
 ---
 
-## Números aleatorios (`Random`)
+## 🔢 Números aleatorios (`Random`)
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1660,7 +1660,7 @@ Genera sus tres rodillos con `rnd.Next(0, 10)` (números del 0 al 9) y un simula
 
 ---
 
-## Simuladores: la lógica
+## ⏱️ Simuladores: la lógica
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1703,7 +1703,7 @@ Un simulador es como calentar café en el microondas: pones el tiempo (tope), ca
 
 ---
 
-## `while` o `do-while`: el rey de los simuladores
+## 🔁 `while` o `do-while`: el rey de los simuladores
 
 Casi siempre se combinan: *«esto será así **hasta que** se acabe el tiempo **o** hasta que ocurra lo que tenga que ocurrir»*.
 
@@ -1742,7 +1742,7 @@ El esqueleto universal es: (1) el contador del tiempo, (2) la bandera del evento
 
 ---
 
-## El reloj del simulador: `Thread.Sleep`
+## ⏱️ El reloj del simulador: `Thread.Sleep`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1778,7 +1778,7 @@ Los juegos usan el mismo patrón en su *game loop*: para mantener 60 imágenes p
 
 ---
 
-## Banderas: la memoria del simulador
+## 🔁 Banderas: la memoria del simulador
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1822,7 +1822,7 @@ Nómbralas como una pregunta o con «ha...»: `terminado`, `haFallado`, `salioPo
 
 ---
 
-## El simulador: el estado y las constantes
+## 🔐 El simulador: el estado y las constantes
 
 Vamos a montar uno completo: un proceso que avanza en pasos de 1 segundo durante un máximo de 10 segundos, y que en cada paso tiene un 20 % de probabilidad de terminar antes por azar. Primero, el estado:
 
@@ -1859,7 +1859,7 @@ Un simulador se escribe **en papel primero**: qué empieza, qué cambia en cada 
 
 ---
 
-## El simulador: el bucle y el desenlace
+## 🔁 El simulador: el bucle y el desenlace
 
 Ahora el corazón del simulador: el bucle `do-while` con sus dos condiciones de parada:
 
@@ -1906,7 +1906,7 @@ Esa función `Probabilidad` es **programación modular**: la aleatoriedad encaps
 
 ---
 
-## Depuración: el depurador del IDE
+## 🐞 Depuración: el depurador del IDE
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -1944,7 +1944,7 @@ Aprende a usar el depurador: es la herramienta más poderosa que tiene un progra
 
 ---
 
-## Depuración: impresión de mensajes
+## 🐞 Depuración: impresión de mensajes
 
 A veces no tienes depurador o es más rápido un `Console.WriteLine`:
 
@@ -1983,7 +1983,7 @@ No te olvides de **borrar los mensajes de depuración** antes de entregar el có
 
 ---
 
-## Aserciones (`Debug.Assert`)
+## 🐞 Aserciones (`Debug.Assert`)
 
 Las **aserciones** verifican supuestos que deben ser **ciertos siempre** en un punto concreto del código. Si la condición es falsa, el programa **se detiene en desarrollo** y muestra el error.
 
@@ -2101,7 +2101,7 @@ layout: section
 
 ---
 
-## Divide y vencerás (DAC)
+## 🧩 Divide y vencerás (DAC)
 
 La técnica fundamental de la **programación modular** es *«Divide y Vencerás»*.
 
@@ -2152,7 +2152,7 @@ graph LR
 
 ---
 
-## ¿Por qué dividir en módulos?
+## 🧩 ¿Por qué dividir en módulos?
 
 <div class="grid grid-cols-3 gap-3">
 
@@ -2167,7 +2167,7 @@ graph LR
 
 ---
 
-## Funciones: devuelven un valor
+## 📤 Funciones: devuelven un valor
 
 Una **función** realiza una tarea y **devuelve un resultado** mediante `return`.
 
@@ -2212,7 +2212,7 @@ Tiene una función `CalcularDuracionPlaylist()` que recibe una lista de cancione
 
 ---
 
-## Procedimientos: no devuelven nada
+## 📤 Procedimientos: no devuelven nada
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -2248,7 +2248,7 @@ En C# ambos se llaman **métodos**. La distinción función/procedimiento es con
 
 ---
 
-## Función o procedimiento: el árbol
+## 🌳 Función o procedimiento: el árbol
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -2287,7 +2287,7 @@ Cuando oigas «función» en un vídeo o en un libro, comprueba primero si devue
 
 ---
 
-## Documenta tus funciones con XMLDoc
+## 📖 Documenta tus funciones con XMLDoc
 
 El XMLDoc que viste en la UD01 también le toca a tus funciones: con comentarios `///` (`summary`, `param` y `returns`) dejas constancia de qué hace cada función.
 
@@ -2328,7 +2328,7 @@ Documentar es cosa de **quien escribe el código**, no de después. Y el XMLDoc 
 
 ---
 
-## Parámetros y argumentos
+## 📤 Parámetros y argumentos
 
 Los **parámetros** son las variables de la definición del método. Los **argumentos** son los valores reales que pasas al llamarlo.
 
@@ -2366,7 +2366,7 @@ Para controlar **cómo** se pasan los datos existen los modificadores: `ref`, `o
 
 ---
 
-## Paso por valor (por defecto)
+## 📤 Paso por valor (por defecto)
 
 Cuando pasas un argumento **por valor**, la función recibe una **copia** del dato original. Cualquier modificación **no afecta** a la variable original.
 
@@ -2411,7 +2411,7 @@ Es como darle a un amigo una **fotocopia** de tu trabajo para que lo revise. Él
 
 ---
 
-## Paso por referencia con `ref`
+## 📤 Paso por referencia con `ref`
 
 `ref` pasa la **dirección de memoria** de la variable. Cualquier cambio **modifica el original**.
 
@@ -2464,7 +2464,7 @@ Si el parámetro pide `ref`, **debes** escribir `ref` también al llamar. Es la 
 
 ---
 
-## Uso típico de `ref`: intercambiar dos valores
+## 📤 Uso típico de `ref`: intercambiar dos valores
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -2502,7 +2502,7 @@ La función `RecogerObjeto(ref inventario, ref monedas)` modifica directamente e
 
 ---
 
-## Parámetros de salida con `out`
+## 📤 Parámetros de salida con `out`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -2545,7 +2545,7 @@ if (IntentarDividir(10, 3, out decimal resultado))
 
 ---
 
-## `out` en la práctica: `TryParse`
+## 🔄 `out` en la práctica: `TryParse`
 
 El caso más habitual de `out` en .NET es `TryParse`: devuelve el resultado **y** un `bool` que indica si la conversión funcionó.
 
@@ -2586,7 +2586,7 @@ La variable `out` **no necesita valor inicial**, pero el método **debe asignarl
 
 ---
 
-## Tuplas: devolver varios valores de forma moderna
+## 🏷️ Tuplas: devolver varios valores de forma moderna
 
 A veces necesitas que una función devuelva **varios valores**. Antes usábamos `out`, pero las **tuplas** son más limpias y legibles.
 
@@ -2631,7 +2631,7 @@ void ObtenerAlumno(out string nom, out int edad,
 
 ---
 
-## Descarte con `_` e igualdad de tuplas
+## 🏷️ Descarte con `_` e igualdad de tuplas
 
 Si solo te interesa **uno** de los valores de la tupla, usa `_` para ignorar el resto. Y las tuplas comparan **por valores**, no por nombres:
 
@@ -2677,7 +2677,7 @@ Las tuplas se usan mucho cuando una función necesita devolver 2-3 valores. Para
 
 ---
 
-## Paso solo lectura con `in`
+## 📤 Paso solo lectura con `in`
 
 `in` pasa la referencia pero **como solo lectura**. El método recibe el dato sin copiarlo (eficiente para structs grandes) y **garantiza que no lo modificará**.
 
@@ -2721,7 +2721,7 @@ double CalcularDistancia(in Point punto1, in Point punto2)
 
 ---
 
-## Tuplas como parámetro y como retorno
+## 🏷️ Tuplas como parámetro y como retorno
 
 Una tupla puede entrar como parámetro nombrado y salir como `return` con sus componentes:
 
@@ -2766,7 +2766,7 @@ La ventaja de las tuplas frente a `out`: el parámetro ya **tiene nombre**, así
 
 ---
 
-## Enums como parámetro y como retorno
+## 🏷️ Enums como parámetro y como retorno
 
 Con los `enum` el patrón es el mismo: la función recibe un valor del dominio y también puede devolver uno:
 
@@ -2815,7 +2815,7 @@ El `enum` comunica **el dominio** de la aplicación: el compilador te impide pas
 
 ---
 
-## Structs como parámetro y como retorno
+## 🏷️ Structs como parámetro y como retorno
 
 Con los `struct` el patrón es el mismo; la ventaja es que el parámetro llega con todos los datos **ya agrupados** en un único tipo:
 
@@ -2863,7 +2863,7 @@ Los structs se **copian** al pasarlos como parámetro (son tipos de valor). Para
 
 ---
 
-## Tabla de modificadores de parámetros
+## 📊 Tabla de modificadores de parámetros
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -2896,7 +2896,7 @@ Por ahora, domina `ref`, `out` e `in`. Los demás los irás usando conforme avan
 
 ---
 
-## Menciones avanzadas: `this`, `scoped`, `ref readonly`
+## 🎯 Menciones avanzadas: `this`, `scoped`, `ref readonly`
 
 Estos modificadores son más avanzados y los verás en profundidad en temas posteriores, pero es bueno que sepas que existen:
 
@@ -2947,7 +2947,7 @@ ref readonly int ref1 =
 
 ---
 
-## Ámbito de las variables
+## 🎯 Ámbito de las variables
 
 El **ámbito** (scope) determina **dónde puede ser accedida** una variable.
 
@@ -2992,7 +2992,7 @@ Evita las variables globales: crean dependencias ocultas. Usa **parámetros**.
 
 ---
 
-## Parámetros por defecto, opcionales y nombrados
+## 📤 Parámetros por defecto, opcionales y nombrados
 
 Una función puede ofrecer valores por defecto para sus últimos parámetros y permitir que el llamante omita u olvide el orden:
 
@@ -3032,7 +3032,7 @@ Un buen nombre de parámetro hace que la llamada se lea sola: `MostrarInfo(nombr
 
 ---
 
-## Los parámetros por defecto reducen la sobrecarga
+## 🧩 Los parámetros por defecto reducen la sobrecarga
 
 Los parámetros por defecto y nombrados son muy útiles porque **reducen la necesidad de sobrecargar** métodos:
 
@@ -3071,7 +3071,7 @@ void MostrarInfo(string nombre, int edad = 18,
 
 ---
 
-## Sobrecarga de funciones
+## 🧩 Sobrecarga de funciones
 
 Permite definir múltiples métodos con el **mismo nombre** pero **diferente lista de parámetros**:
 
@@ -3116,7 +3116,7 @@ La sobrecarga se decide por el **tipo y el número** de argumentos, no por el va
 
 ---
 
-## Early Return: las cláusulas de guardia
+## 📤 Early Return: las cláusulas de guardia
 
 Consiste en usar `return` para salir inmediatamente cuando se detecta un error o caso trivial, evitando el «efecto cascada» de los `if` anidados. También se conoce como **Guard Clauses**.
 
@@ -3157,7 +3157,7 @@ Si tu función tiene más de 2 niveles de anidamiento (`if` dentro de `if`), es 
 
 ---
 
-## Early Return: hadouken frente a guard clauses
+## 📤 Early Return: hadouken frente a guard clauses
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -3205,7 +3205,7 @@ double CalcularDescuento(double precio, int cantidad,
 
 ---
 
-## Recursividad
+## 📤 Recursividad
 
 La recursividad es cuando un método **se llama a sí misma**. Requiere siempre una **condición de parada** (caso base).
 
@@ -3252,7 +3252,7 @@ Genera *thumbnails* de tus fotos recursivamente: cada vez que subes una foto, cr
 
 ---
 
-## Recursividad: la condición de parada
+## 📤 Recursividad: la condición de parada
 
 Si olvidas la condición de parada, el método se llama infinitamente hasta agotar la memoria: **Stack Overflow**.
 
@@ -3297,7 +3297,7 @@ El **caso base** es la línea que devuelve el resultado sin volver a llamar al m
 
 ---
 
-## Recursivo frente a iterativo
+## 📤 Recursivo frente a iterativo
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -3340,7 +3340,7 @@ int FactorialIterativo(int n)
 
 ---
 
-## Espacios de nombres y `using`
+## 🏷️ Espacios de nombres y `using`
 
 Los **espacios de nombres** (`namespace`) agrupan código relacionado para evitar conflictos de nombres.
 
@@ -3462,7 +3462,7 @@ layout: section
 
 ---
 
-## ¿Qué es realmente una excepción?
+## 💡 ¿Qué es realmente una excepción?
 
 | Tipo | Ejemplo | Prevención |
 |---|---|---|
@@ -3494,7 +3494,7 @@ Una excepción es un **error en tiempo de ejecución**: no lo ve el compilador, 
 
 ---
 
-## De la excepción al manejo del error
+## ⚠️ De la excepción al manejo del error
 
 ```mermaid
 graph LR
@@ -3523,7 +3523,7 @@ graph LR
 
 ---
 
-## Lanzar una excepción (`throw`)
+## ⚠️ Lanzar una excepción (`throw`)
 
 `throw` es el acto de **notificar** que algo ha ido mal. Es como disparar la bengala.
 
@@ -3563,7 +3563,7 @@ Si intentas comprar y tu tarjeta no tiene fondos, el sistema lanza una excepció
 
 ---
 
-## Capturar una excepción (`try-catch`)
+## ⚠️ Capturar una excepción (`try-catch`)
 
 Capturar es el acto de **recibir la bengala** y actuar para que el programa no muera.
 
@@ -3612,7 +3612,7 @@ El `catch` **debe hacer algo útil**: mostrar un mensaje, reintentar o registrar
 
 ---
 
-## El significado profundo de manejar el error
+## ⚠️ El significado profundo de manejar el error
 
 Manejar una excepción **NO es solo poner un mensaje**. Es devolver el programa a un **estado estable**.
 
@@ -3657,7 +3657,7 @@ Pregunta clave: tras mi `catch`, ¿el programa puede seguir como si nada? Si no,
 
 ---
 
-## Peligro 1: estado inconsistente (pérdida de datos)
+## ⚠️ Peligro 1: estado inconsistente (pérdida de datos)
 
 Si una excepción salta en mitad de un proceso de 5 pasos y el `catch` solo muestra un mensaje pero **no deshace** los 2 pasos anteriores, tus datos quedan **corruptos**.
 
@@ -3695,7 +3695,7 @@ Diseña el `catch` **antes** que el `try`: piensa qué hay que deshacer, en qué
 
 ---
 
-## Peligro 2: los `catch` vacíos («silencio de los inocentes»)
+## ⚠️ Peligro 2: los `catch` vacíos («silencio de los inocentes»)
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -3729,7 +3729,7 @@ Un `catch` vacío, **nunca**. Como mínimo, registra el error o muéstralo. Si n
 
 ---
 
-## El burbujeo de excepciones
+## ⚠️ El burbujeo de excepciones
 
 Si una función lanza una excepción y no tiene `catch`, esta **burbujea** hacia arriba en la pila de llamadas hasta encontrar uno.
 
@@ -3770,7 +3770,7 @@ sequenceDiagram
 
 ---
 
-## Bloques `try`, `catch` y `finally`
+## ⚠️ Bloques `try`, `catch` y `finally`
 
 - **`try`**: «intenta» ejecutar esto
 - **`catch`**: «si falla», haz esto
@@ -3823,7 +3823,7 @@ El `finally` es el sitio donde se liberan los recursos (archivos, conexiones, bl
 
 ---
 
-## Liberar recursos: `using` statements
+## ♻️ Liberar recursos: `using` statements
 
 En C#, la forma moderna y recomendada de liberar recursos es el `using`: más limpio que un `finally` manual.
 
@@ -3859,7 +3859,7 @@ Usa `using` siempre que manipules recursos que hay que cerrar: ficheros, `Stream
 
 ---
 
-## Captura específica: el orden de los `catch`
+## ⚠️ Captura específica: el orden de los `catch`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -3910,7 +3910,7 @@ Si pones `catch (Exception)` antes que un catch específico, el compilador avisa
 
 ---
 
-## Capturar varios tipos en un solo `catch`
+## ⚠️ Capturar varios tipos en un solo `catch`
 
 En C# **no existe** el «OR» de excepciones: `catch (FormatException | OverflowException)` **no es sintaxis válida**. Para que un mismo `catch` maneje varios tipos, usa un filtro `when` con un patrón `or` (C# 9+):
 
@@ -3949,7 +3949,7 @@ Un filtro `when` es un `if` dentro del `catch`: si la condición no se cumple, l
 
 ---
 
-## Filtros de excepción (`when`)
+## ⚠️ Filtros de excepción (`when`)
 
 Si necesitas más precisión —separar varios casos concretos en un mismo `catch`—, usa `when`:
 
@@ -3989,7 +3989,7 @@ Piensa en los `catch` como especialistas médicos: un cardiólogo (catch especí
 
 ---
 
-## La diferencia: compilación vs. ejecución
+## ⚙️ La diferencia: compilación vs. ejecución
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4021,7 +4021,7 @@ Una excepción **nunca** es un error de sintaxis: si el código no compila, el c
 
 ---
 
-## La regla de oro: SIEMPRE previene con `if`
+## 👑 La regla de oro: SIEMPRE previene con `if`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4054,7 +4054,7 @@ Si puedes detectar un error con un `if` **antes** de que ocurra, **NUNCA** uses 
 
 ---
 
-## División por cero: prevención frente a excepción
+## ➗ División por cero: prevención frente a excepción
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4103,7 +4103,7 @@ Usa `try-catch` para dividir por cero solo si el divisor viene de una fuente que
 
 ---
 
-## Texto a número: `TryParse` frente a `Parse`
+## 🔤 Texto a número: `TryParse` frente a `Parse`
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4148,7 +4148,7 @@ El `bool` distingue éxito de error **sin excepciones**: si el usuario escribe `
 
 ---
 
-## El patrón completo: leer un entero validando el rango
+## 🔢 El patrón completo: leer un entero validando el rango
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4196,7 +4196,7 @@ La versión con `Parse` + `try-catch` obliga a dos `catch` (`FormatException` y 
 
 ---
 
-## Las excepciones que trae .NET
+## ⚠️ Las excepciones que trae .NET
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4230,7 +4230,7 @@ Lanza `ArgumentException` cuando le pasas un ID de usuario nulo, `FormatExceptio
 
 ---
 
-## Lanzar excepciones existentes
+## ⚠️ Lanzar excepciones existentes
 
 Para lanzar una excepción **no inventes tipos nuevos**: la BCL ya trae una para cada caso. Esta función valida un registro con las excepciones estándar y sus mensajes:
 
@@ -4277,7 +4277,7 @@ Fíjate en la segunda comprobación: `nombre == ""` (cadena vacía) es un error 
 
 ---
 
-## Crear tus propias excepciones
+## ⚠️ Crear tus propias excepciones
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4306,7 +4306,7 @@ Cuando llegue la UD04 verás que una excepción propia es simplemente una clase 
 
 ---
 
-## Checked vs. unchecked: ¿por qué C# no obliga a capturar?
+## ⚙️ Checked vs. unchecked: ¿por qué C# no obliga a capturar?
 
 <div class="grid grid-cols-2 gap-5 items-start">
 <div>
@@ -4339,7 +4339,7 @@ Java es como un colegio con uniforme obligatorio (checked). C# es como un cowork
 
 ---
 
-## Java vs. C#: el mismo método
+## ☕ Java vs. C#: el mismo método
 
 Viene bien si vienes de Java: el mismo método en los dos lenguajes, con la diferencia de fondo de las checked exceptions:
 
@@ -4381,7 +4381,7 @@ public void LeerFichero() throws FileNotFoundException {
 
 ---
 
-## Árbol de excepciones de .NET
+## 🌳 Árbol de excepciones de .NET
 
 ```mermaid
 graph LR
